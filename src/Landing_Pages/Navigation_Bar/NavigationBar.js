@@ -11,8 +11,6 @@ import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
 
 import HomeIcon from '@mui/icons-material/Home';
 import CampaignIcon from '@mui/icons-material/Campaign';
@@ -24,7 +22,7 @@ import HowToRegIcon from '@mui/icons-material/HowToReg';
 
 export default function Navigation_Bar(){
 
-    const [state, setState] = React.useState({
+     const [state, setState] = React.useState({
         left: false,
       });
     
@@ -153,7 +151,6 @@ export default function Navigation_Bar(){
                 <div className="signup_btn">Sign Up</div>
             </Link>  
 
-            
             {['left'].map((anchor) => (
                <React.Fragment key={anchor}>
                <img src={Menu_Bar} onClick={toggleDrawer(anchor, true)}/> 
