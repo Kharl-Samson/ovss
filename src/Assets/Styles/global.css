@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    font-family: 'Manrope', sans-serif;
+}
+html{
+    scroll-behavior: smooth;
+}
+body::-webkit-scrollbar {
+    display: none;
+}
+button:hover{
+    cursor: pointer;
+}
+
+.Link_React{
+    text-decoration: none;
+    color: #121212;
+}
