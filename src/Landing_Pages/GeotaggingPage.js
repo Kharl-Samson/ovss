@@ -8,6 +8,7 @@ export default function GeotaggingPage(){
   document.querySelector("link[rel='shortcut icon']").href = TabLogo;
   document.title = "OVSS | Geotagging";
 
+  //Setting the color of active navigation text
   setTimeout(function () {
     document.getElementById("geotagging_span_nav").style.color = "#4D77FF";
   }, 10);

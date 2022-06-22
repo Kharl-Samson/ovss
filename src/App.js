@@ -12,6 +12,8 @@ export default function App() {
   return (
     <div className="App">
         <Routes>
+
+          {/* Landing Pages */}
           <Route path="/" element={<HomePage/>} />
           <Route path="/Announcemnents" element={<AnnouncementPage/>} />
           <Route path="/Geotagging" element={<GeotaggingPage/>} />

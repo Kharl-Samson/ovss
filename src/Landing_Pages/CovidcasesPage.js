@@ -8,6 +8,7 @@ export default function CovidcasesPage(){
   document.querySelector("link[rel='shortcut icon']").href = TabLogo;
   document.title = "OVSS | Covid Cases";
 
+  //Setting the color of active navigation text
   setTimeout(function () {
     document.getElementById("covid_span_nav").style.color = "#4D77FF";
   }, 10);

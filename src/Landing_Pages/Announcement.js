@@ -8,6 +8,7 @@ export default function AnnouncementPage(){
   document.querySelector("link[rel='shortcut icon']").href = TabLogo;
   document.title = "OVSS | Announcements";
 
+  //Setting the color of active navigation text
   setTimeout(function () {
     document.getElementById("announcement_span_nav").style.color = "#4D77FF";
   }, 10);

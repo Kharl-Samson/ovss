@@ -1,0 +1,235 @@
+.LoginRegister_Container{
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.274);
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.LoginForm_Container{
+    height: 500px;
+    width: 850px;
+    display: flex;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    -webkit-animation: scale-up-center 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) ;
+    animation: scale-up-center 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) ;
+}
+@-webkit-keyframes scale-up-center {
+    0% {
+      -webkit-transform: scale(0.5);
+              transform: scale(0.5);
+    }
+    100% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+  }
+  @keyframes scale-up-center {
+    0% {
+      -webkit-transform: scale(0.5);
+              transform: scale(0.5);
+    }
+    100% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+}
+.LoginForm_Container .left{
+    height: 100%;
+    width: 42%;
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #4D77FF;
+    flex-direction: column;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.LoginForm_Container .left .top{
+    height: 30%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    color: #ffff;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+.LoginForm_Container .left .bottom{
+    height: 70%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.LoginForm_Container .left .bottom img{
+    height: 110%;
+    width: auto;
+}
+
+.LoginForm_Container .right{
+    height: 100%;
+    width: 58%;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.LoginForm_Container .right .right_container{
+    width: 72%;
+}
+.LoginForm_Container .right .close_login_modal{
+    text-align: right;
+    width: 95%;
+    height:3rem;
+}
+.LoginForm_Container .right .close_login_modal span{
+    font-weight: 800;
+    font-size: 3rem;
+}
+.LoginForm_Container .right .close_login_modal span:hover{
+    cursor: pointer;
+    text-decoration: none;
+}
+.LoginForm_Container .right h1{
+    font-size: 2.3rem;
+    color: #4D77FF;
+    margin: 0;
+    margin-top: 3%;
+}
+.LoginForm_Container .right .new_here_text{
+    font-size: 1rem;
+    margin: 0;
+    margin-bottom: 12%;
+}
+.LoginForm_Container .right .new_here_text span{
+    color: #4D77FF;
+    text-decoration: underline;
+    font-weight: normal;
+}
+.LoginForm_Container .right .new_here_text span:hover{
+    cursor: pointer;
+    color: #7494fc;
+}
+
+.LoginForm_Container .right .label{
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+.LoginForm_Container .right .email_input{
+    width: 100%;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    font-size: 1rem;
+    padding: 10px 0;
+    background-color: #E6EDFC;
+    outline-color: #4D77FF;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    text-indent: 10px;
+}
+
+.LoginForm_Container .right .password_input_container{
+    width: 100%;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    background-color: #E6EDFC;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    display: flex;
+}
+.LoginForm_Container .right .password_input_container:hover, .LoginForm_Container .right .email_input:hover{
+    border:  2px solid #4D77FF;
+}
+.LoginForm_Container .right .password_input_container .password_input{
+    width: 85%;
+    border: none;
+    font-size: 1rem;
+    padding: 10px 0;
+    background-color: transparent;
+    outline: none;
+    text-indent: 10px;
+}
+.LoginForm_Container .right .password_input_container .toggle_password_container{
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.LoginForm_Container .right .password_input_container .toggle_password_container img{
+    height: 18px;
+    width: auto;
+    display: none;
+}
+
+.LoginForm_Container .right .rememberMe_ForgotPassword{
+    margin-top: 10px;
+    width: 100%;
+    height: auto;
+    border: 2px solid transparent;
+}
+.LoginForm_Container .right .rememberMe_ForgotPassword .left{
+    width: auto;
+    border-radius: 0;
+    flex-direction: row;
+    background-color: transparent;
+    font-weight: 700;
+    color: #000000;
+    font-size: .9rem;
+    margin-right: 10px;
+    margin-left: -5px;
+}
+.LoginForm_Container .right .rememberMe_ForgotPassword .left span{
+    margin: 0;
+}
+.LoginForm_Container .right .rememberMe_ForgotPassword .right{
+    width: auto;
+    border-radius: 0;
+}
+.LoginForm_Container .right .rememberMe_ForgotPassword .right span{
+    margin: 0;
+    font-weight: 700;
+    color: #5E5454;
+    font-size: .9rem;
+}
+.LoginForm_Container .right .rememberMe_ForgotPassword .right span:hover{
+    cursor: pointer;
+}
+.LoginForm_Container .right .signIn_btn{
+    margin-top: 10px;
+    width: 100%;
+    border: 2px solid transparent;
+}
+.LoginForm_Container .right .signIn_btn button{
+    width: 100%;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 9px 0;
+    background-color: #4D77FF;
+    border: none;
+    color: #ffff;
+    border-radius: 10px;
+}
+.LoginForm_Container .right .signIn_btn button:hover{
+    opacity: 90%;
+}
+
+/*RESPONSIVE*/
+@media screen and (max-width: 851px) {
+    .LoginForm_Container{
+        width: 600px;
+        margin: 0 5%;
+    }
+    .LoginForm_Container > .left{
+       display: none;
+    }
+    .LoginForm_Container > .right{
+        width: 100%;
+    }
+    .LoginForm_Container > .right .right_container{
+        width: 85%;
+    }
+}

@@ -8,6 +8,7 @@ export default function HomePage(){
   document.querySelector("link[rel='shortcut icon']").href = TabLogo;
   document.title = "OVSS | Home Page";
 
+  //Setting the color of active navigation text
   setTimeout(function () {
     document.getElementById("home_span_nav").style.color = "#4D77FF";
   }, 10);

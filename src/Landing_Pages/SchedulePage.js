@@ -8,6 +8,7 @@ export default function SchedulePage(){
   document.querySelector("link[rel='shortcut icon']").href = TabLogo;
   document.title = "OVSS | Schedule";
 
+  //Setting the color of active navigation text
   setTimeout(function () {
     document.getElementById("schedule_span_nav").style.color = "#4D77FF";
   }, 10);
