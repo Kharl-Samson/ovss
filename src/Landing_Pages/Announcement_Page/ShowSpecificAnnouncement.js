@@ -31,11 +31,12 @@ function Close_latest_specific_announcements_function(){
 
             <div className="scrollabe_div">
               <div className="top">
-                <img src={localStorage.getItem("url_announcement")+"announcements_template.png"} alt=""/>
                 <div className="headline_container">
-                    <p id="specific_announcement_date"></p>
                     <p id="specific_announcement_headline"></p>
+                    <p id="specific_announcement_date"></p>
                 </div>
+                <img id="specific_announcement_img" alt=""/> 
+               <div className="line"></div>
               </div>
 
                <div className="bottom">

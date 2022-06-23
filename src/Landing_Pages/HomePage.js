@@ -1,8 +1,11 @@
 import React from "react";
 import TabLogo from "../Assets/Logo/Tab_Logo.png";
 import Navigation_Bar from "./Navigation_Bar/NavigationBar";
+import Url from "../Functions/Url";
 
 export default function HomePage(){
+  //Calling the url of announcement
+  Url();
 
   //Loading the logo and the title on the Tab of the browser
   document.querySelector("link[rel='shortcut icon']").href = TabLogo;

@@ -8,6 +8,7 @@
     color: #121212;
     font-weight: 900;
     margin: 0 auto;
+    margin-top: 30px;
     width: 85%;
     line-height: 1.1;
 }
@@ -27,6 +28,7 @@
     margin-top: 30px;
 }
 .latest_announcement_container > .box_container .box{
+    z-index: 0;
     border-radius: 5px;
     width: 350px;
     height: 400px;
@@ -60,14 +62,13 @@
 }
 .latest_announcement_container > .box_container .box .content .headline{
     margin: 0;
-    margin-top: 10px;
+    margin-top: 15px;
     line-height: 1.1;
     font-size: 1.1rem;
     font-weight: 700;
 }
 .latest_announcement_container > .box_container .box .content .description{
     margin: 0;
-    margin-top: 10px;
     line-height: 1.1;
     color: #5E5454;
     font-weight: 500;
@@ -75,6 +76,7 @@
 }
 .latest_announcement_container > .box_container .box .content .bot{
     width: 100%;
+    margin-bottom: 5px;
     display: flex;
     justify-content: space-between;
 }
@@ -141,13 +143,20 @@
 
 .previous_announcement_container > .box_container .container_box .box{
     width: 350px;
-    height: 150px;
+    height: auto;
     overflow: hidden;
     margin: 0 15px;
     margin-bottom: 40px;
     display: flex;
+    padding: 10px;
     align-items: center;
+    transition: .2s;
 }
+.previous_announcement_container > .box_container .container_box .box:hover{
+    background-color: #7a98fe5d;
+    border-radius: 10px;
+}
+
 .previous_announcement_container > .box_container .container_box .box img{
     height: 120px;
     width: 120px;
@@ -209,6 +218,7 @@
     background-color: rgba(0, 0, 0, 0.326);
     position: fixed;
     inset: 0;
+    z-index: 1000;
     display: none;
 }
 .specific_announcement_container .announcement_container{
@@ -251,25 +261,11 @@
     width: 90%;
     height: auto;
     margin: 0% auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     clear: both;
-}
-.specific_announcement_container .announcement_container .top img{
-    height: 250px;
-    width: 250px;
-    object-fit: cover;
 }
 .specific_announcement_container .announcement_container .top .headline_container{
     height: 100%;
-    width: 365px;
-}
-.specific_announcement_container .announcement_container .top .headline_container #specific_announcement_date{
-    font-size: 1rem;
-    margin: 0;
-    font-weight: 600;
-    margin-top: 10px;
+    width: 100%;
 }
 .specific_announcement_container .announcement_container .top .headline_container #specific_announcement_headline{
     margin: 0;
@@ -278,12 +274,29 @@
     font-weight: 800;
     line-height: 1.1;
 }
-
-
+.specific_announcement_container .announcement_container .top .headline_container #specific_announcement_date{
+    font-size: 1rem;
+    margin: 0;
+    font-weight: 600;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+.specific_announcement_container .announcement_container .top img{
+    height: 300px;
+    width: 100%;
+    object-fit: cover;
+}
+.specific_announcement_container .announcement_container .line{
+    margin: 20px 0;
+    height: .5px;
+    width: 100%;
+    background-color: rgb(129, 129, 129);
+}
 .specific_announcement_container .announcement_container .bottom{
     width: 90%;
     height: auto;
-    margin: 20px auto;
+    margin: 0px auto;
+    margin-bottom: 20px;
     clear: both;
 }
 .specific_announcement_container .announcement_container .bottom #announcement_content{
@@ -295,7 +308,11 @@
 /*RESPONSIVE*/
 @media screen and (max-width: 501px) {
     .previous_announcement_container > .box_container .container_box .box{
-        margin-bottom: 10px;
+        margin-bottom: 40px;
+        padding: 0;
+    }
+    .previous_announcement_container > .box_container .container_box .box:hover{
+        background-color: transparent;
     }
     .previous_announcement_container > .box_container .container_box .box img{
         height: 90px;

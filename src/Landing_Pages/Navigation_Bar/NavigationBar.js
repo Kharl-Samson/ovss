@@ -17,6 +17,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import CampaignIcon from '@mui/icons-material/Campaign';
 import TerrainIcon from '@mui/icons-material/Terrain';
 import DateRangeIcon from '@mui/icons-material/DateRange';
+import VaccinesIcon from '@mui/icons-material/Vaccines';
 import LoginIcon from '@mui/icons-material/Login';
 import HowToRegIcon from '@mui/icons-material/HowToReg';
 import Signup_Page from "../LoginRegister_Pages/SignupPage";
@@ -83,7 +84,7 @@ export default function Navigation_Bar(){
                 <ListItemText primary="Schedule" />
             </ListItem>
             </Link>
-  
+            
           </List>
 
           <Divider />

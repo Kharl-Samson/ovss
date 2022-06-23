@@ -5,6 +5,7 @@ nav{
     top: 0;
     background-color: #ffff;
     display: flex;
+    z-index: 1;
 }
 
 nav .left{

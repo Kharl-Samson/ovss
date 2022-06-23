@@ -1,5 +1,6 @@
 {
   "name": "ovss",
+  "homepage": "http://ovss.site/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

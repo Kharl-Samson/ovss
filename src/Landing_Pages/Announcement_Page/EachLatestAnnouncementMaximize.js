@@ -11,6 +11,7 @@ function show_latest_specific_announcements_function(){
   },0);
 
   document.getElementById("specific_announcement_date").textContent = props.date;
+  document.getElementById("specific_announcement_img").src = props.imageUrl;
   document.getElementById("specific_announcement_headline").textContent = props.headline;
   document.getElementById("announcement_content").textContent = props.content;
 }
@@ -18,7 +19,7 @@ function show_latest_specific_announcements_function(){
     return(
     <div className={"box box_Announcement_ctr"+props.propsKey} key={props.propsKey} style={{display:"none"}}>
         <div className="img_container">
-          <img src={localStorage.getItem("url_announcement")+"announcements_template.png"} alt=""/>
+          <img src={props.imageUrl} alt=""/>
         </div>
         <div className="content">
           <p className="headline">{props.headline }</p>
