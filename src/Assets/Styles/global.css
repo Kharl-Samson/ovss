@@ -12,8 +12,23 @@ html{
     scroll-behavior: smooth;
 }
 body::-webkit-scrollbar {
-    display: none;
+    width: 4px;
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
 }
+body::-webkit-scrollbar-track {
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+}
+body::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    background: #4D77FF; 
+}
+body::-webkit-scrollbar-thumb:window-inactive {
+    background: transparent; 
+}
+
+
 button:hover{
     cursor: pointer;
 }

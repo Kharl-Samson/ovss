@@ -141,8 +141,8 @@ return(
                 required
               />
               <div className="toggle_password_container">
-                <img src={Show_Password} id="show_password" onClick={show_password} alt=""/>
-                <img src={Hide_Password} id="hide_password" onClick={hide_password} alt=""/>
+                <img src={Show_Password} id="show_password" onClick={show_password} alt="" title="Show Password"/>
+                <img src={Hide_Password} id="hide_password" onClick={hide_password} alt="" title="Hide Password"/>
               </div>
             </div>
 

@@ -17,7 +17,6 @@ import HomeIcon from '@mui/icons-material/Home';
 import CampaignIcon from '@mui/icons-material/Campaign';
 import TerrainIcon from '@mui/icons-material/Terrain';
 import DateRangeIcon from '@mui/icons-material/DateRange';
-import VaccinesIcon from '@mui/icons-material/Vaccines';
 import LoginIcon from '@mui/icons-material/Login';
 import HowToRegIcon from '@mui/icons-material/HowToReg';
 import Signup_Page from "../LoginRegister_Pages/SignupPage";
@@ -84,21 +83,19 @@ export default function Navigation_Bar(){
                 <ListItemText primary="Schedule" />
             </ListItem>
             </Link>
-
-            <Link to="/CovidCases" className="Link_React">
-            <ListItem>
-                <ListItemIcon>
-                  <VaccinesIcon/>
-                </ListItemIcon>
-                <ListItemText primary="Covid Cases" />
-            </ListItem>
-            </Link>
-            
+  
           </List>
 
           <Divider />
 
           <List>
+            <ListItem onClick={Show_login_modal}>
+                <ListItemIcon>
+                  <LoginIcon/>
+                </ListItemIcon>
+                <ListItemText primary="Sign In" />
+            </ListItem>
+
             <Link to="#" className="Link_React">
             <ListItem>
                 <ListItemIcon>
@@ -107,13 +104,6 @@ export default function Navigation_Bar(){
                 <ListItemText primary="Sign Up" />
             </ListItem>
             </Link>
-
-            <ListItem onClick={Show_login_modal}>
-                <ListItemIcon>
-                  <LoginIcon/>
-                </ListItemIcon>
-                <ListItemText primary="Sign In" />
-            </ListItem>
           </List>
         </Box>
       );
@@ -145,9 +135,6 @@ export default function Navigation_Bar(){
             </Link>        
             <Link to="/Schedule" className="Link_React">
                 <span id="schedule_span_nav">Schedule</span>
-            </Link>        
-            <Link to="/CovidCases" className="Link_React">
-                <span id="covid_span_nav">Covid Cases</span>
             </Link>        
 
         </div>

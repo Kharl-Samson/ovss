@@ -127,9 +127,8 @@
     border-radius: 8px;
     font-size: 1rem;
     padding: 10px 0;
-    background-color: #E6EDFC;
+    background-color: #dfe7fb;
     outline-color: #4D77FF;
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
     text-indent: 10px;
 }
 
@@ -137,8 +136,7 @@
     width: 100%;
     border: 2px solid transparent;
     border-radius: 8px;
-    background-color: #E6EDFC;
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    background-color: #dfe7fb;
     display: flex;
 }
 .LoginForm_Container .right .password_input_container:hover, .LoginForm_Container .right .email_input:hover{
@@ -163,6 +161,9 @@
     height: 18px;
     width: auto;
     display: none;
+}
+.LoginForm_Container .right .password_input_container .toggle_password_container img:hover{
+    cursor: pointer;
 }
 
 .LoginForm_Container .right .rememberMe_ForgotPassword{
