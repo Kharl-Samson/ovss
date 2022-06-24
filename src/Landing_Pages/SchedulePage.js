@@ -11,6 +11,7 @@ export default function SchedulePage(){
   //Setting the color of active navigation text
   setTimeout(function () {
     document.getElementById("schedule_span_nav").style.color = "#4D77FF";
+    document.getElementById("landing_page_navigation").style.backgroundColor = "#FFFF";
   }, 10);
 
 return(

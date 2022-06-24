@@ -1,0 +1,293 @@
+.home_page_top_container{
+    width: 100%;
+    height: auto;
+    min-height: 88vh;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: left 80%;
+    background-size: 70%;
+    display: flex;
+    background-color: #F7F7FF;
+}
+.home_page_top_container > .left{
+    width: 50%;
+    height: auto;
+    min-height: 88vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+}
+.home_page_top_container > .left .tagline_content{
+    width: 85%;
+    height: auto;
+}
+.home_page_top_container > .left .tagline_content p{
+    white-space: nowrap;
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin: 0;
+}
+.home_page_top_container > .left .tagline_content p:nth-child(1){
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin-left: 5px;
+    margin-bottom: 5px;
+}
+.home_page_top_container > .left .tagline_content .mini_tagline_text{
+    font-size: 1rem;
+    font-weight: 500;
+    white-space: normal;
+    width: 70%;
+    color: #696969;
+    margin-top: 20px;
+}
+.home_page_top_container > .left .tagline_content .get_your_vaccine_btn{
+    margin-top: 25px;
+    width: auto;
+    height: auto;
+    display: flex;
+}
+.home_page_top_container > .left .tagline_content .get_your_vaccine_btn .btn{
+    height: 45px;
+    width: auto;
+    border-radius: 10px;
+    font-weight: 600;
+    padding: 0px 25px;
+    font-size: 1rem;
+    color: #ffff;
+    background-color: #4D77FF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.home_page_top_container > .left .tagline_content .get_your_vaccine_btn .btn:hover,
+.home_page_top_container > .left .tagline_content .get_your_vaccine_btn .icon:hover{
+    cursor: pointer;
+    opacity: 90%;
+}
+.home_page_top_container > .left .tagline_content .get_your_vaccine_btn .icon{
+    border-radius: 10px;
+    height: 45px;
+    width: 45px;
+    background-color: #DED8FF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 25px;
+}
+.home_page_top_container > .left .tagline_content .get_your_vaccine_btn .icon img{
+    height: 25px;
+    width: auto;
+}
+
+.home_page_top_container > .right{
+    width: 50%;
+    height: auto;
+    min-height: 88vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+.home_page_top_container > .right img{
+    width: 100%;
+    height: auto;
+}
+
+.home_page_middle_container{
+    width: 85%;
+    height: auto;
+    margin: 0% auto;
+    margin-top: 50px;
+}
+.home_page_middle_container > .top{
+    height: auto;
+    width: 100%;
+    display: flex;
+    margin-bottom: 40px;
+}
+.home_page_middle_container > .top .left{
+    width: 70%;
+}
+.home_page_middle_container > .top .left p:nth-child(1){
+    font-size: 1.1rem;
+    color: #7557FF;
+    font-weight: 800;
+    margin: 0;
+    line-height: 1.1;
+}
+.home_page_middle_container > .top .left p:nth-child(2){
+    font-size: 2.3rem;
+    color: #121212;
+    font-weight: 800;
+    margin: 0;
+    line-height: 1.1;
+}
+.home_page_middle_container > .top .right{
+    flex-grow: 1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+.home_page_middle_container > .top .right .left_arrow{
+    clip-path: polygon(100% 2%, 1% 50%, 100% 100%);
+    height: 30px;
+    width: 30px;
+    background-color: #ced8eb;
+    margin-right: 10px;
+    border-radius: 8px;
+}
+.home_page_middle_container > .top .right .right_arrow{
+    clip-path: polygon(0 1%, 0 100%, 100% 50%);
+    height: 30px;
+    width: 30px;
+    background-color: #ced8eb;
+    margin-left: 10px;
+    border-radius: 8px;
+    transition: .3s ease;
+}
+.home_page_middle_container > .top .right .left_arrow:hover,
+.home_page_middle_container > .top .right .right_arrow:hover{
+    background-color: #7557FF;
+    cursor:pointer;
+}
+.home_page_middle_container > .bottom{
+    margin-bottom: 50px;
+    margin-top: 10px;
+    height: auto;
+    width: 100%;
+    padding: 0 .5%;
+    overflow-x: hidden;
+}
+.home_page_middle_container > .bottom .box{
+    height: auto;
+    width: 30%;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    background-color: #ffff;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+.home_page_middle_container > .bottom .box:hover{
+    cursor: pointer;
+    transition: .3s ease;
+    background-color: #eef2ff;
+}
+.home_page_middle_container > .bottom .box .top{
+    height: auto;
+    width: 85%;
+    display: flex;
+    padding: 10px 7.5%;
+}
+.home_page_middle_container > .bottom .box .top .img_container{
+    height: 80px;
+    width: 80px;
+    background-color: #4D77FF;
+    border-radius: 10px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.home_page_middle_container > .bottom .box .top .img_container img{
+    height: 35px;
+    width: auto;
+}
+.home_page_middle_container > .bottom .box .top p{
+    min-width: 200px;
+    font-weight: 700;
+    text-transform: capitalize;
+    font-size: 1.5rem;
+}
+.home_page_middle_container > .bottom .box .bot{
+    min-height: 75px;
+    height: auto;
+    width: 85%;
+    padding: 0px 7.5%;
+}
+.home_page_middle_container > .bottom .box .bot p{
+    font-size: 1rem;
+    color: #626F75;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+.home_page_middle_container > .bottom .box .bot p span{
+    color: #4D77FF;
+}
+.home_page_middle_container > .bottom .box .bot p span:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+
+/*RESPONSIVE*/
+@media screen and (max-width: 801px){
+    .home_page_top_container > .left{
+        min-height: 50vh;
+        align-items: center;
+        margin-top: 25px;
+    }
+    .home_page_top_container > .left .tagline_content p{
+        font-size: 2.5rem;
+    }
+    .home_page_top_container > .left .tagline_content p:nth-child(1){
+        font-size: 1rem;
+        margin-left: 0px;
+    }
+
+    .home_page_middle_container > .bottom .box{
+        width: 100%;
+    }
+}
+@media screen and (max-width: 501px) {
+    .home_page_top_container{
+        flex-direction: column;
+        justify-content: space-between;
+        min-height:88vh;
+        height: auto;
+        background-position: 10% center;
+        background-size: cover;
+    }
+    .home_page_top_container > .left{
+        min-height: 50vh;
+        width: 100%;
+        align-items: center;
+        margin-top: 25px;
+    }
+    .home_page_top_container > .left .tagline_content p{
+        font-size: 2.5rem;
+    }
+    .home_page_top_container > .left .tagline_content p:nth-child(1){
+        font-size: 1rem;
+        margin-left: 0px;
+    }
+    .home_page_top_container > .left .tagline_content .mini_tagline_text{
+        font-size: .9rem;
+        width: 100%;
+        text-align: center;
+    }
+    .home_page_top_container > .left .tagline_content .get_your_vaccine_btn{
+        justify-content: center;
+    }
+    .home_page_top_container > .right{
+        min-height: auto;
+        margin-top: 5px;
+        width: 100%;
+        flex-direction: column;
+    }
+
+
+    .home_page_middle_container > .top{
+        flex-direction: column;
+    }
+    .home_page_middle_container > .top .left{
+        width: 100%;
+    }
+    .home_page_middle_container > .top .right{
+        margin-top: 5px;
+        justify-content: flex-start;
+    }
+
+}

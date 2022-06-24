@@ -2,10 +2,11 @@ nav{
     height: 12vh;
     width: 100%;
     position: sticky;
-    top: 0;
+    top: 0%;
     background-color: #ffff;
     display: flex;
     z-index: 1;
+    transition: .3s ease;
 }
 
 nav .left{

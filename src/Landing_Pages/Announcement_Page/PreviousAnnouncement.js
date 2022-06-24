@@ -16,14 +16,14 @@ function show_latest_specific_announcements_function(){
 }
 
     return(
-    <div className="box" key={props.propsKey}>
+    <div className="box" key={props.propsKey} onClick={show_latest_specific_announcements_function}>
       <img src={props.imageUrl} alt=""/>
       <div className="content">
           <p className="headline">{props.headline}</p>
           <p className="description">{props.content_to_show}</p>
           <div className="bot">
           <p className="date">{props.date}</p>
-          <p className="see_more_btn" onClick={show_latest_specific_announcements_function}>See more &#62;&#62;</p>
+          <p className="see_more_btn">See more &#62;&#62;</p>
           </div>
       </div>
     </div>

@@ -54,7 +54,7 @@
 }
 .latest_announcement_container > .box_container .box .content{
     height: 200px;
-    width: 93%;
+    width: 90%;
     margin: 0% auto;
     display: flex;
     flex-direction: column;
@@ -62,9 +62,9 @@
 }
 .latest_announcement_container > .box_container .box .content .headline{
     margin: 0;
-    margin-top: 15px;
+    margin-top: 12px;
     line-height: 1.1;
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     font-weight: 700;
 }
 .latest_announcement_container > .box_container .box .content .description{
@@ -129,6 +129,7 @@
     font-weight: 900;
     margin: 0;
     margin-bottom: 10px;
+    line-height: 1.1;
 }
 .previous_announcement_container > .box_container > h1 span{
     color: #6388FF;
@@ -155,6 +156,7 @@
 .previous_announcement_container > .box_container .container_box .box:hover{
     background-color: #7a98fe5d;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .previous_announcement_container > .box_container .container_box .box img{

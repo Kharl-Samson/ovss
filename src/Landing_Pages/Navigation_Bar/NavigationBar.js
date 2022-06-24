@@ -17,14 +17,15 @@ import HomeIcon from '@mui/icons-material/Home';
 import CampaignIcon from '@mui/icons-material/Campaign';
 import TerrainIcon from '@mui/icons-material/Terrain';
 import DateRangeIcon from '@mui/icons-material/DateRange';
-import VaccinesIcon from '@mui/icons-material/Vaccines';
 import LoginIcon from '@mui/icons-material/Login';
 import HowToRegIcon from '@mui/icons-material/HowToReg';
 import Signup_Page from "../LoginRegister_Pages/SignupPage";
 import CloseModals from "../../Functions/CloseModals";
-
+import Url from "../../Functions/Url";
 
 export default function Navigation_Bar(){
+    //Calling the url of announcement
+    Url();
 
      const [state, setState] = React.useState({
         left: false,
@@ -118,7 +119,7 @@ export default function Navigation_Bar(){
   }
 
     return(
-       <nav>
+       <nav id="landing_page_navigation">
         <div className="left">
             <img src={Website_Logo}/>
         </div>
