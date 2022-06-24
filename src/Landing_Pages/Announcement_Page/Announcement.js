@@ -8,6 +8,7 @@ import Each_Latest_Announcement from "./EachLatestAnnouncement";
 import Each_Latest_Announcement_Maximize from "./EachLatestAnnouncementMaximize";
 import Show_Specific_Announcement from "./ShowSpecificAnnouncement";
 import Previous_Announcement from "./PreviousAnnouncement";
+import Footer from "../Footer/Footer";
 
 export default function AnnouncementPage(){
 
@@ -151,10 +152,16 @@ return(
         </Grid>
         </div>
       </div>
+
+      {/*Footer */}
+      <Footer/>
+
     </div>
 
     {/*Specific Announcement Container */}
     <Show_Specific_Announcement/>
+
+
 
   </div>
 )

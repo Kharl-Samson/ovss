@@ -10,5 +10,9 @@ export default function CloseModals(){
             document.getElementsByClassName("specific_announcement_container")[0].style.display = "none";
             document.getElementsByClassName("announcement_container")[0].style.marginRight = "-100%";
         }   
+        else if (event.target === document.getElementsByClassName("specific_vaccine_container")[0]) {
+            document.getElementsByClassName("specific_vaccine_container")[0].style.display = "none";
+            document.getElementsByClassName("vaccine_container")[0].style.marginRight = "-100%";
+        }   
     }
 }

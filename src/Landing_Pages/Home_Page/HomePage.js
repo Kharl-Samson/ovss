@@ -8,12 +8,14 @@ import "./Home.css";
 import Line_BG from "../../Assets/Home_Page/Line_Bg.png";
 import Baby_Img from "../../Assets/Home_Page/Baby_Img.png";
 import Calendar_Icon from "../../Assets/Icons/Calendar_Icon.png";
+import { Link } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
 import VaccinesDetails from "../../Maps/VaccinesDetails";
 import Vaccine_Component from "./VaccineComponent";
 import Show_Specific_Vaccine from "./ShowSpecificVaccine";
+import Footer from "../Footer/Footer";
 
 export default function HomePage(){
   //Tooltip
@@ -98,6 +100,14 @@ export default function HomePage(){
               key = {vaccine_ctr1}
               name = {res.vaccine_name}
               short_desc = {res.vaccine_description_short}
+              name1 = {res.spec_name1}
+              name2 = {res.spec_name2}
+              ques1 = {res.spec_ques1}
+              ques2 = {res.spec_ques2}
+              ques3 = {res.spec_ques3}
+              ans1 = {res.spec_ans1}
+              ans2 = {res.spec_ans2}
+              ans3 = {res.spec_ans3}
             />
     }
   })
@@ -112,6 +122,14 @@ export default function HomePage(){
               key = {vaccine_ctr2}
               name = {res.vaccine_name}
               short_desc = {res.vaccine_description_short}
+              name1 = {res.spec_name1}
+              name2 = {res.spec_name2}
+              ques1 = {res.spec_ques1}
+              ques2 = {res.spec_ques2}
+              ques3 = {res.spec_ques3}
+              ans1 = {res.spec_ans1}
+              ans2 = {res.spec_ans2}
+              ans3 = {res.spec_ans3}
             />
     }
   })
@@ -129,6 +147,14 @@ export default function HomePage(){
               key = {vaccine_ctr3}
               name = {res.vaccine_name}
               short_desc = {res.vaccine_description_short}
+              name1 = {res.spec_name1}
+              name2 = {res.spec_name2}
+              ques1 = {res.spec_ques1}
+              ques2 = {res.spec_ques2}
+              ques3 = {res.spec_ques3}
+              ans1 = {res.spec_ans1}
+              ans2 = {res.spec_ans2}
+              ans3 = {res.spec_ans3}
             />
     }
   })
@@ -153,10 +179,12 @@ return(
             <p className="mini_tagline_text">OVSS will help you to know your vaccine in Brgy Pinagbarilan from your house fast and easily to help you.</p>
 
             <div className="get_your_vaccine_btn">       
-              <a href="#home_page_middle_container" style={{color:"#ffff",textDecoration:"none"}}><div className="btn">Know your vaccine</div></a>
+              <a href="#Types_of_vaccines" style={{color:"#ffff",textDecoration:"none"}}><div className="btn">Know your vaccine</div></a>
+              <Link to="/Schedule">
               <LightTooltip title="Make appointment">
                 <div className="icon"><img src={Calendar_Icon} alt=""/></div>
               </LightTooltip>
+              </Link>
             </div>
          </div>
       </div>
@@ -167,7 +195,7 @@ return(
 
     <div className="home_page_middle_container">
       
-      <div className="top" id="home_page_middle_container">
+      <div className="top" id="Types_of_vaccines">
         <div className="left">
           <p>Types of vaccines</p>
           <p>Vaccine Variant</p>
@@ -208,7 +236,7 @@ return(
       <Grid
         container
         direction="row"
-        justifyContent="space-between"
+        justifyContent="space-evenly"
         alignItems="center"
       >
           {VaccineElements3}
@@ -216,7 +244,11 @@ return(
       </div>
     </div>
 
+    {/*Specific Vaccine Container */}
     <Show_Specific_Vaccine/>
+
+    {/*Footer */}
+    <Footer/>
     
   </div>
 )

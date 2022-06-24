@@ -18,33 +18,38 @@ const LightTooltip = styled(({ className, ...props }) => (
 }));   
 
 //Close all information in latest announcements
-function Close_latest_specific_announcements_function(){
-    document.getElementsByClassName("specific_announcement_container")[0].style.display = "none";
-    document.getElementsByClassName("announcement_container")[0].style.marginRight = "-100%";
+function Close_specific_vaccine_function(){
+    document.getElementsByClassName("specific_vaccine_container")[0].style.display = "none";
+    document.getElementsByClassName("vaccine_container")[0].style.marginRight = "-100%";
 }
 
     return(
-    <div className="specific_announcement_container">
-        <div className="announcement_container">
+    <div className="specific_vaccine_container">
+        <div className="vaccine_container">
             <LightTooltip title="Close">
-                <div className="close_btn" onClick={Close_latest_specific_announcements_function}>&#215;</div>
+                <div className="close_btn" onClick={Close_specific_vaccine_function}>&#215;</div>
             </LightTooltip>
 
             <div className="scrollabe_div">
-              <div className="top" style={{display:"flex"}}>
-                <center>
-                    <img id="specific_announcement_img" alt="" src={Injection_Icon_with_background} style={{width:"200px",height:"200px"}}/>
-                </center>
-                <div className="headline_container" style={{justifyContent:"center",display:"flex",flexDirection:"column",height:"10vh"}}>
-                    <p id="specific_announcement_headline">Pentavalent</p>
-                    <p id="specific_announcement_date">Vaccine</p>
+              <div className="top">
+                <img id="specific_announcement_img" alt="" src={Injection_Icon_with_background}/>
+                <div className="headline_container">
+                    <p id="specific_vaccine_headline1" className="specific_vaccine_headline"></p>
+                    <p id="specific_vaccine_headline2" className="specific_vaccine_headline"></p>
                 </div>
-           
-
               </div>
 
+              <div className="line"></div>
+
                <div className="bottom">
-                    <p id="announcement_content"></p>
+                    <p id="vaccine_question1" className="vaccine_question"></p>
+                    <p id="vaccine_content1" className="vaccine_content"> </p>
+
+                    <p id="vaccine_question2" className="vaccine_question"></p>
+                    <p id="vaccine_content2" className="vaccine_content"> </p>
+
+                    <p id="vaccine_question3" className="vaccine_question"></p>
+                    <p id="vaccine_content3" className="vaccine_content"> </p>
                </div>
             </div>
 

@@ -222,6 +222,114 @@
 }
 
 
+/*Specific Vaccine Modal*/
+.specific_vaccine_container{
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.326);
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: none;
+}
+.specific_vaccine_container .vaccine_container{
+    width: 700px;
+    height: 100vh;
+    background-color: #ffff;
+    float: right;
+    margin-right: -100%;
+    transition: .3s ease-in;
+}
+.specific_vaccine_container .vaccine_container .close_btn{
+    float: right;
+    border-radius: 5px;
+    height: 30px;
+    width: 30px;
+    font-size: 30px;
+    font-weight: 1000;
+    background-color: #292D32;
+    color: #ffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 15px;
+}
+.specific_vaccine_container .vaccine_container .close_btn:hover{
+    cursor: pointer;
+    opacity: 90%;
+}
+
+.specific_vaccine_container .vaccine_container .scrollabe_div{
+    height: 90vh;
+    clear: both;
+    overflow-y: scroll;
+}
+.specific_vaccine_container .vaccine_container .scrollabe_div::-webkit-scrollbar {
+    width: 4px;
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+}
+.specific_vaccine_container .vaccine_container .scrollabe_div::-webkit-scrollbar-track {
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+    background-color: rgb(165, 165, 165);
+}
+.specific_vaccine_container .vaccine_container .scrollabe_div::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    background: #313131; 
+}
+.specific_vaccine_container .vaccine_container .scrollabe_div::-webkit-scrollbar-thumb:window-inactive {
+    background: transparent; 
+}
+.specific_vaccine_container .vaccine_container .top{
+    width: 80%;
+    height: auto;
+    margin: 0% auto;
+    display: flex;
+}
+.specific_vaccine_container .vaccine_container .top img{
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+    margin-right: 20px;
+}
+.specific_vaccine_container .vaccine_container .top .headline_container{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.specific_vaccine_container .vaccine_container .top .headline_container p{
+    margin: 0;
+    font-size: 2.1rem;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: 2px;
+}
+.specific_vaccine_container .vaccine_container .line{
+    margin: 20px  auto;
+    height: .5px;
+    width: 80%;
+    background-color: rgb(129, 129, 129);
+}
+.specific_vaccine_container .vaccine_container .bottom{
+    width: 80%;
+    height: auto;
+    margin: 0px auto;
+    margin-bottom: 20px;
+    clear: both;
+}
+.specific_vaccine_container .vaccine_container .bottom .vaccine_question{
+    font-size: 1.3rem;
+    font-weight: 800;
+}
+.specific_vaccine_container .vaccine_container .bottom .vaccine_content{
+    font-size: 1rem;
+    font-weight: 400;
+    margin: 20px 0;
+}
+
+
 /*RESPONSIVE*/
 @media screen and (max-width: 801px){
     .home_page_top_container > .left{
@@ -239,6 +347,7 @@
 
     .home_page_middle_container > .bottom .box{
         width: 100%;
+        margin-bottom: 30px;
     }
 }
 @media screen and (max-width: 501px) {
@@ -290,4 +399,16 @@
         justify-content: flex-start;
     }
 
+
+    .specific_vaccine_container .vaccine_container{
+        width: 100%;
+    }
+    .specific_vaccine_container .vaccine_container .top{
+        flex-direction: column;
+        align-items: center;
+    }
+    .specific_vaccine_container .vaccine_container .top img{
+        margin-right: 0px;
+        margin-bottom: 20px;
+    }
 }
