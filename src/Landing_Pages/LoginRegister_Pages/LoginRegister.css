@@ -218,6 +218,174 @@
     opacity: 90%;
 }
 
+
+/*Admin Login*/
+.admin_login_container{
+    height: 100vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.admin_login_container .box{
+    background-color: #ffff;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    padding: 50px 100px;
+    border-radius: 10px;
+    margin: 0 5%;
+}
+.admin_login_container .box h1{
+    font-size: 2.3rem;
+    font-weight: 800;
+    color: #4D77FF;
+    text-align: center;
+    line-height: 1;
+    margin-bottom: 40px;
+}
+.admin_login_container .box  .form_container{
+    width: 450px;
+    height: auto;
+}
+.admin_login_container .box  .form_container p{
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+.admin_login_container .box  .form_container .email_input{
+    width: 100%;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    font-size: 1rem;
+    padding: 10px 0;
+    background-color: #dfe7fb;
+    outline-color: #4D77FF;
+    text-indent: 10px;
+}
+.admin_login_container .box  .form_container .password_input_container{
+    width: 100%;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    background-color: #dfe7fb;
+    display: flex;
+}
+.admin_login_container .box  .form_container .password_input_container:hover, .LoginForm_Container .right .email_input:hover{
+    border:  2px solid #4D77FF;
+}
+.admin_login_container .box  .form_container .password_input_container .password_input{
+    width: 85%;
+    border: none;
+    font-size: 1rem;
+    padding: 10px 0;
+    background-color: transparent;
+    outline: none;
+    text-indent: 10px;
+}
+.admin_login_container .box  .form_container .password_input_container .toggle_password_container{
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.admin_login_container .box  .form_container .password_input_container .toggle_password_container img{
+    height: 18px;
+    width: auto;
+    display: none;
+}
+.admin_login_container .box  .form_container .password_input_container .toggle_password_container img:hover{
+    cursor: pointer;
+}
+
+.admin_login_container .box  .form_container .rememberMe_ForgotPassword{
+    margin-top: 10px;
+    width: 100%;
+    height: auto;
+    border: 2px solid transparent;
+}
+.admin_login_container .box  .form_container .rememberMe_ForgotPassword .left{
+    width: auto;
+    border-radius: 0;
+    flex-direction: row;
+    background-color: transparent;
+    font-weight: 700;
+    color: #000000;
+    font-size: .9rem;
+    margin-right: 10px;
+    margin-left: -5px;
+}
+.admin_login_container .box  .form_container .rememberMe_ForgotPassword .left span{
+    margin: 0;
+}
+.admin_login_container .box  .form_container .rememberMe_ForgotPassword .right{
+    width: auto;
+    border-radius: 0;
+    margin-top: -4px;
+
+}
+.admin_login_container .box  .form_container .rememberMe_ForgotPassword .right span{
+    margin: 0;
+    font-weight: 700;
+    color: #5E5454;
+    font-size: .9rem;
+}
+.admin_login_container .box  .form_container .rememberMe_ForgotPassword .right span:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+.admin_login_container .box  .form_container .signIn_btn{
+    margin-top: 10px;
+    width: 100%;
+    border: 2px solid transparent;
+}
+.admin_login_container .box  .form_container .signIn_btn button{
+    width: 100%;
+    font-size: 1rem;
+    font-weight: 600;
+    height: 45px;
+    background-color: #4D77FF;
+    border: none;
+    color: #ffff;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.admin_login_container .box  .form_container .signIn_btn button:hover{
+    opacity: 90%;
+}
+
+.login_validation{
+    margin-top: 5px;
+    height: auto;
+    padding: 10px 0;
+    width: 100%;
+    background-color: #f0b9b9;
+    display: none;
+    align-items: center;
+    border-radius: 5px;
+}
+.login_validation img{
+    height: 20px;
+    width: auto;
+    margin-left: 15px;
+    margin-right: 10px;
+}
+.login_validation #validation_text{
+    font-size: .9rem;
+    margin: 0;
+    margin-right: 15px;
+    color: rgb(251, 28, 28);
+    font-weight: 500;
+}
+
+#progress_btn{
+    display: none;
+    height: 25px !important;
+    width: 25px !important;
+}
+
 /*RESPONSIVE*/
 @media screen and (max-width: 851px) {
     .LoginForm_Container{
@@ -232,5 +400,29 @@
     }
     .LoginForm_Container > .right .right_container{
         width: 85%;
+    }
+
+    .admin_login_container .box{
+        padding: 50px 0px;
+        width: 60%;
+        margin: 0 0;
+    }
+    .admin_login_container .box h1{
+        font-size: 2.3rem;
+        font-weight: 800;
+        color: #4D77FF;
+        text-align: center;
+        line-height: 1;
+        margin-bottom: 40px;
+    }
+    .admin_login_container .box  .form_container{
+        width: 80%;
+        margin: 0% auto;
+    }
+}
+
+@media screen and (max-width: 501px) {
+    .admin_login_container .box{
+        width: 90%;
     }
 }

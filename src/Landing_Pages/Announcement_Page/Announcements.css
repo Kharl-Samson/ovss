@@ -154,7 +154,7 @@
     transition: .2s;
 }
 .previous_announcement_container > .box_container .container_box .box:hover{
-    background-color: #7a98fe5d;
+    background-color: #e9eeff;
     border-radius: 10px;
     cursor: pointer;
 }

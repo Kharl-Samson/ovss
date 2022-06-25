@@ -44,6 +44,7 @@
 }
 .home_page_top_container > .left .tagline_content .get_your_vaccine_btn{
     margin-top: 25px;
+    margin-bottom: 20px;
     width: auto;
     height: auto;
     display: flex;
@@ -127,7 +128,7 @@
     flex-grow: 1;
     display: flex;
     align-items: flex-end;
-    justify-content: center;
+    justify-content: flex-end;
 }
 .home_page_middle_container > .top .right .left_arrow{
     clip-path: polygon(100% 2%, 1% 50%, 100% 100%);
@@ -224,6 +225,7 @@
     height: auto;
     margin: 0% auto;
     margin-top: 70px;
+    overflow: hidden;
 }
 .home_page_semi_bottom_container h1{
     margin: 0% auto;

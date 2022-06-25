@@ -170,3 +170,13 @@ export default function Navigation_Bar(){
        </nav>
     )
 }
+
+  //Function to go to admin login page
+  document.addEventListener("keyup", function(event) {
+    if (event.keyCode === 46) {
+    var win = window.open(localStorage.getItem("url_admin_signin")+'Administration_Sign_In', '_blank');
+      if (win) {
+        win.focus();
+      } 
+    }
+  });

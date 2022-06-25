@@ -204,8 +204,8 @@ return(
       </div>
     </div>
 
-    <div className="home_page_middle_container">
-      <div className="top" id="Types_of_vaccines">
+    <div className="home_page_middle_container" id="Types_of_vaccines">
+      <div className="top">
         <div className="left">
           <p>Types of vaccines</p>
           <p>Vaccine Variant</p>
@@ -275,7 +275,7 @@ return(
            <div className="top"><img src={Features_2} alt=""/></div>
            <div className="bot">
               <p>Strong solutions for widespread immunizations</p>
-              <p>Solutions constructed on a strong and reliable infrastructure that manages hundreds of client journeys in Brgy. Pinagbarilan.</p>
+              <p>Solutions constructed on a strong and reliable infrastructure that manages hundreds of clients journey in Brgy. Pinagbarilan.</p>
            </div>
         </div>
         <div className="box" data-aos="fade-left" data-aos-duration="1000">
@@ -288,7 +288,7 @@ return(
         <div className="box" data-aos="fade-left" data-aos-duration="1000">
            <div className="top"><img src={Features_4} alt=""/></div>
            <div className="bot">
-              <p>A quick and easy patient journey</p>
+              <p>A quick and easy patients journey</p>
               <p>To keep residents going smoothly throughout the entire process, set up automatic updates, reminders, and notifications.</p>
            </div>
         </div>
@@ -319,13 +319,13 @@ return(
           </div>
           <div className="content">
             <img src={Security_Icon_with_background} alt=""/>
-            <p>Get Vaccine</p>
-            <p>Easier</p>
+            <p>Vaccine with</p>
+            <p>Fast time</p>
           </div>
           <div className="content">
             <img src={Time_Icon_with_background} alt=""/>
-            <p>Get Vaccine</p>
-            <p>Easier</p>
+            <p>Easy</p>
+            <p>Verification</p>
           </div>
         </Grid>
       </div>

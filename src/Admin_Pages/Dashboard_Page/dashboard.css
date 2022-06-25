@@ -1,0 +1,24 @@
+.admin_dashboard_container{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+}
+
+.admin_content{
+    width: 95.1%;
+    height: 100%;
+    margin-left: 75px;
+    display: flex;
+}
+
+.admin_content .admin_main_content{
+    height: 100%;
+    width: 70%;
+    background-color: #eeeefb;
+}
+.admin_content .right_navigation{
+    height: 100%;
+    width: 30%;
+    background-color: #ffffff;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}

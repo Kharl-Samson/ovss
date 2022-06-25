@@ -94,7 +94,7 @@ nav .right img{
     nav > .right img{
         display: block;
         margin-right: 15%;
-        height: 45px;
+        height: 35px;
         width: auto;
         transition: .1s ease-in;
     }
