@@ -1,8 +1,8 @@
 footer{
     height: auto;
     width: 100%;
-    padding-top: 40px;
-    padding-bottom: 30px;
+    padding-top: 100px;
+    padding-bottom: 0px;
     background-color: #E6EDFC;
     clear: both;
 }
@@ -10,6 +10,7 @@ footer > .top{
     width: 100%;
     height: auto;
     display: flex;
+    align-items: flex-start;
 }
 footer > .top .left{
     width: 30%;
@@ -73,7 +74,8 @@ footer > .top .right .box p:nth-child(1):hover{
     text-decoration: none;
 }
 footer > .bottom{
-    margin-top: 10px;
+    margin-top: 70px;
+    padding-bottom: 40px;
     width: 30%;
     height: auto;
     text-align: right;
@@ -115,6 +117,7 @@ footer > .bottom{
 
     footer > .bottom{
         padding-top: 20px;
+        padding-bottom: 20px;
         border-top: .5px solid rgb(40, 40, 40);
         width: 100%;
         text-align: center;

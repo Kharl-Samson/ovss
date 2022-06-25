@@ -2,15 +2,26 @@ import React, { useEffect } from "react";
 import Grid from '@mui/material/Grid';
 import { styled } from '@mui/material/styles';
 import Tooltip, { tooltipClasses } from '@mui/material/Tooltip';
-import TabLogo from "../../Assets/Logo/Tab_Logo.png";
-import Navigation_Bar from "../Navigation_Bar/NavigationBar";
-import "./Home.css";
-import Line_BG from "../../Assets/Home_Page/Line_Bg.png";
-import Baby_Img from "../../Assets/Home_Page/Baby_Img.png";
-import Calendar_Icon from "../../Assets/Icons/Calendar_Icon.png";
 import { Link } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
+
+import TabLogo from "../../Assets/Logo/Tab_Logo.png";
+import Logo from "../../Assets/Logo/Logo.png";
+import Navigation_Bar from "../Navigation_Bar/NavigationBar";
+import "./Home.css";
+import Line_BG from "../../Assets/Home_Page/Line_Bg.png";
+import Line_BG_1 from "../../Assets/Home_Page/Line_Bg_1.png";
+import Baby_Img from "../../Assets/Home_Page/Baby_Img.png";
+import Calendar_Icon from "../../Assets/Icons/Calendar_Icon.png";
+import Features_1 from "../../Assets/Home_Page/Features_1.png";
+import Features_2 from "../../Assets/Home_Page/Features_2.png";
+import Features_3 from "../../Assets/Home_Page/Features_3.png";
+import Features_4 from "../../Assets/Home_Page/Features_4.png";
+
+import Injection_Icon_with_background from "../../Assets/Icons/Injection_Icon_with_background1.png";
+import Security_Icon_with_background from "../../Assets/Icons/Security_Icon_with_background.png";
+import Time_Icon_with_background from "../../Assets/Icons/Time_Icon_with_background.png";
 
 import VaccinesDetails from "../../Maps/VaccinesDetails";
 import Vaccine_Component from "./VaccineComponent";
@@ -194,7 +205,6 @@ return(
     </div>
 
     <div className="home_page_middle_container">
-      
       <div className="top" id="Types_of_vaccines">
         <div className="left">
           <p>Types of vaccines</p>
@@ -242,6 +252,90 @@ return(
           {VaccineElements3}
        </Grid>  
       </div>
+    </div>
+
+    <div className="home_page_semi_bottom_container">
+      <h1>What you get with our vaccine scheduling solutions</h1>
+      
+      <div className="container">
+      <Grid
+        container
+        direction="row"
+        justifyContent="space-evenly"
+        alignItems="center"
+      >
+        <div className="box" data-aos="fade-right" data-aos-duration="1000">
+           <div className="top"><img src={Features_1} alt=""/></div>
+           <div className="bot">
+              <p>All connected and integrated into one system</p>
+              <p>Everything is managed by a single system, including appointment scheduling, arrivals, and queue management.</p>
+           </div>
+        </div>
+        <div className="box" data-aos="fade-right" data-aos-duration="1000">
+           <div className="top"><img src={Features_2} alt=""/></div>
+           <div className="bot">
+              <p>Strong solutions for widespread immunizations</p>
+              <p>Solutions constructed on a strong and reliable infrastructure that manages hundreds of client journeys in Brgy. Pinagbarilan.</p>
+           </div>
+        </div>
+        <div className="box" data-aos="fade-left" data-aos-duration="1000">
+           <div className="top"><img src={Features_3} alt=""/></div>
+           <div className="bot">
+              <p>Encourage safety and social distancing measures</p>
+              <p>We assist you in maintaining safety precautions while interacting with a big number of people by providing alternatives for virtual queuing.</p>
+           </div>
+        </div>
+        <div className="box" data-aos="fade-left" data-aos-duration="1000">
+           <div className="top"><img src={Features_4} alt=""/></div>
+           <div className="bot">
+              <p>A quick and easy patient journey</p>
+              <p>To keep residents going smoothly throughout the entire process, set up automatic updates, reminders, and notifications.</p>
+           </div>
+        </div>
+      </Grid>
+      </div>
+    </div>
+
+    <div className="home_page_bottom_container1"
+      style={{
+        backgroundImage: `url(${Line_BG_1})`
+      }}
+    >
+      <h1>About <span style={{color:"#4D77FF"}}>Us</span></h1>
+
+      <div className="box"  data-aos="fade-up" data-aos-duration="800">
+        <img src={Logo} alt="" className="logo"/>
+        <p className="logo_abbv">Online Vaccination Scheduling System</p>
+        <Grid
+          container
+          direction="row"
+          justifyContent="space-evenly"
+          alignItems="center"
+        >
+          <div className="content">
+              <img src={Injection_Icon_with_background} alt=""/>
+              <p>Get Vaccine</p>
+              <p>Easier</p>
+          </div>
+          <div className="content">
+            <img src={Security_Icon_with_background} alt=""/>
+            <p>Get Vaccine</p>
+            <p>Easier</p>
+          </div>
+          <div className="content">
+            <img src={Time_Icon_with_background} alt=""/>
+            <p>Get Vaccine</p>
+            <p>Easier</p>
+          </div>
+        </Grid>
+      </div>
+    </div>
+
+    <div className="home_page_bottom_container2">
+      <h1><span style={{color:"#4D77FF"}}>Need</span> help?</h1>
+      <a href="mailto:ovss2022@gmail.com" target="_blank">
+        <div>Contact Now</div>
+      </a>
     </div>
 
     {/*Specific Vaccine Container */}

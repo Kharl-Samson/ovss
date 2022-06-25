@@ -3,7 +3,6 @@
     height: auto;
     min-height: 88vh;
     background-repeat: no-repeat;
-    background-attachment: fixed;
     background-position: left 80%;
     background-size: 70%;
     display: flex;
@@ -153,10 +152,9 @@
     cursor:pointer;
 }
 .home_page_middle_container > .bottom{
-    margin-bottom: 50px;
     margin-top: 10px;
     height: auto;
-    width: 100%;
+    width: 99%;
     padding: 0 .5%;
     overflow-x: hidden;
 }
@@ -221,6 +219,162 @@
     text-decoration: underline;
 }
 
+.home_page_semi_bottom_container{
+    width: 85%;
+    height: auto;
+    margin: 0% auto;
+    margin-top: 70px;
+}
+.home_page_semi_bottom_container h1{
+    margin: 0% auto;
+    font-size: 2rem;
+    text-align: center;
+    line-height: 1.2;
+    font-weight: 800;
+    letter-spacing: .5px;
+    width: 50%;
+    color: #121212;
+    margin-bottom: 50px;
+}
+.home_page_semi_bottom_container .container{
+    width: 100%;
+    height: auto;
+}
+.home_page_semi_bottom_container .container .box{
+    height: auto;
+    width: 20%;
+    margin: 0 5px;
+    margin-bottom: 20px;
+}
+.home_page_semi_bottom_container .container .box .top{
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.home_page_semi_bottom_container .container .box .top img{
+    height: 100px;
+    width: auto;
+}
+.home_page_semi_bottom_container .container .box .bot{
+    margin-top: 20px;
+    width: 100%;
+    height: auto;
+}
+.home_page_semi_bottom_container .container .box .bot p:nth-child(1){
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 800;
+    line-height: 1.1;
+}
+.home_page_semi_bottom_container .container .box .bot p:nth-child(2){
+    margin-top: 15px;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.2;
+    text-align: center;
+}
+
+
+.home_page_bottom_container1{
+    padding: 5rem 0;
+    height: auto;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.home_page_bottom_container1 h1{
+    font-size: 2.7rem;
+    font-weight: 900;
+    margin-bottom: 40px;
+}
+.home_page_bottom_container1 .box{
+    border-radius: 10px;
+    padding-bottom: 20px;
+    width: 700px;
+    height: auto;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    background-color: #ffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.home_page_bottom_container1 .box .logo{
+    margin-top: 30px;
+    margin-bottom: 10px;
+    width: 250px;
+    height: auto;
+}
+.home_page_bottom_container1 .box .logo_abbv{
+    font-size: 1.3rem;
+    font-weight: 800;
+    line-height: 1.1;
+    text-align: center;
+    margin: 0 20px;
+    margin-bottom: 50px;
+}
+.home_page_bottom_container1 .box .content{
+    margin: 0 10px;
+    margin-bottom: 40px;
+    width: 130px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.home_page_bottom_container1 .box .content img{
+    height: 60px;
+    width: 60px;
+    margin-bottom: 20px;
+}
+.home_page_bottom_container1 .box .content p{
+    font-size: 1rem;
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+.home_page_bottom_container2{
+    padding: 50px 0;
+    height: auto;
+    width: 100%;
+}
+.home_page_bottom_container2 h1{
+    text-align: center;
+    font-size: 2.7rem;
+    font-weight: 900;
+    margin-bottom: 20px;
+}
+.home_page_bottom_container2 a{
+    margin: 0% auto;
+    display: flex;
+    text-decoration: none;
+    color: #3a3a3a;
+    font-size: 1.3rem;
+    font-weight: 600;
+    padding: 10px 0;
+    width: 200px;
+    border: 2px solid #4D77FF;
+    border-radius: 30px;
+    transition: .3s ease;
+}
+.home_page_bottom_container2 a:hover{
+    background-color: #4D77FF;
+    color: #ffff;
+}
+.home_page_bottom_container2 a div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+}
 
 /*Specific Vaccine Modal*/
 .specific_vaccine_container{
@@ -330,6 +484,7 @@
 }
 
 
+
 /*RESPONSIVE*/
 @media screen and (max-width: 801px){
     .home_page_top_container > .left{
@@ -348,6 +503,28 @@
     .home_page_middle_container > .bottom .box{
         width: 100%;
         margin-bottom: 30px;
+    }
+
+    .home_page_semi_bottom_container h1{
+        width: 80%;
+    }
+    .home_page_semi_bottom_container .container .box{
+        width: 40%;
+        margin-bottom: 40px;
+    }
+
+    .home_page_bottom_container1 .box{
+        width: 80%;
+    }
+    .home_page_bottom_container1 .box .logo{
+        width: 200px;
+    }
+
+    .home_page_bottom_container2{
+        padding: 50px 0;
+        padding-top: 10px;
+        height: auto;
+        width: 100%;
     }
 }
 @media screen and (max-width: 501px) {
@@ -410,5 +587,21 @@
     .specific_vaccine_container .vaccine_container .top img{
         margin-right: 0px;
         margin-bottom: 20px;
+    }
+
+    .home_page_semi_bottom_container{
+        margin-top: 25px;
+    }
+    .home_page_semi_bottom_container h1{
+        font-size: 1.5rem;
+        width: 95%;
+    }
+    .home_page_semi_bottom_container .container .box{
+        width: 100%;
+    }
+
+    .home_page_bottom_container1{
+        background-size: cover;
+        background-position: 100%;
     }
 }
