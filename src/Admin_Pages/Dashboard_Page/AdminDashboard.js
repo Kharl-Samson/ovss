@@ -2,7 +2,13 @@ import React from "react";
 import Admin_Navigation_Bar from "../Navigation_Bar/NavigationBar";
 import "./dashboard.css"
 
+import TabLogo from "../../Assets/Logo/Tab_Logo.png";
+
 export default function AdminDashboard_Page(){
+
+    //Loading the logo and the title on the Tab of the browser
+    document.querySelector("link[rel='shortcut icon']").href = TabLogo;
+    document.title = "OVSS | Dashboard";
 
   //Setting the color of active navigation text
   setTimeout(function () {

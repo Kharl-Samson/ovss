@@ -13,12 +13,12 @@
 
 .admin_content .admin_main_content{
     height: 100%;
-    width: 70%;
+    width: 75%;
     background-color: #eeeefb;
 }
 .admin_content .right_navigation{
     height: 100%;
-    width: 30%;
+    width: 25%;
     background-color: #ffffff;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }

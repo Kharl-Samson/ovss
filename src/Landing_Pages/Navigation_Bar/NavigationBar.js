@@ -24,6 +24,9 @@ import CloseModals from "../../Functions/CloseModals";
 import Url from "../../Functions/Url";
 
 export default function Navigation_Bar(){
+    //Removing local storage
+    localStorage.removeItem("admin_login_email");
+
     //Calling the url of announcement
     Url();
 

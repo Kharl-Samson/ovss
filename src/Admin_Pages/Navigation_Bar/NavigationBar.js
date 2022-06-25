@@ -43,7 +43,7 @@ const LightTooltip = styled(({ className, ...props }) => (
 
 //When hovering the navbar
 function hover_navbar(){
-  document.getElementsByClassName("admin_navigation_bar_container")[0].style.width = "300px";
+  document.getElementsByClassName("admin_navigation_bar_container")[0].style.width = "250px";
   document.getElementById("mini_logo").style.display = "none";
   document.getElementById("whole_logo").style.display = "block";
 }
