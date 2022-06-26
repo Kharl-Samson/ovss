@@ -40,3 +40,13 @@ button:hover{
     text-decoration: none;
     color: #121212;
 }
+
+/*RESPONSIVE*/
+@media screen and (max-width: 501px) {
+    .admin_content .right_navigation{
+        display: none;
+    }
+    .admin_content .admin_main_content{
+        width: 100%;
+    }
+}

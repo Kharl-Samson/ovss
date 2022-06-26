@@ -1,0 +1,61 @@
+.admin_content .right_navigation{
+    height: 100%;
+    width: 22%;
+    padding: 0 1.5%;
+    background-color: #ffffff;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.admin_content .right_navigation .top{
+    width: 100%;
+    height: 12%;
+    display: flex;
+}
+.admin_content .right_navigation .top .left{
+    height: 100%;
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.admin_content .right_navigation .top .right{
+    height: 100%;
+    width: 75%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.admin_content .right_navigation .top .right .box{
+    height: 60%;
+    width: 95%;
+    background-color: #dbedfb;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    transition: .3s ease;
+}
+.admin_content .right_navigation .top .right .box:hover{
+    cursor: pointer;
+    background-color: #cfe6f8;
+}
+.admin_content .right_navigation .top .right .box .left{
+    display: flex;
+    width: 80%;
+}
+.admin_content .right_navigation .top .right .box .left img{
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 38px;
+    width: 38px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+.admin_content .right_navigation .top .right .box .left p{
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+.admin_content .right_navigation .top .right .box span{
+    font-size: 2rem;
+    font-weight: 600;
+    transform: rotate(90deg);
+}

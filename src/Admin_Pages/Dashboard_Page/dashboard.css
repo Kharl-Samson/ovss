@@ -15,10 +15,146 @@
     height: 100%;
     width: 75%;
     background-color: #eeeefb;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
 }
-.admin_content .right_navigation{
-    height: 100%;
-    width: 25%;
-    background-color: #ffffff;
+.admin_content .admin_main_content::-webkit-scrollbar-track{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+.admin_content .admin_main_content::-webkit-scrollbar{
+	width: 5px;
+	background-color: #F5F5F5;
+}
+.admin_content .admin_main_content::-webkit-scrollbar-thumb{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #b9b9f8;
+}
+.admin_content .admin_main_content-thumb:window-inactive {
+    background: transparent; 
+}
+.admin_content .admin_main_content > .container{
+    width: 90%;
+    height: auto;
+    margin: 0% auto;
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+.admin_content .admin_main_content > .container h1:nth-child(1){
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-weight: 1000;
+}
+.admin_content .admin_main_content > .container .image_banner{
+    height: 180px;
+    width: 100%;
+    border-radius: 8px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
+.admin_content .admin_main_content > .container .image_banner h1:nth-child(1){
+    color: #ffff;
+    margin: 0 3%;
+    font-size: 2.3rem;
+}
+.admin_content .admin_main_content > .container .image_banner p{
+    color: #ffff;
+    margin: 0 3%;
+    margin-bottom: 20px;
+}
+
+.admin_content .admin_main_content > .container  .box_stats{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 100%;
+    height:200px;
+    display: flex;
+    justify-content: space-between;
+}
+.admin_content .admin_main_content > .container  .box_stats .container{
+    width: 48%;
+    height: 100%;
+    background-color: #FFFFFF;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    border-radius: 8px;
+    display: flex;
+    transition: .3s ease;
+}
+.admin_content .admin_main_content > .container  .box_stats .container:hover{
+    cursor: pointer;
+    background-color: #dce8f7;
+    margin-top: -15px;
+}
+.admin_content .admin_main_content > .container  .box_stats .container .left{
+    width: 40%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.admin_content .admin_main_content > .container  .box_stats .container .left img{
+    height: 30%;
+    width: auto;
+}
+.admin_content .admin_main_content > .container  .box_stats .container .right{
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.admin_content .admin_main_content > .container  .box_stats .container .right p:nth-child(1){
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin-right: 10px;
+    line-height: 1.3;
+}
+.admin_content .admin_main_content > .container  .box_stats .container .right p:nth-child(2){
+    font-size: 3rem;
+    font-weight: 600;
+    margin-right: 10px;
+    color: #336CFB;
+    line-height: 1.3;
+}
+
+
+.admin_content .admin_main_content > .container .header_text_statistics{
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-weight: 1000;
+}
+.admin_content .admin_main_content > .container .statistics{
+    margin-top: 20px;
+    margin-bottom: 30px;
+    width: 100%;
+    height:auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/*RESPONSIVE*/
+@media screen and (max-width: 801px) {
+    .admin_content .admin_main_content > .container  .box_stats{
+        height:auto;
+        flex-direction: column;
+    }
+    .admin_content .admin_main_content > .container  .box_stats .container{
+        width: 100%;
+        height: 130px;
+        margin-bottom: 20px;
+    }
+    .admin_content .admin_main_content > .container  .box_stats .container .right p:nth-child(1){
+        font-size: 1rem;
+    }
+    .admin_content .admin_main_content > .container  .box_stats .container .right p:nth-child(2){
+        font-size: 2.5rem;
+    }
+}
+
