@@ -1,6 +1,7 @@
 .admin_content .right_navigation{
     height: 100%;
-    width: 22%;
+    width: 20%;
+    min-width: 293px;
     padding: 0 1.5%;
     background-color: #ffffff;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -58,4 +59,156 @@
     font-size: 2rem;
     font-weight: 600;
     transform: rotate(90deg);
+}
+
+/*Task scheduler*/
+.admin_content .right_navigation .middle{
+    width: 100%;
+    height: 55%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    border-radius: 15px;
+    background-color: #EEEEFA;
+}
+.admin_content .right_navigation .middle .top{
+    width: 90%;
+    padding: 0 5%;
+    height: 70px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-color: #696CFF;
+    display: flex;
+}
+.admin_content .right_navigation .middle .top .left{
+    width: 55%;
+    height: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+.admin_content .right_navigation .middle .top .left p:nth-child(1){
+    font-size: 1.1rem;
+    color: #ffff;
+    font-weight: 700;
+    line-height: 1;
+}
+.admin_content .right_navigation .middle .top .left p:nth-child(2){
+    margin-top: 2px;
+    font-size: .9rem;
+    color: #ffff;
+    font-weight: 500;
+    line-height: 1;
+}
+.admin_content .right_navigation .middle .top .right{
+    width: 45%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+}
+.admin_content .right_navigation .middle .top .right .add_task_btn{
+    font-size: .9rem;
+    border-radius: 8px;
+    margin-right: 2px;
+    font-weight: 700;
+    padding: 5px 10px;
+    color: #4a4ccc;
+    background-color: #ffff;
+}
+.admin_content .right_navigation .middle .top .right .add_task_btn:hover{
+    cursor: pointer;
+    opacity: 90%;
+}
+.admin_content .right_navigation .middle .top .right #view_all_task_btn:hover{
+    cursor: pointer;
+    color: rgb(199, 212, 247);
+}
+.admin_content .right_navigation .middle .semitop{
+    width: 90%;
+    padding: 0 5%;
+    padding-bottom: 5%;
+    height: 65px;
+    background-color: #696CFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.admin_content .right_navigation .middle .semitop .box{
+    height: 60px;
+    width: 45px;
+    border-radius: 20px;
+    color: #ffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.admin_content .right_navigation .middle .semitop .box:hover{
+    cursor: pointer;
+    color: rgb(192, 206, 228);
+}
+.admin_content .right_navigation .middle .semitop .box_active{
+    background-color: #ffff;
+    color: rgb(27, 26, 26);
+}
+.admin_content .right_navigation .middle .semitop .box p:nth-child(1){
+    font-size: .8rem;
+    font-weight: 800;
+}
+.admin_content .right_navigation .middle .semitop .box p:nth-child(2){
+    font-size: .8rem;
+    font-weight: 800;
+}
+.admin_content .right_navigation .middle .bottom{
+    width: auto;
+    height: auto;
+    flex-grow: 1;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    overflow-y: scroll;
+    background-color: #EEEEFA;
+}
+.admin_content .right_navigation .middle .bottom::-webkit-scrollbar-track{
+	background-color: transparent;
+}
+.admin_content .right_navigation .middle .bottom::-webkit-scrollbar{
+	width: 5px;
+	background-color: transparent;
+}
+.admin_content .right_navigation .middle .bottom::-webkit-scrollbar-thumb{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #b9b9f8;
+}
+
+.admin_content .right_navigation .middle .bottom .box{
+    width: 90%;
+    height: auto;
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-between;
+}
+.admin_content .right_navigation .middle .bottom .box .left{
+    width: 25%;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.admin_content .right_navigation .middle .bottom .box .left p{
+    font-size: .9rem;
+    font-weight: 800;
+    white-space: nowrap;
+}
+.admin_content .right_navigation .middle .bottom .box .right{
+    width: 70%;
+    height: 80px;
+    background-color: #CDCEFF;
+    border-radius: 10px;
+}
+.admin_content .right_navigation .middle .bottom .box .right:hover{
+    cursor: pointer;
+    background-color: #dadafc;
 }

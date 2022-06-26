@@ -13,26 +13,22 @@
 
 .admin_content .admin_main_content{
     height: 100%;
-    width: 75%;
+    width: 77%;
     background-color: #eeeefb;
     overflow-y: scroll;
     scroll-behavior: smooth;
 }
 .admin_content .admin_main_content::-webkit-scrollbar-track{
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-	background-color: #F5F5F5;
+	background-color: transparent;
 }
 .admin_content .admin_main_content::-webkit-scrollbar{
 	width: 5px;
-	background-color: #F5F5F5;
+	background-color: transparent;
 }
 .admin_content .admin_main_content::-webkit-scrollbar-thumb{
 	border-radius: 10px;
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
 	background-color: #b9b9f8;
-}
-.admin_content .admin_main_content-thumb:window-inactive {
-    background: transparent; 
 }
 .admin_content .admin_main_content > .container{
     width: 90%;
@@ -61,6 +57,8 @@
 .admin_content .admin_main_content > .container .image_banner h1:nth-child(1){
     color: #ffff;
     margin: 0 3%;
+    line-height: 1.1;
+    margin-bottom: 4px;
     font-size: 2.3rem;
 }
 .admin_content .admin_main_content > .container .image_banner p{
@@ -99,8 +97,8 @@
     justify-content: center;
 }
 .admin_content .admin_main_content > .container  .box_stats .container .left img{
-    height: 30%;
-    width: auto;
+    height: auto;
+    width: 45%;
 }
 .admin_content .admin_main_content > .container  .box_stats .container .right{
     width: 60%;
@@ -140,7 +138,7 @@
 
 
 /*RESPONSIVE*/
-@media screen and (max-width: 801px) {
+@media screen and (max-width: 851px) {
     .admin_content .admin_main_content > .container  .box_stats{
         height:auto;
         flex-direction: column;

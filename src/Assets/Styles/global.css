@@ -42,11 +42,15 @@ button:hover{
 }
 
 /*RESPONSIVE*/
-@media screen and (max-width: 501px) {
+@media screen and (max-width: 851px) {
     .admin_content .right_navigation{
         display: none;
     }
     .admin_content .admin_main_content{
         width: 100%;
+    }
+    .admin_content .admin_main_content > .container  .box_stats .container .left img{
+        height: auto;
+        width: 70px;
     }
 }
