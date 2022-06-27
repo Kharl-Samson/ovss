@@ -14,5 +14,13 @@ export default function CloseModals(){
             document.getElementsByClassName("specific_vaccine_container")[0].style.display = "none";
             document.getElementsByClassName("vaccine_container")[0].style.marginRight = "-100%";
         }   
+        else if (event.target === document.getElementById("add_task_modal_container")) {
+            document.getElementById("add_task_modal_container").style.display = "none";
+            var input =  document.getElementsByClassName("task_input");
+            for(var i=0; i< input.length; i++){
+                input[i].value = "";
+            }
+        }   
     }
 }
+

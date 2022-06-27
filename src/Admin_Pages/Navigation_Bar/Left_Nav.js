@@ -124,7 +124,7 @@ function manage_vaccine_choice(){
 
 //Function remove expand nav
 setInterval(function () {
-  if(document.getElementsByClassName("admin_navigation_bar_container")[0].clientWidth === 75){
+ if(document.getElementsByClassName("admin_navigation_bar_container")[0].clientWidth === 75){
     document.getElementById("manage_schedule_choice").style.display = "none";
     document.getElementById("expand_span_sched").style.transform = "rotate(0deg)";
     document.getElementById("manage_patient_choice").style.display = "none";

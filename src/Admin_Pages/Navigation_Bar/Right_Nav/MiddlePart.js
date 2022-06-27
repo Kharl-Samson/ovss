@@ -5,6 +5,8 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import TaskIcon from '@mui/icons-material/Task';
+import AssignmentIcon from '@mui/icons-material/Assignment';
+import Add_Task_Modal from "./TaskScheduler/AddTask";
 
 export default function Middle_Nav_Part(){
 
@@ -18,6 +20,30 @@ export default function Middle_Nav_Part(){
     };
     
 
+   //date today    
+   let startdate1 = moment().subtract(3, "days");
+   let startdate2 = moment().subtract(2, "days");
+   let startdate3 = moment().subtract(1, "days");
+   let startdate4 = moment().subtract(0, "days");
+   let startdate5 = moment().add(1, "days");
+   let startdate6 = moment().add(2, "days");
+   let startdate7 = moment().add(3, "days");
+        
+   const startdate_array = [startdate1,startdate2,startdate3,startdate4,startdate5,startdate6,startdate7];
+   const today_arrayConverterd = [];
+   const today_array = [];
+   const initialday = [];
+   var x;
+   for(x = 0 ; x < 7 ; x++){
+      today_arrayConverterd.push(startdate_array[x].format("L"));
+      initialday.push(startdate_array[x] ? startdate_array[x].format("dddd").substring(0,3)  : '');
+      today_array.push(startdate_array[x].format("DD"));
+   }
+     
+   //Showing add task modal
+   function show_add_task_modal(){
+    document.getElementById("add_task_modal_container").style.display = "flex";
+   }
     return(
     <div className="middle">
 
@@ -27,7 +53,7 @@ export default function Middle_Nav_Part(){
               <p>{moment().format('LL')}</p>
           </div>
           <div className="right">
-              <div className="add_task_btn">+ Add Task</div>
+              <div className="add_task_btn" id="add_task_btn" onClick={show_add_task_modal}>+ Add Task</div>
               <MoreVertIcon 
                  fontSize="large" 
                  id="view_all_task_btn"
@@ -87,24 +113,32 @@ export default function Middle_Nav_Part(){
 
         <div className="semitop">
            <div className="box">
-              <p>Tue</p>
-              <p>21</p>
+              <p>{initialday[0]}</p>
+              <p>{today_array[0]}</p>
            </div>
            <div className="box">
-              <p>Wed</p>
-              <p>22</p>
+              <p>{initialday[1]}</p>
+              <p>{today_array[1]}</p>
+           </div>
+           <div className="box">
+             <p>{initialday[2]}</p>
+             <p>{today_array[2]}</p>
            </div>
            <div className="box box_active">
-              <p>Thu</p>
-              <p>23</p>
+             <p>{initialday[3]}</p>
+             <p>{today_array[3]}</p>
            </div>
            <div className="box">
-              <p>Fri</p>
-              <p>24</p>
+             <p>{initialday[4]}</p>
+             <p>{today_array[4]}</p>
            </div>
            <div className="box">
-              <p>Sat</p>
-              <p>25</p>
+             <p>{initialday[5]}</p>
+             <p>{today_array[5]}</p>
+           </div>
+           <div className="box">
+             <p>{initialday[6]}</p>
+             <p>{today_array[6]}</p>
            </div>
         </div>
 
@@ -112,28 +146,56 @@ export default function Middle_Nav_Part(){
 
           <div className="box">
               <div className="left">
-                 <p>12:00 am</p>
+                 <AssignmentIcon id="task_icon"/>
+                 <p>12:00</p>
+                 <p>am</p>
               </div>
-              <div className="right"></div>
+              <div className="right">
+                 <p>Adding of vaccine stocks</p>
+              </div>
           </div>   
 
           <div className="box">
               <div className="left">
-                 <p>12:00 am</p>
+                 <AssignmentIcon id="task_icon"/>
+                 <p>12:00</p>
+                 <p>am</p>
               </div>
-              <div className="right"></div>
+              <div className="right">
+                 <p>Adding of vaccine stocks</p>
+              </div>
           </div>   
 
           <div className="box">
               <div className="left">
-                 <p>12:00 am</p>
+                 <AssignmentIcon id="task_icon"/>
+                 <p>12:00</p>
+                 <p>am</p>
               </div>
-              <div className="right"></div>
+              <div className="right">
+                 <p>Adding of vaccine stocks</p>
+              </div>
+          </div>   
+          
+          <div className="box">
+              <div className="left">
+                 <AssignmentIcon id="task_icon"/>
+                 <p>12:00</p>
+                 <p>am</p>
+              </div>
+              <div className="right">
+                 <p>Adding of vaccine stocks</p>
+              </div>
           </div>   
 
         </div>
         
-        <div style={{width:"100%",height:"10px"}}></div>
+        <div style={{width:"100%",minHeight:"10px"}}></div>
+
+        {/* Tasks Modals*/}
+        <Add_Task_Modal/>
     </div>
     )
 }
+
+  

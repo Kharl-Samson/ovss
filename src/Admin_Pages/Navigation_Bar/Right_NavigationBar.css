@@ -74,7 +74,7 @@
 .admin_content .right_navigation .middle .top{
     width: 90%;
     padding: 0 5%;
-    height: 70px;
+    min-height: 70px;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     background-color: #696CFF;
@@ -97,7 +97,7 @@
     margin-top: 2px;
     font-size: .9rem;
     color: #ffff;
-    font-weight: 500;
+    font-weight: 400;
     line-height: 1;
 }
 .admin_content .right_navigation .middle .top .right{
@@ -129,7 +129,7 @@
     width: 90%;
     padding: 0 5%;
     padding-bottom: 5%;
-    height: 65px;
+    min-height: 59px;
     background-color: #696CFF;
     display: flex;
     justify-content: space-between;
@@ -137,7 +137,7 @@
 }
 .admin_content .right_navigation .middle .semitop .box{
     height: 60px;
-    width: 45px;
+    width: 35px;
     border-radius: 20px;
     color: #ffff;
     display: flex;
@@ -155,11 +155,11 @@
 }
 .admin_content .right_navigation .middle .semitop .box p:nth-child(1){
     font-size: .8rem;
-    font-weight: 800;
+    font-weight: 700;
 }
 .admin_content .right_navigation .middle .semitop .box p:nth-child(2){
     font-size: .8rem;
-    font-weight: 800;
+    font-weight: 700;
 }
 .admin_content .right_navigation .middle .bottom{
     width: auto;
@@ -188,27 +188,166 @@
     height: auto;
     margin: 20px auto;
     display: flex;
+    border-radius: 7px;
     justify-content: space-between;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.admin_content .right_navigation .middle .bottom .box:hover{
+    cursor: pointer;
+    opacity: 90%;
 }
 .admin_content .right_navigation .middle .bottom .box .left{
-    width: 25%;
+    width: 30%;
     height: 80px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+}
+.admin_content .right_navigation .middle .bottom .box:nth-child(1n+1) .left{
+    background-color: #a5a7fa;
+}
+.admin_content .right_navigation .middle .bottom .box:nth-child(2n+2) .left{
+    background-color: #ff7191;
+}
+.admin_content .right_navigation .middle .bottom .box:nth-child(3n+3) .left{
+    background-color: #fab856;
+}
+.admin_content .right_navigation .middle .bottom .box:nth-child(4n+4) .left{
+    background-color: #51cda0;
+}
+.admin_content .right_navigation .middle .bottom .box:nth-child(5n+5) .left{
+    background-color: #df874d;
+}
+.admin_content .right_navigation .middle .bottom .box:nth-child(6n+6) .left{
+    background-color: #7f3941;
+}
+.admin_content .right_navigation .middle .bottom .box:nth-child(7n+7) .left{
+    background-color: #4c9ca0;
+}
+.admin_content .right_navigation .middle .bottom .box:nth-child(8n+8) .left{
+    background-color: #4d5361;
+}
+.admin_content .right_navigation .middle .bottom .box:nth-child(9n+9) .left{
+    background-color: #c82e91;
+}
+.admin_content .right_navigation .middle .bottom .box:nth-child(10n+10) .left{
+    background-color: #f87d53;
+}
+.admin_content .right_navigation .middle .bottom .box .left #task_icon{
+    font-size: 20px;
+    margin-bottom: 5px;
+    color: #ffff;
 }
 .admin_content .right_navigation .middle .bottom .box .left p{
-    font-size: .9rem;
-    font-weight: 800;
+    font-size: .8rem;
+    font-weight: 600;
+    color: #ffff;
     white-space: nowrap;
+    line-height: 1.1;
 }
 .admin_content .right_navigation .middle .bottom .box .right{
     width: 70%;
     height: 80px;
-    background-color: #CDCEFF;
-    border-radius: 10px;
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.admin_content .right_navigation .middle .bottom .box .right:hover{
-    cursor: pointer;
-    background-color: #dadafc;
+.admin_content .right_navigation .middle .bottom .box .right p:nth-child(1){
+    font-size: 1rem;
+    color: #ffff;
+    font-weight: 800;
+    line-height: 1.1;
+    margin: 0 10px;
+    text-align: center;
+}
+.admin_content .right_navigation .middle .bottom .box:nth-child(1n+1) .right{
+    background-color: #bebffa;
+}
+.admin_content .right_navigation .middle .bottom .box:nth-child(2n+2) .right{
+    background-color: #fda1b7;
+}
+.admin_content .right_navigation .middle .bottom .box:nth-child(3n+3) .right{
+    background-color: #f7cc8d;
+}
+.admin_content .right_navigation .middle .bottom .box:nth-child(4n+4) .right{
+    background-color: #97d9c1;
+}
+.admin_content .right_navigation .middle .bottom .box:nth-child(5n+5) .right{
+    background-color: #f5ba92;
+}
+.admin_content .right_navigation .middle .bottom .box:nth-child(6n+6) .right{
+    background-color: #a56e75;
+}
+.admin_content .right_navigation .middle .bottom .box:nth-child(7n+7) .right{
+    background-color: #88c3c6;
+}
+.admin_content .right_navigation .middle .bottom .box:nth-child(8n+8) .right{
+    background-color: #787c86;
+}
+.admin_content .right_navigation .middle .bottom .box:nth-child(9n+9) .right{
+    background-color: #d366ad;
+}
+.admin_content .right_navigation .middle .bottom .box:nth-child(10n+10) .right{
+    background-color: #f4a88f;
+}
+
+/*Bottom*/
+.admin_content .right_navigation > .bottom{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 17px;
+    width: 100%;
+    height:28%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #dbe9f5;
+    align-items: flex-start;
+}
+.admin_content .right_navigation > .bottom .top{
+    width: 100%;
+    height: 40%;
+    background-position: center 0%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.admin_content .right_navigation > .bottom .bottom{
+    width: 100%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.admin_content .right_navigation > .bottom .bottom p:nth-child(1){
+    font-size: .9rem;
+    color: #4D77FF;
+    font-weight: 700;
+    margin: 0 20px;
+    text-transform: uppercase;
+}
+.admin_content .right_navigation > .bottom .bottom p:nth-child(2){
+    font-size: 1rem;
+    color: #263238;
+    font-weight: 600;
+    margin: 0 20px;
+    margin-bottom: 5px;
+}
+.admin_content .right_navigation > .bottom .bottom p:nth-child(3){
+    font-size: .9rem;
+    color: #4D77FF;
+    font-weight: 700;
+    margin: 0 20px;
+    text-transform: uppercase;
+}
+.admin_content .right_navigation > .bottom .bottom p:nth-child(4){
+    font-size: 1rem;
+    color: #263238;
+    font-weight: 600;
+    margin: 0 20px;
 }

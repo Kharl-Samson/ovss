@@ -8,7 +8,7 @@ import Vaccinated_Person_Icon from "../../Assets/Dashboard_Page/Vaccinated_Perso
 import Registered_User_Icon from "../../Assets/Dashboard_Page/Registered_User_Icon.png";
 
 //Chart Js
-import { Bar, Line } from "react-chartjs-2";
+import { Bar, Line, Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS } from "chart.js/auto";
 //Data that I fetch in react chart
 import { VaccineData } from "./Data";
@@ -69,6 +69,7 @@ return(
                 </div>
 
                 <div className="box_stats">
+
                   <div className="container">
                     <div className="left"><img alt="" src={Vaccinated_Person_Icon}/></div>
                     <div className="right">
@@ -76,6 +77,8 @@ return(
                         <p>1500</p>
                     </div>
                   </div>
+
+
                   <div className="container">
                     <div className="left"><img alt="" src={Registered_User_Icon}/></div>
                     <div className="right">
@@ -83,6 +86,7 @@ return(
                         <p>200</p>
                     </div>
                   </div>
+
                 </div>  
                 
                 <h1 className="header_text_statistics">Statistics</h1>
