@@ -21,8 +21,7 @@ import SearchIcon  from "../Right_Nav/search.svg";
 import TaskBoxAll_component from './TaskScheduler/EachTaskboxAll';
 import Delete_Modal from '../../../Modals/DeleteModal';
 import Edit_Task_Modal from './TaskScheduler/EditTask';
-
-
+import $ from 'jquery'; 
 
 
 const Alert = React.forwardRef(function Alert(props, ref) {
@@ -239,9 +238,6 @@ export default function Middle_Nav_Part(){
       })    
    }
   
-
- 
-
   //Go to specific task
   function Go_to_specific_task_date(date_key, box_id){
     setting_css_in_date_task();
@@ -273,11 +269,33 @@ export default function Middle_Nav_Part(){
   }
   //Close all task container
   function close_all_task(){
+    document.getElementById("searh_task").value = "";
+    search_Task();
     document.getElementsByClassName("see_all_task_container")[0].style.bottom = "-100%";
     setTimeout(function () {
         document.getElementById("view_alltask_modal_container").style.display = "none";
     }, 400);
   }
+
+//Filter Search
+function search_Task(){
+  var value = document.getElementById("searh_task").value;
+  value = value.toLowerCase();
+  $("#see_all_task_container .task_box_container").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+  });
+    
+  if($('#see_all_task_container .task_box_container:visible').length === 0) {//if not found
+      document.getElementsByClassName("no_task_available2")[0].style.display = "flex";
+  }
+  else if($('#see_all_task_container .task_box_container:visible').length !== 0){//if found
+      document.getElementsByClassName("no_task_available2")[0].style.display = "none";
+  }
+  if(document.getElementById("searh_task").value.length === 0){
+    document.getElementsByClassName("no_task_available2")[0].style.display = "none";
+  }
+}
+    
 
     return(
     <div className="middle">
@@ -428,12 +446,15 @@ export default function Middle_Nav_Part(){
               <p className="header">Your List of Tasks</p>
               <div className='close_btn'><span title="Close" onClick={close_all_task}>&#187;</span></div>
             </div>
+            {key_task_ctr_All !== 0 ?
             <div className='search_container'>
                 <div className='search_input_container'>
                     <div className='left'><img src={SearchIcon}/></div>
-                    <input type="text" placeholder='Search here...' id="searh_task"/>
+                    <input type="text" placeholder='Search here...' id="searh_task" onChange={search_Task}/> 
                 </div> 
             </div>
+            :   
+            <input type="hidden" placeholder='Search here...' id="searh_task"/> }
             <div className="content">
               <ul className="ul_task" id="ul_task">
                 <Grid
@@ -444,11 +465,16 @@ export default function Middle_Nav_Part(){
                   id="see_all_task_container"
                 >   
                   {key_task_ctr_All === 0 ?
-                    <div className='no_task_available' style={{height:"50vh"}}>
+                    <div className='no_task_available no_task_available1' style={{height:"50vh"}}>
                       <img src={No_Records_Available} alt="" style={{height:"100px"}}/>
                       <p style={{fontSize:"1.3rem"}}>No tasks available</p>
                     </div>  :   Task_box_All
                   } 
+
+                      <div className='no_task_available no_task_available2' style={{height:"50vh",display:"none"}}>
+                        <img src={No_Records_Available} alt=""/>
+                        <p>No tasks available</p>
+                      </div>
                 </Grid>     
               </ul>
             </div>  
@@ -461,6 +487,9 @@ export default function Middle_Nav_Part(){
 }
 
   
+
+
+
 //Setting of date choose in task
 var dateA = new Date();
 var date1 = dateA.setDate(dateA.getDate() - 3);

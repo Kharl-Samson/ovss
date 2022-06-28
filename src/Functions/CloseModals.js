@@ -1,3 +1,4 @@
+import $ from 'jquery'; 
 export default function CloseModals(){
     //Close modals
     window.onclick = function(event) {
@@ -26,6 +27,22 @@ export default function CloseModals(){
         }  
         else if (event.target === document.getElementById("view_alltask_modal_container")) {
             document.getElementsByClassName("see_all_task_container")[0].style.bottom = "-100%";
+            document.getElementById("searh_task").value = "";
+            var value = document.getElementById("searh_task").value;
+            value = value.toLowerCase();
+            $("#see_all_task_container .task_box_container").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+              
+            if($('#see_all_task_container .task_box_container:visible').length === 0) {//if not found
+                document.getElementsByClassName("no_task_available2")[0].style.display = "flex";
+            }
+            else if($('#see_all_task_container .task_box_container:visible').length !== 0){//if found
+                document.getElementsByClassName("no_task_available2")[0].style.display = "none";
+            }
+            if(document.getElementById("searh_task").value.length === 0){
+              document.getElementsByClassName("no_task_available2")[0].style.display = "none";
+            }
             setTimeout(function () {
                 document.getElementById("view_alltask_modal_container").style.display = "none";
             }, 400);

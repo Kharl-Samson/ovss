@@ -91,7 +91,7 @@ return(
                 
                 <h1 className="header_text_statistics">Statistics</h1>
                 <div className="statistics">
-                  <Bar data={userData}/>
+                  <Bar data={userData} height={130}/>
                 </div>
             </div>
         </div>
