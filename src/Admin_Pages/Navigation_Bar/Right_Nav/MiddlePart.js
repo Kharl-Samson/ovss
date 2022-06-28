@@ -70,7 +70,7 @@ export default function Middle_Nav_Part(){
    }
 
   //getting the email of user
-  let email_key = localStorage.getItem('admin_email_input');
+  let email_key = localStorage.getItem('admin_login_email');
   //Hook for view the list of task of user
   const [task, setTask] = useState([]);  
 
@@ -181,7 +181,7 @@ export default function Middle_Nav_Part(){
             loadTasks();
           }
           else{
-              alert("sql error")
+              alert("SQL error")
           }
       })//End of axios       
   }

@@ -34,7 +34,7 @@ export default function Add_Task_Modal(props){
 
             <label>Time<span style={{color: "red", fontSize: "1rem"}}>*</span></label>
             <input type="time" className='task_input' name="time" id="task_time_input" required />
-            <input type="hidden"  name="email" id="task_email_input" value={localStorage.getItem('admin_email_input')} required/>
+            <input type="hidden"  name="email" id="task_email_input" value={localStorage.getItem('admin_login_email')} required/>
         </div>
 
         <div className='submit_container'>

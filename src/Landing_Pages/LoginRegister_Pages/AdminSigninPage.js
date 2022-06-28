@@ -105,8 +105,8 @@ const submitForm=(e)=>{
     e.preventDefault();
     //Sending the data request to call it on backend
     const sendData = {
-        email:document.getElementById("admin_email_input").value,
-        password:document.getElementById("admin_password_input").value,
+        email: document.getElementById("admin_email_input").value,
+        password: document.getElementById("admin_password_input").value,
     }
    
     document.getElementById("progress_btn").style.display = "block";

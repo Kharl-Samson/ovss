@@ -11,5 +11,4 @@ export default function Url(){
     //window.localStorage.setItem('url_announcement', "Announcements_Img/");
     //window.localStorage.setItem('url_default_avatar', "Default_Avatar/");  
     //window.localStorage.setItem('url_admin_signin', "https://ovss.site/");
-
 }
