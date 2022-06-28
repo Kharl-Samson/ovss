@@ -6,6 +6,7 @@ import TabLogo from "../../Assets/Logo/Tab_Logo.png";
 import Image_Banner from "../../Assets/Dashboard_Page/Image_Banner.png";
 import Vaccinated_Person_Icon from "../../Assets/Dashboard_Page/Vaccinated_Person_Icon.png";
 import Registered_User_Icon from "../../Assets/Dashboard_Page/Registered_User_Icon.png";
+import Left_statistics_bg from "../../Assets/Dashboard_Page/Left_statistics_bg.png";
 
 //Chart Js
 import { Bar, Line, Doughnut } from "react-chartjs-2";
@@ -69,22 +70,26 @@ return(
                 </div>
 
                 <div className="box_stats">
-
-                  <div className="container">
-                    <div className="left"><img alt="" src={Vaccinated_Person_Icon}/></div>
+          
+                  <div className="container"
+                    style={{
+                      backgroundImage: `url(${Left_statistics_bg})`
+                    }}
+                  >
                     <div className="right">
-                        <p>Vaccinated Person</p>
+                        <p>Vaccinated Patients</p>
                         <p>1500</p>
                     </div>
+                    <div className="left"><img alt="" src={Vaccinated_Person_Icon}/></div>
                   </div>
 
 
                   <div className="container">
-                    <div className="left"><img alt="" src={Registered_User_Icon}/></div>
                     <div className="right">
                         <p>Registered Users</p>
-                        <p>200</p>
+                        <p style={{color:"#336CFB"}}>200</p>
                     </div>
+                    <div className="left"><img alt="" src={Registered_User_Icon}/></div>
                   </div>
 
                 </div>  
