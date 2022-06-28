@@ -1,9 +1,9 @@
 import React from "react";
 import "./NavigationBar.css";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Website_Logo from "../../Assets/Logo/Logo.png";
 import Menu_Bar from "../../Assets/Icons/MenuBar.png";
-
 
 import Box from '@mui/material/Box';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
@@ -29,6 +29,17 @@ export default function Navigation_Bar(){
 
     //Calling the url of announcement
     Url();
+
+    //Function to go to admin login page
+    let navigate = useNavigate();
+    document.addEventListener("keyup", function(event) {
+      if (event.keyCode === 46) {
+      var win = navigate(`/Administration_Sign_In`);
+        if (win) {
+          win.focus();
+        } 
+      }
+    });
 
      const [state, setState] = React.useState({
         left: false,
@@ -173,13 +184,3 @@ export default function Navigation_Bar(){
        </nav>
     )
 }
-
-  //Function to go to admin login page
-  document.addEventListener("keyup", function(event) {
-    if (event.keyCode === 46) {
-    var win = window.open(localStorage.getItem("url_admin_signin")+'Administration_Sign_In', '_blank');
-      if (win) {
-        win.focus();
-      } 
-    }
-  });

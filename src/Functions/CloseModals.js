@@ -21,6 +21,15 @@ export default function CloseModals(){
                 input[i].value = "";
             }
         }   
+        else if (event.target === document.getElementById("view_task_modal_container")) {
+            document.getElementById("view_task_modal_container").style.display = "none";
+        }  
+        else if (event.target === document.getElementById("view_alltask_modal_container")) {
+            document.getElementsByClassName("see_all_task_container")[0].style.bottom = "-100%";
+            setTimeout(function () {
+                document.getElementById("view_alltask_modal_container").style.display = "none";
+            }, 400);
+        }  
     }
 }
 

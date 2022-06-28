@@ -1,12 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from 'react';
 import moment from 'moment';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import TaskIcon from '@mui/icons-material/Task';
-import AssignmentIcon from '@mui/icons-material/Assignment';
+import No_Records_Available from "../Right_Nav/No_Records_Available.png";
 import Add_Task_Modal from "./TaskScheduler/AddTask";
+import axios from "axios";
+
+import Stack from '@mui/material/Stack';
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
+import ViewTaskModal from './TaskScheduler/ViewTask';
+import TaskBox_Component from './TaskScheduler/EachTaskBox';
+import Slide from '@mui/material/Slide';
+
+import Grid from '@mui/material/Grid';
+import SearchIcon  from "../Right_Nav/search.svg";
+import TaskBoxAll_component from './TaskScheduler/EachTaskboxAll';
+
+
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
+
+function TransitionLeft(props) {
+  return <Slide {...props} direction="right" />;
+}
+
 
 export default function Middle_Nav_Part(){
 
@@ -39,11 +61,168 @@ export default function Middle_Nav_Part(){
       initialday.push(startdate_array[x] ? startdate_array[x].format("dddd").substring(0,3)  : '');
       today_array.push(startdate_array[x].format("DD"));
    }
-     
+    
+   var taskDateValue =  new Date().toISOString().slice(0, 10);
+
    //Showing add task modal
    function show_add_task_modal(){
     document.getElementById("add_task_modal_container").style.display = "flex";
    }
+
+  //getting the email of user
+  let email_key = localStorage.getItem('admin_email_input');
+  //Hook for view the list of task of user
+  const [task, setTask] = useState([]);  
+
+  const loadTasks = async () =>{
+      const result = await axios.get(localStorage.getItem("url_hosting")+"List_Of_Task.php");
+      setTask(result.data.phpresult);
+  };
+
+  useEffect(() => {
+      loadTasks();
+  }, []);
+
+  //Task box container using map
+  var key_task_ctr_Am = 0;
+  const Task_box_Am= task.map((res)=> {
+    var time_AM = res.time.slice(-2);
+    if(res.email === email_key && res.date === localStorage.getItem("taskDateValue")){    
+      if(time_AM == "am"){
+      key_task_ctr_Am++;
+        return (
+        <TaskBox_Component
+          key = {key_task_ctr_Am}
+          title = {res.title}
+          description = {res.description}
+          time = {res.time}
+          date = {res.date}
+        />
+    )}}
+    else if(res.email === email_key && localStorage.getItem("taskDateValue") === "" && res.date === taskDateValue){
+      if(time_AM == "am"){
+      key_task_ctr_Am++;
+      return (
+      <TaskBox_Component
+        key = {key_task_ctr_Am}
+        title = {res.title}
+        description = {res.description}
+        time = {res.time}
+        date = {res.date}
+      /> 
+  )}}})
+
+  //Task box container using map
+  var key_task_ctr_Pm = 0;
+  const Task_box_Pm= task.map((res)=> {
+    var time_PM = res.time.slice(-2);
+    if(res.email === email_key && res.date === localStorage.getItem("taskDateValue")){    
+      if(time_PM == "pm"){
+      key_task_ctr_Pm++;
+        return (
+        <TaskBox_Component
+          key = {key_task_ctr_Pm}
+          title = {res.title}
+          description = {res.description}
+          time = {res.time}
+          date = {res.date}
+        />
+    )}}
+    else if(res.email === email_key && localStorage.getItem("taskDateValue") === "" && res.date === taskDateValue){
+      if(time_PM == "pm"){
+      key_task_ctr_Pm++;
+      return (
+      <TaskBox_Component
+        key = {key_task_ctr_Pm}
+        title = {res.title}
+        description = {res.description}
+        time = {res.time}
+        date = {res.date}
+      />
+    )}}})
+
+  //Task box container using map
+  var key_task_ctr_All = 0;
+  const Task_box_All= task.map((res)=> {
+    if(res.email === email_key){    
+      key_task_ctr_All++;
+        return (
+          <TaskBoxAll_component
+            key = {key_task_ctr_All}
+            title = {res.title}
+            description = {res.description}
+            time = {res.time}
+            date = {res.date}
+          />  
+    )}})
+
+
+  //Form of add task
+  const submitForm=(e)=>{
+    e.preventDefault();
+      //Sending the data request to call it on backend
+      const sendData = {
+          email: document.getElementById("task_email_input").value,
+          title: document.getElementById("task_title_input").value,
+          description: document.getElementById("task_description_input").value,
+          date: document.getElementById("task_date_input").value,
+          time: document.getElementById("task_time_input").value
+      }
+      //Sending the data to my backend
+      axios.post(localStorage.getItem("url_hosting")+'Add_Task.php',sendData)
+      .then((result)=>{ 
+          if(result.data.status === "Success"){
+            handleClick(TransitionLeft);
+            document.getElementById("add_task_modal_container").style.display = "none";
+            var input =  document.getElementsByClassName("task_input");
+            for(var i=0; i< input.length; i++){
+                input[i].value = "";
+            }
+            loadTasks();
+          }
+          else{
+              alert("sql error")
+          }
+      })//End of axios       
+  }
+
+  //Go to specific task
+  function Go_to_specific_task_date(date_key, box_id){
+    setting_css_in_date_task();
+    document.getElementById(box_id).className = "box_active"
+    window.localStorage.setItem('taskDateValue', date_key);
+    loadTasks();
+  }
+    
+  //Snack bar after add task
+  const [open, setOpen] = React.useState(false);
+  const [transition, setTransition] = React.useState(undefined);
+  const handleClick = (Transition) => {
+    setTransition(() => Transition);
+    setOpen(true);
+  };
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setOpen(false);
+  };
+
+  //View all task container
+  function view_all_task(){
+    document.getElementById("view_alltask_modal_container").style.display = "flex";
+    setTimeout(function () {
+      document.getElementsByClassName("see_all_task_container")[0].style.bottom = "0";
+    }, 10);
+  }
+  //Close all task container
+  function close_all_task(){
+    document.getElementsByClassName("see_all_task_container")[0].style.bottom = "-100%";
+    setTimeout(function () {
+        document.getElementById("view_alltask_modal_container").style.display = "none";
+    }, 400);
+  }
+
     return(
     <div className="middle">
 
@@ -63,7 +242,6 @@ export default function Middle_Nav_Part(){
                  aria-controls={open1 ? 'account-menu1' : undefined}
                  aria-haspopup="true"
                  aria-expanded={open1 ? 'true' : undefined}
-                 title="Your profile" 
                 />
               <Menu
                 anchorEl={anchorEl1}
@@ -101,7 +279,7 @@ export default function Middle_Nav_Part(){
                 anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
             >
                 <MenuItem style={{display:"none"}}></MenuItem>
-                <MenuItem>
+                <MenuItem onClick={view_all_task}>
                     <ListItemIcon>
                         <TaskIcon fontSize="medium"/>
                     </ListItemIcon>
@@ -112,90 +290,147 @@ export default function Middle_Nav_Part(){
         </div>
 
         <div className="semitop">
-           <div className="box">
+           <div className="box" id="box_active1" onClick={() => { Go_to_specific_task_date(date1,"box_active1");}}>
               <p>{initialday[0]}</p>
               <p>{today_array[0]}</p>
            </div>
-           <div className="box">
+           <div className="box" id="box_active2" onClick={() => { Go_to_specific_task_date(date2,"box_active2");}}>
               <p>{initialday[1]}</p>
               <p>{today_array[1]}</p>
            </div>
-           <div className="box">
+           <div className="box" id="box_active3" onClick={() => { Go_to_specific_task_date(date3,"box_active3");}}>
              <p>{initialday[2]}</p>
              <p>{today_array[2]}</p>
            </div>
-           <div className="box box_active">
+           <div className="box box_active" id="box_active4" onClick={() => { Go_to_specific_task_date(date4,"box_active4");}}>
              <p>{initialday[3]}</p>
              <p>{today_array[3]}</p>
            </div>
-           <div className="box">
+           <div className="box" id="box_active5" onClick={() => { Go_to_specific_task_date(date5,"box_active5");}}>
              <p>{initialday[4]}</p>
              <p>{today_array[4]}</p>
            </div>
-           <div className="box">
+           <div className="box" id="box_active6" onClick={() => { Go_to_specific_task_date(date6,"box_active6");}}>
              <p>{initialday[5]}</p>
              <p>{today_array[5]}</p>
            </div>
-           <div className="box">
+           <div className="box" id="box_active7" onClick={() => { Go_to_specific_task_date(date7,"box_active7");}}>
              <p>{initialday[6]}</p>
              <p>{today_array[6]}</p>
            </div>
         </div>
 
         <div className="bottom">
+          {key_task_ctr_Am != 0 ? 
+          Task_box_Am : ""}   
 
-          <div className="box">
-              <div className="left">
-                 <AssignmentIcon id="task_icon"/>
-                 <p>12:00</p>
-                 <p>am</p>
-              </div>
-              <div className="right">
-                 <p>Adding of vaccine stocks</p>
-              </div>
-          </div>   
+          {key_task_ctr_Pm != 0 ? 
+          Task_box_Pm : ""}   
 
-          <div className="box">
-              <div className="left">
-                 <AssignmentIcon id="task_icon"/>
-                 <p>12:00</p>
-                 <p>am</p>
-              </div>
-              <div className="right">
-                 <p>Adding of vaccine stocks</p>
-              </div>
-          </div>   
-
-          <div className="box">
-              <div className="left">
-                 <AssignmentIcon id="task_icon"/>
-                 <p>12:00</p>
-                 <p>am</p>
-              </div>
-              <div className="right">
-                 <p>Adding of vaccine stocks</p>
-              </div>
-          </div>   
-          
-          <div className="box">
-              <div className="left">
-                 <AssignmentIcon id="task_icon"/>
-                 <p>12:00</p>
-                 <p>am</p>
-              </div>
-              <div className="right">
-                 <p>Adding of vaccine stocks</p>
-              </div>
-          </div>   
-
+          {key_task_ctr_Am === 0 &&  key_task_ctr_Pm === 0 ? 
+          <div className='no_task_available'>
+            <img src={No_Records_Available} alt=""/>
+            <p>No tasks available</p>
+          </div> : ""}
         </div>
         
         <div style={{width:"100%",minHeight:"10px"}}></div>
 
-        {/* Tasks Modals*/}
-        <Add_Task_Modal/>
+        {/*Add Tasks Modal*/}
+        <Add_Task_Modal
+          Form_Submit = {submitForm}
+        />
+
+        {/*View Tasks Modal*/}
+        <ViewTaskModal/>
+
+        {/* Add tasks complete snackbar*/}
+        <Stack spacing={2} sx={{ width: '100%' }}>
+          <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}  TransitionComponent={transition}  key={transition ? transition.name : ''}>
+            <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+              Task was added succesfully!
+            </Alert>
+          </Snackbar>
+        </Stack>
+
+
+        {/*SEE ALL TASK CONTAINER*/}
+        <div className="modal_container view_alltask_modal_container" id="view_alltask_modal_container">
+          <div className="see_all_task_container">
+            <div className="top">
+              <p className="header">Your List of Tasks</p>
+              <div className='close_btn'><span title="Close" onClick={close_all_task}>&#187;</span></div>
+            </div>
+            <div className='search_container'>
+                <div className='search_input_container'>
+                    <div className='left'><img src={SearchIcon}/></div>
+                    <input type="text" placeholder='Search here...' id="searh_task"/>
+                </div> 
+            </div>
+            <div className="content">
+              <ul className="ul_task" id="ul_task">
+                <Grid
+                  container
+                  direction="row"
+                  justifyContent="center"
+                  alignItems="center"
+                  id="see_all_task_container"
+                >   
+                  {key_task_ctr_All === 0 ?
+                    <div className='no_task_available' style={{height:"50vh"}}>
+                      <img src={No_Records_Available} alt="" style={{height:"100px"}}/>
+                      <p style={{fontSize:"1.3rem"}}>No tasks available</p>
+                    </div>  :   Task_box_All
+                  } 
+                </Grid>     
+              </ul>
+            </div>  
+
+          </div>
+        </div>
+
     </div>
     )
 }
 
   
+//Setting of date choose in task
+var dateA = new Date();
+var date1 = dateA.setDate(dateA.getDate() - 3);
+date1 = moment(dateA).format().slice(0, 10);
+var dateB = new Date();
+var date2 = dateB.setDate(dateB.getDate() - 2);
+date2 = moment(dateB).format().slice(0, 10);
+var dateC = new Date();
+var date3 = dateC.setDate(dateC.getDate() - 1);
+date3 = moment(dateC).format().slice(0, 10);
+var dateD = new Date();
+var date4 = dateD.setDate(dateD.getDate());
+date4 = moment(dateD).format().slice(0, 10);
+var dateE = new Date();
+var date5 = dateE.setDate(dateE.getDate() + 1);
+date5 = moment(dateE).format().slice(0, 10);
+var dateF = new Date();
+var date6 = dateF.setDate(dateF.getDate() + 2);
+date6 = moment(dateF).format().slice(0, 10);
+var dateG = new Date();
+var date7 = dateG.setDate(dateG.getDate() + 3);
+date7 = moment(dateG).format().slice(0, 10);
+  
+function setting_css_in_date_task(){
+  document.getElementById("box_active1").classList.remove("box_active");
+  document.getElementById("box_active2").classList.remove("box_active");
+  document.getElementById("box_active3").classList.remove("box_active");
+  document.getElementById("box_active4").classList.remove("box_active");
+  document.getElementById("box_active5").classList.remove("box_active");
+  document.getElementById("box_active6").classList.remove("box_active");
+  document.getElementById("box_active7").classList.remove("box_active");
+
+  document.getElementById("box_active1").className = "box_active_date";
+  document.getElementById("box_active2").className = "box_active_date";
+  document.getElementById("box_active3").className = "box_active_date";
+  document.getElementById("box_active4").className = "box_active_date";
+  document.getElementById("box_active5").className = "box_active_date";
+  document.getElementById("box_active6").className = "box_active_date";
+  document.getElementById("box_active7").className = "box_active_date";
+}

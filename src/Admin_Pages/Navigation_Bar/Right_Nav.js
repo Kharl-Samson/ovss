@@ -9,6 +9,9 @@ import CloseModals from "../../Functions/CloseModals";
 export default function Admin_Right_Navigation_Bar(){
     //Calling the url of announcement
     Url();
+    
+    //Loading the local storage of task in right navbar
+    window.localStorage.setItem('taskDateValue', "")
 
 return(
     <div className="right_navigation">
