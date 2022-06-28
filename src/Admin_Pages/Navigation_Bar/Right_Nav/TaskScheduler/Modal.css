@@ -1,15 +1,4 @@
 /*MODAL CONTAINER ->FOR TASK*/
-.modal_container{
-    height: 100vh;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.288);
-    position: fixed;
-    inset: 0;
-    z-index: 100;
-    display: none;
-    align-items: center;
-    justify-content: center;
-}
 .task_modal{
     width: auto;
     max-width: 370px;
@@ -150,8 +139,6 @@
 .task_modal .submit_container button:hover{
     opacity: 70%;
 }
-
-
 
 /*SEE ALL TASK CONTAINER*/
 .see_all_task_container{
@@ -336,7 +323,6 @@
     background-color: #f87d53;
     border-left: 5px solid #b73e16;
 }
-
 .see_all_task_container .content .ul_task .task_box_container .date_container{
     height: 10%;
     width: 100%;
@@ -358,7 +344,7 @@
     font-size: 1.2rem;
     font-weight: 600;
     margin: 0 8%;
-    line-height: 1;
+    line-height: 1.2;
     margin-bottom: 2%;
 }
 .see_all_task_container .content .ul_task .task_box_container .description{
@@ -369,74 +355,5 @@
     margin-top: 15px;
     margin-bottom: 3%;
 }
-.see_all_task_container .content .ul_task .task_box_container .link{
-    color: rgb(238, 235, 235);
-    font-size: .9rem;
-    margin: 0 8%;
-    line-height: 1.1;
-    margin-bottom: 5%;
-}
-.no_record_found{
-    display: none;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-.no_record_found img{
-    height: 200px;
-    margin-bottom: 5%;
-    margin-top: 5%;
-}
-.no_record_found p{
-    font-size: 1.5rem;
-    color: rgb(103, 102, 102);
-}
 
 
-.no_certificateFound{
-    margin: 0% auto;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-.no_certificateFound img{
-    height: 120px;
-    margin-top: 1rem;
-    margin-bottom: 5%;
-}
-.no_certificateFound p{
-    font-size: 1.3rem;
-    color: rgb(103, 102, 102);
-}
-
-.empty_data{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-.empty_data img{
-    height: 200px;
-    margin-bottom: 5%;
-    margin-top: 5%;
-}
-.empty_data p{
-    font-size: 1.5rem;
-    color: rgb(103, 102, 102);
-}
-.empty_data_small{
-    display: none;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-.empty_data_small img{
-    height: 60px;
-    margin-bottom: 5%;  
-    margin-top: 3rem;
-}
-.empty_data_small p{
-    font-size: .9rem;
-    color: rgb(103, 102, 102);
-}

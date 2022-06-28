@@ -21,7 +21,24 @@ export default function TaskBoxAll_component(props){
     const handleClose = () => {
         setAnchorEl(null);
     };
+
+    //Showing delete modal
+    function Show_Task_Delete_Modal(){
+        document.getElementById("delete_task_modal_container").style.display = "flex";
+        document.getElementById("delete_modal_key").value = props.id;
+    }
     
+    //Showing edit task modal
+    function Show_Task_Edit_Modal(){
+        document.getElementById("edit_task_modal_container").style.display = "flex";
+        document.getElementById("edit_task_title_input").value = props.title;
+        document.getElementById("edit_task_description_input").value = props.description;
+        document.getElementById("edit_task_date_input").value = props.date;
+        var dt = moment(props.time, ["h:mm A"]).format("HH:mm");
+        document.getElementById("edit_task_time_input").value = dt;
+        document.getElementById("edit_task_key").value = props.id;
+    }
+
     return(
     <div className="task_box_container">
         <MoreHorizIcon sx={{float : 'right', marginRight: "5%", marginTop:"3%", color:"#ffff"}} className="MoreHorizIcon" onClick={handleClick}/>
@@ -61,13 +78,13 @@ export default function TaskBoxAll_component(props){
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
         >
         <MenuItem style={{display:"none"}}></MenuItem>
-            <MenuItem>
+            <MenuItem onClick={Show_Task_Edit_Modal}>
                 <ListItemIcon>
                     <EditIcon fontSize="small" />
                 </ListItemIcon>
                 Edit Task
             </MenuItem>
-            <MenuItem>
+            <MenuItem onClick={Show_Task_Delete_Modal}>
                 <ListItemIcon>
                     <DeleteIcon fontSize="small" />
                 </ListItemIcon>

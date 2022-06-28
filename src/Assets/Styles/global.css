@@ -41,6 +41,111 @@ button:hover{
     color: #121212;
 }
 
+/*Modal Container*/
+.modal_container{
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.288);
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+#edit_task_modal_container{
+    z-index: 101;
+}
+/*Delete task container*/
+#delete_task_modal_container{
+    z-index: 101;
+}
+.delete_task_container{
+    width: 400px;
+    height: 200px;
+    background-color: #ffff;
+    padding: 17px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.delete_task_container > .top_modal{
+    height: 40px;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding-bottom: 5px;
+}
+.delete_task_container > .top_modal .left{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+.delete_task_container > .top_modal .left img{
+    height: 30px;
+    width: auto;
+    margin-right: 10px;
+}
+.delete_task_container > .top_modal .close_modal_btn{
+    height: 40px;
+    margin: 0;
+    display: flex;
+    align-items: flex-start;
+}
+.delete_task_container > .top_modal .close_modal_btn span{
+    margin: 0;
+    font-size: 3rem;
+    font-weight: 800;
+    margin-top: -15px;
+}
+.delete_task_container > .top_modal .close_modal_btn span:hover{
+    cursor: pointer;
+    opacity: 80%;
+}
+.delete_task_container > .middle_modal{
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+}
+.delete_task_container > .middle_modal p{
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.delete_task_container > .bottom_modal{
+    width: 100%;
+    height: 45px;
+    border-top: 1px solid rgb(216, 214, 214);
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+.delete_task_container > .bottom_modal button{
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+}
+.delete_task_container > .bottom_modal button[type="button"]{
+    background-color: rgb(235, 234, 234);
+}
+.delete_task_container > .bottom_modal button[type="submit"]{
+    margin-left: 10px;
+    background-color: #ff4560;
+    color: #ffff;
+}
+.delete_task_container > .bottom_modal button:hover{
+    opacity: 80%;
+}
+
+
+
 /*RESPONSIVE*/
 @media screen and (max-width: 851px) {
     .admin_content .right_navigation{

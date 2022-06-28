@@ -19,6 +19,10 @@ import Slide from '@mui/material/Slide';
 import Grid from '@mui/material/Grid';
 import SearchIcon  from "../Right_Nav/search.svg";
 import TaskBoxAll_component from './TaskScheduler/EachTaskboxAll';
+import Delete_Modal from '../../../Modals/DeleteModal';
+import Edit_Task_Modal from './TaskScheduler/EditTask';
+
+
 
 
 const Alert = React.forwardRef(function Alert(props, ref) {
@@ -85,14 +89,15 @@ export default function Middle_Nav_Part(){
 
   //Task box container using map
   var key_task_ctr_Am = 0;
-  const Task_box_Am= task.map((res)=> {
+  const Task_box_Am = task.map((res)=> {
     var time_AM = res.time.slice(-2);
     if(res.email === email_key && res.date === localStorage.getItem("taskDateValue")){    
-      if(time_AM == "am"){
+      if(time_AM === "am"){
       key_task_ctr_Am++;
         return (
         <TaskBox_Component
           key = {key_task_ctr_Am}
+          id = {res.id}
           title = {res.title}
           description = {res.description}
           time = {res.time}
@@ -100,11 +105,12 @@ export default function Middle_Nav_Part(){
         />
     )}}
     else if(res.email === email_key && localStorage.getItem("taskDateValue") === "" && res.date === taskDateValue){
-      if(time_AM == "am"){
+      if(time_AM === "am"){
       key_task_ctr_Am++;
       return (
       <TaskBox_Component
         key = {key_task_ctr_Am}
+        id = {res.id}
         title = {res.title}
         description = {res.description}
         time = {res.time}
@@ -117,11 +123,12 @@ export default function Middle_Nav_Part(){
   const Task_box_Pm= task.map((res)=> {
     var time_PM = res.time.slice(-2);
     if(res.email === email_key && res.date === localStorage.getItem("taskDateValue")){    
-      if(time_PM == "pm"){
+      if(time_PM === "pm"){
       key_task_ctr_Pm++;
         return (
         <TaskBox_Component
           key = {key_task_ctr_Pm}
+          id = {res.id}
           title = {res.title}
           description = {res.description}
           time = {res.time}
@@ -129,11 +136,12 @@ export default function Middle_Nav_Part(){
         />
     )}}
     else if(res.email === email_key && localStorage.getItem("taskDateValue") === "" && res.date === taskDateValue){
-      if(time_PM == "pm"){
+      if(time_PM === "pm"){
       key_task_ctr_Pm++;
       return (
       <TaskBox_Component
         key = {key_task_ctr_Pm}
+        id = {res.id}
         title = {res.title}
         description = {res.description}
         time = {res.time}
@@ -149,6 +157,7 @@ export default function Middle_Nav_Part(){
         return (
           <TaskBoxAll_component
             key = {key_task_ctr_All}
+            id = {res.id}
             title = {res.title}
             description = {res.description}
             time = {res.time}
@@ -185,6 +194,53 @@ export default function Middle_Nav_Part(){
           }
       })//End of axios       
   }
+
+  //Form delete task
+  const DeleteForm=(e)=>{
+    e.preventDefault();
+    //Sending the data request to call it on backend
+    const sendData = {
+        key : document.getElementById("delete_modal_key").value,
+    }
+    axios.post(localStorage.getItem("url_hosting")+'Delete_Task.php',sendData)
+    .then((result)=>{
+        if(result.data.status === "Success"){
+          handleClick(TransitionLeft);
+          document.getElementById("delete_task_modal_container").style.display = "none";
+          loadTasks();
+        }
+        else{
+          alert("SQL error")
+        }
+    })    
+  }
+
+  //Form edit task
+  const editForm=(e)=>{
+    e.preventDefault();
+    //Sending the data request to call it on backend
+    const sendData = {
+      key : document.getElementById("edit_task_key").value,
+      title: document.getElementById("edit_task_title_input").value,
+      description: document.getElementById("edit_task_description_input").value,
+      date: document.getElementById("edit_task_date_input").value,
+      time: document.getElementById("edit_task_time_input").value
+    }
+    axios.post(localStorage.getItem("url_hosting")+'Edit_Of_Task.php',sendData)
+    .then((result)=>{
+      if(result.data.status === "Success"){
+        handleClick(TransitionLeft);
+        document.getElementById("edit_task_modal_container").style.display = "none";
+        loadTasks();
+      }
+      else{
+        alert("SQL error")
+      }
+      })    
+   }
+  
+
+ 
 
   //Go to specific task
   function Go_to_specific_task_date(date_key, box_id){
@@ -321,10 +377,10 @@ export default function Middle_Nav_Part(){
         </div>
 
         <div className="bottom">
-          {key_task_ctr_Am != 0 ? 
+          {key_task_ctr_Am !== 0 ? 
           Task_box_Am : ""}   
 
-          {key_task_ctr_Pm != 0 ? 
+          {key_task_ctr_Pm !== 0 ? 
           Task_box_Pm : ""}   
 
           {key_task_ctr_Am === 0 &&  key_task_ctr_Pm === 0 ? 
@@ -341,6 +397,11 @@ export default function Middle_Nav_Part(){
           Form_Submit = {submitForm}
         />
 
+        {/*Edit Tasks Modal*/}
+        <Edit_Task_Modal
+          formAction = {editForm}
+        />
+          
         {/*View Tasks Modal*/}
         <ViewTaskModal/>
 
@@ -348,11 +409,17 @@ export default function Middle_Nav_Part(){
         <Stack spacing={2} sx={{ width: '100%' }}>
           <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}  TransitionComponent={transition}  key={transition ? transition.name : ''}>
             <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
-              Task was added succesfully!
+                Action was process succesfully!
             </Alert>
           </Snackbar>
         </Stack>
 
+        {/*Delete task container */}
+        <Delete_Modal
+          title = "Delete this task?"
+          description = "If you delete this task it will be gone forever. Are you sure you want to proceed?"
+          formAction = {DeleteForm}
+        />
 
         {/*SEE ALL TASK CONTAINER*/}
         <div className="modal_container view_alltask_modal_container" id="view_alltask_modal_container">

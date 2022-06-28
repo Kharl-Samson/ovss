@@ -121,11 +121,11 @@ const submitForm=(e)=>{
            window.localStorage.setItem('admin_login_email', result.data.email);
            navigate(`/Administration_Dashboard`);
         }
-        else if(result.data.status === "Invalid"){ //If username or password is invalid
+        else if(result.data.status === "Invalid"){ //If email or password is invalid
             document.getElementById("progress_btn").style.display = "none";
             document.getElementById("sign_in_Text").style.display =  "block";
 
-            document.getElementById("validation_text").textContent = "Email/username or password are invalid!"
+            document.getElementById("validation_text").textContent = "Email or password are invalid!"
             document.getElementById("login_validation").style.display = "flex";
         }
 
@@ -144,8 +144,8 @@ const submitForm=(e)=>{
 
             <form onSubmit={submitForm}>
             <div className="form_container">
-                <p>Email or username</p>
-                <input type="text" placeholder="Email or username here" className="email_input" id="admin_email_input" defaultValue={localStorage.getItem("admin_email_input")} onChange={close_validation} required />
+                <p>Email</p>
+                <input type="text" placeholder="Email here" className="email_input" id="admin_email_input" defaultValue={localStorage.getItem("admin_email_input")} onChange={close_validation} required />
             </div>
 
             <div className="form_container" style={{marginTop:"5%"}}>

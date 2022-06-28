@@ -30,6 +30,12 @@ export default function CloseModals(){
                 document.getElementById("view_alltask_modal_container").style.display = "none";
             }, 400);
         }  
+        else if (event.target === document.getElementById("delete_task_modal_container")) {
+            document.getElementById("delete_task_modal_container").style.display = "none";
+        }  
+        else if (event.target === document.getElementById("edit_task_modal_container")) {
+            document.getElementById("edit_task_modal_container").style.display = "none";
+        }  
     }
 }
 
