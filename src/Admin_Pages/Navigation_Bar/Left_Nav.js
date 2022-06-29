@@ -50,7 +50,7 @@ const LightTooltip = styled(({ className, ...props }) => (
 
 //When hovering the navbar
 function hover_navbar(){
-  document.getElementsByClassName("admin_navigation_bar_container")[0].style.width = "250px";
+  document.getElementsByClassName("admin_navigation_bar_container")[0].style.width = "265px";
   document.getElementById("mini_logo").style.display = "none";
   document.getElementById("whole_logo").style.display = "block";
 }
@@ -149,9 +149,9 @@ return(
 
 
       <div id="link_dashboard" style={{marginBottom: "10px"}}>
-        <Link to="#" style={{textDecoration:"none"}}>
+        <Link to="/Administration_Dashboard" style={{textDecoration:"none"}}>
         <div className="link_container" id="admin_dashboard_link">
-            <div className="left" id="left_nav_border">
+            <div className="left" id="left_nav_dashboard_border">
                 <img alt="" src={Dashboard_Icon}/>
             </div>
             <div className="right"><span>Dashboard</span></div>
@@ -159,8 +159,8 @@ return(
         </Link>
       </div>
       
-      <div className="link_container" id="admin_dashboard_link" style={{marginBottom: "10px"}} onClick={manage_schedule_choice}>
-        <div className="left">
+      <div className="link_container" id="admin_schedule_link" style={{marginBottom: "10px"}} onClick={manage_schedule_choice}>
+        <div className="left" id="left_nav_sched_border">
             <img alt="" src={Schedule_Icon}/>
         </div>
         <div className="right">
@@ -172,21 +172,27 @@ return(
       </div>
    
               <div className="choice_container" id="manage_schedule_choice">
-                <div className="link_container">
-                  <div className="left">
+
+              
+              <div id="link_pending_sched">
+                <Link to="/Administration_Pending_Schedule" style={{textDecoration:"none"}}>
+                <div className="link_container" id="admin_pending_schedule_link">
+                  <div className="left" id="left_nav_pending_sched_border">
                       <img alt="" src={View_Schedule_Icon}/>
                   </div>
                   <div className="right">
-                    <span>View Schedule</span>
+                    <span>Pending Schedule</span>
                   </div>
                 </div>
+                </Link>
+              </div>  
 
                 <div className="link_container">
                   <div className="left">
                       <img alt="" src={Approved_Schedule_Icon}/>
                   </div>
                   <div className="right">
-                    <span>Approve Schedule</span>
+                    <span>Approved Schedule</span>
                   </div>
                 </div>
 

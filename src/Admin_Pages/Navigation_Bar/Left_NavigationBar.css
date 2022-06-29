@@ -1,4 +1,5 @@
 .admin_navigation_bar_container{
+    z-index: 2;
     position: fixed;
     inset: 0;
     height: 100%;
@@ -32,7 +33,7 @@
 
 .admin_navigation_bar_container .link_container{
     height: 60px;
-    width: 250px;
+    width: 265px;
     display: flex;
     align-items: center;
 }
@@ -73,7 +74,7 @@
 
 
 .admin_navigation_bar_container .choice_container{
-    width: 200px;
+    width: 210px;
     height: auto;
     float: right;
     margin-top: -10px;
