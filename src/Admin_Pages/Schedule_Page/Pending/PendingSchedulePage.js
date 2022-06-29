@@ -8,9 +8,12 @@ import Mic_Icon from "../Images/Mic_Icon.png";
 import Calendar_Icon from "../Images/Calendar_Icon.png";
 import Report_Icon from "../Images/Report_Icon.png";
 import Grid from '@mui/material/Grid';
+import No_Records_Available from "../Images/No_Records_Available.png";
 
 import { styled } from '@mui/material/styles';
 import Tooltip, { tooltipClasses } from '@mui/material/Tooltip';
+import EachPendingRow from "./EachPendingRow";
+import $ from 'jquery'; 
 
 export default function Admin_Pending_Schedule_Page(){
 
@@ -41,6 +44,39 @@ export default function Admin_Pending_Schedule_Page(){
   }, 10);
 
 
+  //Temporary Array
+  const array_pending_schedule = ['1','2','1','2','1','2','1','2','1','2','1','2'];
+  var array_pending_schedule_ctr = -1;
+  const box_pending_schedule = array_pending_schedule.map((res) => {
+    array_pending_schedule_ctr++;
+      return (
+        <EachPendingRow
+          propsKey = {array_pending_schedule_ctr}
+        />
+      );
+  });
+
+
+//Filter Search
+function search_Schedule(){
+  var value = document.getElementById("search_pending_schedule").value;
+  value = value.toLowerCase();
+  $("#header_body .table_tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+  });
+    
+  if($('#header_body .table_tr:visible').length === 0) {//if not found
+      document.getElementsByClassName("no_schedule_available2")[0].style.display = "flex";
+  }
+  else if($('#header_body .table_tr:visible').length !== 0){//if found
+      document.getElementsByClassName("no_schedule_available2")[0].style.display = "none";
+  }
+  if(document.getElementById("table_tr").value.length === 0){
+    document.getElementsByClassName("no_schedule_available2")[0].style.display = "none";
+  }
+}
+    
+
     return(
     <div className="admin_schedule_container">
     <Admin_Left_Navigation_Bar/>
@@ -50,8 +86,11 @@ export default function Admin_Pending_Schedule_Page(){
             <div className="container">
                 <h1>Pending <span style={{color:"#4D77FF"}}>Schedules</span></h1>
 
-                <div className="schedule_top">
 
+                {array_pending_schedule_ctr === -1 ?
+                "" 
+                :   
+                <div className="schedule_top">
                 <Grid
                   container
                   direction="row"
@@ -65,12 +104,11 @@ export default function Admin_Pending_Schedule_Page(){
                       justifyContent="space-between"
                       alignItems="center"
                     >
-
                       <div className="search_container">
                         <div className="icon">
                           <img alt="" src={Search_Icon}/>
                         </div>
-                        <input type="text" placeholder="Search here"/>
+                        <input type="text" placeholder="Search here" id="search_pending_schedule" onKeyUp={search_Schedule}/>
                         <div className="icon">
                           <LightTooltip title="Search by voice">
                             <img alt="" src={Mic_Icon}/>
@@ -88,7 +126,6 @@ export default function Admin_Pending_Schedule_Page(){
                       </LightTooltip>
                    </Grid>
                    </div>
-
                    <div className="right">
                      <LightTooltip title="Export into PDF file">
                       <div className="search_container" style={{width:"auto"}}>
@@ -100,7 +137,50 @@ export default function Admin_Pending_Schedule_Page(){
                      </LightTooltip>
                    </div>
                 </Grid>
+                </div>
+                }
 
+                <div className="header_table">
+                  <div className="header1">
+                    <input type="checkbox"/>
+                  </div>
+                  <div className="header2">
+                      <span className="header_span" style={{fontWeight:"700",textAlign:"center"}}>DATE RECEIVED</span>
+                  </div>
+                  <div className="header3">
+                      <span className="header_span" style={{fontWeight:"700",textAlign:"center"}}>REQUESTED BY</span>
+                  </div>
+                  <div className="header4">
+                      <span className="header_span" style={{fontWeight:"700",textAlign:"center"}}>CONCACT</span>
+                  </div>
+                  <div className="header5">
+                      <span className="header_span" style={{fontWeight:"700",textAlign:"center"}}>STATUS</span>
+                  </div>
+                  <div className="header6">
+                      <span className="header_span" style={{fontWeight:"700",textAlign:"center"}}>ACTIONS</span>
+                  </div>
+                </div>
+
+                <div className="header_table header_body" id="header_body">
+                    {array_pending_schedule_ctr === -1 ?
+                    <div className='no_schedule_available no_schedule_available1'>
+                      <img src={No_Records_Available} alt=""/>
+                      <p style={{fontSize:"1.3rem"}}>No schedule available</p>
+                    </div>  :   box_pending_schedule
+                   } 
+
+                    <div div className='no_schedule_available no_schedule_available2' style={{display:"none"}}>
+                      <img src={No_Records_Available} alt=""/>
+                      <p style={{fontSize:"1.3rem"}}>No schedule found</p>
+                    </div> 
+                </div>
+
+                <div className="bottom_sched">
+                   <p>{"Total of "+array_pending_schedule_ctr+" pending schedules"}</p>
+                   <div className="btn">
+                        <button>Reject All</button>
+                        <button>Accept All</button>
+                   </div>
                 </div>
 
             </div>

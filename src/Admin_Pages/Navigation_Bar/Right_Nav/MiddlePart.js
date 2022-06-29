@@ -473,7 +473,7 @@ function search_Task(){
 
                       <div className='no_task_available no_task_available2' style={{height:"50vh",display:"none"}}>
                         <img src={No_Records_Available} alt=""/>
-                        <p>No tasks available</p>
+                        <p>No tasks found</p>
                       </div>
                 </Grid>     
               </ul>

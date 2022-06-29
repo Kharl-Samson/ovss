@@ -63,7 +63,6 @@ export default function Top_Nav_Part(){
               aria-controls={open ? 'account-menu' : undefined}
               aria-haspopup="true"
               aria-expanded={open ? 'true' : undefined}
-              title="Your profile"
             >
                 <div className="left">
                     <img 
