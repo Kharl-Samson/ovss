@@ -187,24 +187,33 @@ return(
                 </div>
                 </Link>
               </div>  
-
-                <div className="link_container">
-                  <div className="left">
+              
+              <div id="link_approved_sched">
+                <Link to="/Administration_Approved_Schedule" style={{textDecoration:"none"}}>
+                <div className="link_container" id="admin_approved_schedule_link">
+                  <div className="left" id="left_nav_approved_sched_border">
                       <img alt="" src={Approved_Schedule_Icon}/>
                   </div>
                   <div className="right">
                     <span>Approved Schedule</span>
                   </div>
                 </div>
-
-                <div className="link_container">
-                  <div className="left">
+                </Link>
+              </div>  
+              
+              <div id="link_history_sched">
+                <Link to="/Administration_History_Schedule" style={{textDecoration:"none"}}>
+                <div className="link_container" id="admin_history_schedule_link">
+                  <div className="left" id="left_nav_history_sched_border">
                       <img alt="" src={Schedule_Icon}/>
                   </div>
                   <div className="right">
                     <span>Schedule History</span>
                  </div>
                 </div>
+                </Link>
+              </div>  
+
               </div>
 
       <div className="link_container" style={{marginBottom: "10px"}} onClick={manage_patient_choice}>

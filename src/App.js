@@ -1,6 +1,8 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import AdminDashboard_Page from "./Admin_Pages/Dashboard_Page/AdminDashboard";
+import Admin_Approved_Schedule_Page from "./Admin_Pages/Schedule_Page/Approved/ApprovedSchedulePage";
+import Admin_History_Schedule_Page from "./Admin_Pages/Schedule_Page/History/HistorySchedulePage";
 import Admin_Pending_Schedule_Page from "./Admin_Pages/Schedule_Page/Pending/PendingSchedulePage";
 
 import "./Assets/Styles/global.css";
@@ -29,7 +31,8 @@ export default function App() {
           {/* Admin Pages */}
           <Route path="/Administration_Dashboard" element={<AdminDashboard_Page/>}/>
           <Route path="/Administration_Pending_Schedule" element={<Admin_Pending_Schedule_Page/>}/>
-   
+          <Route path="/Administration_Approved_Schedule" element={<Admin_Approved_Schedule_Page/>}/>
+          <Route path="/Administration_History_Schedule" element={<Admin_History_Schedule_Page/>}/>
 
         </Routes>
     </div>

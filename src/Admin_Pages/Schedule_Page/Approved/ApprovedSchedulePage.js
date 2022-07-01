@@ -13,14 +13,12 @@ import No_Records_Available from "../Images/No_Records_Available.png";
 
 import { styled } from '@mui/material/styles';
 import Tooltip, { tooltipClasses } from '@mui/material/Tooltip';
-import EachPendingRow from "./EachPendingRow";
 import $ from 'jquery'; 
-import Reject_Modal from '../../../Modals/RejectModal';
 
 import CircularProgress from '@mui/material/CircularProgress';
 import SuccesSlideModal from '../../../Modals/SuccesSlideModal';
-import Accept_Modal from '../../../Modals/AcceptModal';
 import ViewScheduleInfo from './ViewScheduleInfo';
+
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import moment from "moment";
@@ -28,9 +26,10 @@ import { addDays } from "date-fns";
 import { DateRangePicker } from "react-date-range";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
+import EachApprovedRow from './EachApprovedRow';
 import speechRecog from "../Images/speechRecog.gif";
 
-export default function Admin_Pending_Schedule_Page(){
+export default function Admin_Approved_Schedule_Page(){
 
   
   //Tooltip
@@ -51,9 +50,9 @@ export default function Admin_Pending_Schedule_Page(){
 
   //Setting the color of active navigation text
   setTimeout(function () {
-    document.getElementById("link_pending_sched").style.pointerEvents="none";
-    document.getElementById("admin_pending_schedule_link").style.backgroundColor = "#FFF7DB";
-    document.getElementById("left_nav_pending_sched_border").style.borderLeft = "5px solid #E2AB1D";
+    document.getElementById("link_approved_sched").style.pointerEvents="none";
+    document.getElementById("admin_approved_schedule_link").style.backgroundColor = "#FFF7DB";
+    document.getElementById("left_nav_approved_sched_border").style.borderLeft = "5px solid #E2AB1D";
     document.getElementById("left_nav_sched_border").style.borderLeft = "5px solid #4D77FF";
     document.getElementById("admin_schedule_link").style.backgroundColor = "#e7e7ff";
   }, 10);
@@ -71,39 +70,38 @@ export default function Admin_Pending_Schedule_Page(){
    }, []);
  
 
-  var array_pending_schedule_ctr = 0;
-  const box_pending_schedule = appointments.map((res) => {
-      if(res.appointment_status === "Pending"){
-      array_pending_schedule_ctr++;
+  var array_approved_schedule_ctr = 0;
+  const box_approved_schedule = appointments.map((res) => {
+      if(res.appointment_status === "Approved"){
+      array_approved_schedule_ctr++;
       return (
-        <EachPendingRow
-          key={array_pending_schedule_ctr}
-          propsKey = {array_pending_schedule_ctr}
-          id = {res.id}
-          email = {res.email}
-          motherID = {res.mother_id}
-          motherFname = {res.mother_fname}
-          motherMname = {res.mother_mname}
-          motherLname = {res.mother_lname}
-          purok = {res.purok}
-          barangay = {res.barangay}
-          municipality = {res.municipality}
-          province = {res.province}
-          appointmentDate = {res.appointment_date}
-          contact = {res.contact}
-          appointmentStatus = {res.appointment_status}
-
-          child_fname = {res.child_fname}
-          child_mname = {res.child_mname}          
-          child_lname = {res.child_lname}
-          child_bdate = {res.child_bdate}
-          child_age = {res.child_age}
-          child_sex = {res.child_sex}
-          child_weight = {res.child_weight}
-          child_placeDelivery = {res.child_placeDelivery}
-          child_vaccineName = {res.child_vaccineName}
-          child_vaccineDate = {res.child_vaccineDate}
-          child_vaccineDose = {res.child_vaccineDose}
+        <EachApprovedRow
+        key={array_approved_schedule_ctr}
+        propsKey = {array_approved_schedule_ctr}
+        id = {res.id}
+        email = {res.email}
+        motherID = {res.mother_id}
+        motherFname = {res.mother_fname}
+        motherMname = {res.mother_mname}
+        motherLname = {res.mother_lname}
+        purok = {res.purok}
+        barangay = {res.barangay}
+        municipality = {res.municipality}
+        province = {res.province}
+        appointmentDate = {res.appointment_date}
+        contact = {res.contact}
+        appointmentStatus = {res.appointment_status}
+        child_fname = {res.child_fname}
+        child_mname = {res.child_mname}          
+        child_lname = {res.child_lname}
+        child_bdate = {res.child_bdate}
+        child_age = {res.child_age}
+        child_sex = {res.child_sex}
+        child_weight = {res.child_weight}
+        child_placeDelivery = {res.child_placeDelivery}
+        child_vaccineName = {res.child_vaccineName}
+        child_vaccineDate = {res.child_vaccineDate}
+        child_vaccineDose = {res.child_vaccineDose}
         />
       ); 
     }
@@ -112,88 +110,22 @@ export default function Admin_Pending_Schedule_Page(){
 
 //Filter Search
 function search_Schedule(){
-  var value = document.getElementById("search_pending_schedule").value;
+  var value = document.getElementById("search_approved_schedule").value;
   value = value.toLowerCase();
   $("#header_body .table_tr").filter(function() {
       $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
   });
-    
   if($('#header_body .table_tr:visible').length === 0) {//if not found
       document.getElementsByClassName("no_schedule_available2")[0].style.display = "flex";
   }
   else if($('#header_body .table_tr:visible').length !== 0){//if found
       document.getElementsByClassName("no_schedule_available2")[0].style.display = "none";
   }
-  if(document.getElementById("search_pending_schedule").value.length === 0){
+  if(document.getElementById("search_approved_schedule").value.length === 0){
     document.getElementsByClassName("no_schedule_available2")[0].style.display = "none";
   }
 }
     
-
-  //Form Reject Schedule
-  const RejectScheduleForm=(e)=>{
-    e.preventDefault();
-    //Sending the data request to call it on backend
-    const sendData = {
-        key : document.getElementById("reject_schedule_modal_key").value,
-        emailTo : document.getElementById("email_reject_key").value,
-        name : document.getElementById("name_reject_key").value,
-        date : document.getElementById("date_reject_key").value,   
-    }
-    document.getElementById("reject_sched_modal_container").style.display = "none";
-    document.getElementById("header_body").style.display ="none";//Table will hide when the button is triggered
-    document.getElementById("table_loader").style.display ="flex";//Loader will show when the button is triggered
-    axios.post(localStorage.getItem("url_hosting")+'Reject_Schedule.php',sendData)
-    .then((result)=>{
-        if(result.data.status === "Success"){
-          loadAppointment();
-          document.getElementById("slide_modal_container").style.left = "75px";
-          setTimeout(function () {
-            document.getElementById("slide_modal_container").style.left = "-100%";
-          }, 2000);
-          document.getElementById("table_loader").style.display ="none"; //Loader will hide after get success status
-          document.getElementById("header_body").style.display ="flex"; //Table will show after getting success status
-        }
-        else{
-          alert("SQL error")
-        }
-    })
-    //Axios for mailer
-    axios.post(localStorage.getItem("url_hosting")+'Reject_Schedule_Mailer.php',sendData).then((result)=>{})
-  }
-
-  //Form Accept Schedule
-  const AccpetScheduleForm=(e)=>{
-    e.preventDefault();
-    //Sending the data request to call it on backend
-    const sendData = {
-      key : document.getElementById("accept_modal_key").value,
-      emailTo : document.getElementById("email_accept_key").value,
-      name : document.getElementById("name_accept_key").value,
-      date : document.getElementById("date_accept_key").value,   
-    }
-    document.getElementById("Accept_sched_modal_container").style.display = "none";
-    document.getElementById("header_body").style.display ="none";//Table will hide when the button is triggered
-    document.getElementById("table_loader").style.display ="flex";//Loader will show when the button is triggered
-    axios.post(localStorage.getItem("url_hosting")+'Accept_Schedule.php',sendData)
-    .then((result)=>{
-      if(result.data.status === "Success"){
-        loadAppointment();
-        document.getElementById("slide_modal_container").style.left = "75px";
-        setTimeout(function () {
-          document.getElementById("slide_modal_container").style.left = "-100%";
-        }, 2000);
-        document.getElementById("table_loader").style.display ="none"; //Loader will hide after get success status
-        document.getElementById("header_body").style.display ="flex"; //Table will show after getting success status
-      }
-      else{
-        alert("SQL error")
-      }
-    })
-    //Axios for mailer
-    axios.post(localStorage.getItem("url_hosting")+'Accept_Schedule_Mailer.php',sendData).then((result)=>{})
-  }
-
   //Page loader
   setTimeout(function () {
     document.getElementById("header_body").style.display ="flex";
@@ -240,12 +172,13 @@ function search_Schedule(){
       div[i].style.display = "flex";
     }
     document.getElementsByClassName("no_schedule_available2")[0].style.display ="none";
-    document.getElementById("search_pending_schedule").value = "";
+    document.getElementById("search_approved_schedule").value = "";
   }
 
   //Cancel filter
   function cancelFilter(){
     handleCloseEffect1();
+
   }
 
   //Clicking Apply Filter
@@ -258,12 +191,12 @@ function search_Schedule(){
      toArray[1] + "/" + toArray[0] + "/" + toArray[2];
     document.getElementById("input_from").value = from;
     document.getElementById("input_to").value = to;
-    document.getElementById("search_pending_schedule").value = "";
+    document.getElementById("search_approved_schedule").value = "";
     document.getElementById("basic-menu1").style.display = "none";
     var div = document.getElementsByClassName("each_Table");  
       if (document.getElementById("input_from").value !== "" && document.getElementById("input_to").value !== "") {
         for (var i = 0; i < div.length; i++) {
-          var key = document.getElementsByClassName("pending_Date")[i].textContent;
+          var key = document.getElementsByClassName("approved_Date")[i].textContent;
           if (key) {
             if ( key >= document.getElementById("input_from").value && key <= document.getElementById("input_to").value) {
               div[i].style.display = "flex";
@@ -278,7 +211,7 @@ function search_Schedule(){
             document.getElementsByClassName("no_schedule_available2")[0].style.display ="none";
           }
         }
-      } 
+      }
   }
 
   //Voice search
@@ -293,10 +226,10 @@ function search_Schedule(){
     recognition.onresult = function(event) {
 
       if (event.results[0][0].transcript.indexOf('.') !== -1) {
-        document.getElementById('search_pending_schedule').value = event.results[0][0].transcript.slice(0, -1);
+        document.getElementById('search_approved_schedule').value = event.results[0][0].transcript.slice(0, -1);
         document.getElementById("speak_text").textContent = event.results[0][0].transcript.slice(0, -1);
       } else {
-        document.getElementById('search_pending_schedule').value = event.results[0][0].transcript;
+        document.getElementById('search_approved_schedule').value = event.results[0][0].transcript;
         document.getElementById("speak_text").textContent = event.results[0][0].transcript;
       }
       search_Schedule();
@@ -312,6 +245,7 @@ function search_Schedule(){
       document.getElementsByClassName("speech_Modal")[0].style.display="none";
   } 
 
+
     return(
     <div className="admin_schedule_container">
     <Admin_Left_Navigation_Bar/>
@@ -319,7 +253,7 @@ function search_Schedule(){
     <div className="admin_content">
         <div className="admin_main_content">
             <div className="container">
-                <h1>Pending <span style={{color:"#4D77FF"}}>Schedules</span></h1>
+                <h1>Approved <span style={{color:"#4D77FF"}}>Schedules</span></h1>
 
                 <div className="schedule_top">
                 <Grid
@@ -335,14 +269,14 @@ function search_Schedule(){
                       justifyContent="space-between"
                       alignItems="center"
                     >
-                      {array_pending_schedule_ctr === 0 ?
+                      {array_approved_schedule_ctr === 0 ?
                        "" 
                        :   
                       <div className="search_container">
                         <div className="icon">
                           <img alt="" src={Search_Icon}/>
                         </div>
-                        <input type="text" placeholder="Search here" id="search_pending_schedule" onKeyUp={search_Schedule}/>
+                        <input type="text" placeholder="Search here" id="search_approved_schedule" onKeyUp={search_Schedule}/>
                         <div className="icon">
                           <LightTooltip title="Search by voice">
                             <img alt="" src={Mic_Icon} onClick={record}/>
@@ -429,7 +363,7 @@ function search_Schedule(){
                       <span className="header_span" style={{fontWeight:"700",textAlign:"center"}}>STATUS</span>
                   </div>
                   <div className="header6">
-                      <span className="header_span" style={{fontWeight:"700",textAlign:"center"}}>ACTIONS</span>
+                      <span className="header_span" style={{fontWeight:"700",textAlign:"center"}}>ACTION</span>
                   </div>
                 </div>
 
@@ -441,11 +375,11 @@ function search_Schedule(){
                 </div>
 
                 <div className="header_table header_body" id="header_body" style={{display:"none"}}>
-                    {array_pending_schedule_ctr === 0 ?
+                    {array_approved_schedule_ctr === 0 ?
                     <div className='no_schedule_available no_schedule_available1'>
                       <img src={No_Records_Available} alt=""/>
                       <p style={{fontSize:"1.3rem"}}>No schedule available</p>
-                    </div>  :   box_pending_schedule
+                    </div>  :   box_approved_schedule
                    } 
 
                     <div div className='no_schedule_available no_schedule_available2' style={{display:"none"}}>
@@ -455,7 +389,7 @@ function search_Schedule(){
                 </div>
 
                 <div className="bottom_sched">
-                   <p>{"Total of "+array_pending_schedule_ctr+" pending schedules"}</p>
+                   <p>{"Total of "+array_approved_schedule_ctr+" approved schedules"}</p>
                    <div className="btn">
                         <button>Reject</button>
                         <button>Accept</button>
@@ -468,23 +402,10 @@ function search_Schedule(){
     <Admin_Right_Navigation_Bar/>
     </div>
 
-        {/*Reject appointment container */}
-        <Reject_Modal
-          title = "Reject this appointment?"
-          description = "If you reject this appointment it will be gone forever. Are you sure you want to proceed?"
-          formAction = {RejectScheduleForm}
-        />
-        {/*Accept appointment container */}
-        <Accept_Modal
-           title = "Accept this appointment?"
-           description = "If you accpet this appointment an email will send to the patient. Are you sure you want to proceed?"
-           formAction = {AccpetScheduleForm}
-        />
         {/*View schedule modal*/}
         <ViewScheduleInfo/>
         {/*Success slide modal*/}
         <SuccesSlideModal/>
-
         {/*MODAL FOR SPEECH RECOGNITION */}
         <div className="speech_Modal">
           <LightTooltip title="Close">
