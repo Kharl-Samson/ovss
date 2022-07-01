@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { styled } from '@mui/material/styles';
 import Tooltip, { tooltipClasses } from '@mui/material/Tooltip';
 import "./Left_NavigationBar.css";
+import "../../Modals/modal.css";
 
 import Dashboard_Icon from "../../Assets/Icons/Dashboard_Icon.png";
 import Schedule_Icon from "../../Assets/Icons/Schedule_Icon.png";

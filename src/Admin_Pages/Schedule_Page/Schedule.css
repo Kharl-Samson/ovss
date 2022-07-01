@@ -1,3 +1,6 @@
+body{
+    overflow-x: hidden;
+}
 .admin_schedule_container{
     height: 100vh;
     width: 100%;
@@ -123,19 +126,8 @@
     height: auto;
     width: 94%;
     padding: 10px 3%;
-    background-color: #eeeefb;
+    background-color: #E3E9EF;
     display: flex;
-}
-.admin_content .admin_main_content > .container .header_table .header1{
-    height: 50px;
-    width: 5%;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-}
-.admin_content .admin_main_content > .container .header_table .header1 input[type="checkbox"]{
-    transform: scale(1.5);
-    margin-left: 6px;
 }
 .admin_content .admin_main_content > .container .header_table .header2{
     height: 50px;
@@ -160,7 +152,7 @@
 }
 .admin_content .admin_main_content > .container .header_table .header5{
     height: 50px;
-    width: 15%;
+    width: 20%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -274,6 +266,205 @@
     font-weight: 600;
 }
 
+
+/*View full info schedule*/
+.view_schedule_container{
+    z-index: 101;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.292);
+    position: fixed;
+    inset: 0;
+    display: none;
+    justify-content: flex-end;
+}
+.view_schedule{
+    margin-right: -100%;
+    height: 100%;
+    width: 650px;
+    background-color: #ffff;
+    transition: .5s ease;
+}
+.view_schedule .close_btn{
+    height: auto;
+    float: right;
+}
+.view_schedule .close_btn span{
+    font-size: 3rem;
+    font-weight: 800;
+    margin-right: 20px;
+}
+.view_schedule .close_btn span:hover{
+    cursor: pointer;
+    opacity: 70%;
+}
+.view_schedule .top{
+    height: auto;
+    width: 90%;
+    margin: 0% auto;
+    margin-top: 5%;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #4D77FF;
+}
+.view_schedule .top .first{
+    margin-bottom: 40px;
+    height: 5vh;
+    width: 90%;
+    display: flex;
+    align-items: center;
+}
+.view_schedule .top .first img{
+    height: 30px;
+    width: auto;
+    margin-right: 15px;
+}
+.view_schedule .top .first p{
+    line-height: 1.1;
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.view_schedule .top .info_container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    margin-top: 20px;
+}
+.view_schedule .top .info_container .left_right{
+    width: 27.5%;
+    height: 100%;
+}
+.view_schedule .top .info_container .left_right label,
+.view_schedule .top .info_container .center label{
+    font-size: .9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #8A8A8A;
+}
+.view_schedule .top .info_container .left_right p,
+.view_schedule .top .info_container .center p{
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+.view_schedule .top .info_container .left_right .appoint_stat{
+    background-color: #f8edc3;
+    color: #E2AB1D;
+    border-radius: 8px;
+    padding: 5px 20px;
+    float: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.view_schedule .top .info_container .left_right .appoint_stat span{
+    font-size: .9rem;
+    font-weight: 600;
+    margin-top: -2px;
+}
+.view_schedule .top .info_container .center{
+    width: 45%;
+    height: 100%;
+}
+
+.view_schedule .bottom{
+    width: 90%;
+    height: auto;
+    margin: 0% auto;
+    margin-top: 4%;
+}
+.view_schedule .bottom .first{
+    margin-bottom: 10px;
+    height: 5vh;
+    width: 90%;
+    display: flex;
+    align-items: center;
+}
+.view_schedule .bottom .first img{
+    height: 30px;
+    width: auto;
+    margin-right: 15px;
+}
+.view_schedule .bottom .first p{
+    line-height: 1.1;
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.view_schedule .bottom .info_container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    margin-top: 20px;
+}
+.view_schedule .bottom .info_container .left_right{
+    width: 27.5%;
+    height: 100%;
+}
+.view_schedule .bottom .info_container .left_right label,
+.view_schedule .bottom .info_container .center label{
+    font-size: .9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #8A8A8A;
+}
+.view_schedule .bottom .info_container .left_right p,
+.view_schedule .bottom .info_container .center p{
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+.view_schedule .bottom .info_container .left_right .appoint_stat{
+    background-color: #f8edc3;
+    color: #E2AB1D;
+    border-radius: 8px;
+    padding: 5px 20px;
+    float: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.view_schedule .bottom .info_container .left_right .appoint_stat span{
+    font-size: .9rem;
+    font-weight: 600;
+    margin-top: -2px;
+}
+.view_schedule .bottom .info_container .center{
+    width: 45%;
+    height: 100%;
+}
+
+.filter_btn{
+    width: 95%;
+    margin: 0% auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+.filter_btn .left span{
+    font-weight: 800;
+    font-size: 1rem;
+    color: #696CFF;
+}
+.filter_btn .left span:hover,.filter_btn .right span:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.filter_btn .right span:nth-child(1){
+    font-weight: 800;
+    font-size: 1rem;
+    color: rgb(68, 68, 68);
+}
+.filter_btn .right span:nth-child(2){
+    margin-left: 10px;
+    font-weight: 800;
+    font-size: 1rem;
+    color: #696CFF;
+}
+
 /*RESPONSIVE*/
 @media screen and (max-width: 851px) {
     .admin_content{
@@ -299,11 +490,8 @@
     .admin_content .admin_main_content > .container  .box_stats .container .right p:nth-child(2){
         font-size: 2.5rem;
     }
-    .admin_content .admin_main_content > .container .header_table .header1{
-        width: 10%;
-    }
     .admin_content .admin_main_content > .container .header_table .header2{
-        width: 20%;
+        width: 25%;
     }
     .admin_content .admin_main_content > .container .header_table .header3{
         width: 30%;
@@ -312,7 +500,7 @@
         display: none;
     }
     .admin_content .admin_main_content > .container .header_table .header5{
-        width: 20%;
+        width: 25%;
     }
     .admin_content .admin_main_content > .container .header_table .header6{
         width: 20%;
@@ -328,9 +516,6 @@
 @media screen and (max-width: 501px) {
     .admin_content .admin_main_content > .container .schedule_top .search_container, .filter_date{
         width: 85%;
-    }
-    .admin_content .admin_main_content > .container .header_table .header1{
-        display: none;
     }
     .admin_content .admin_main_content > .container .header_table .header2{
         width: 70%;
@@ -364,7 +549,7 @@
         margin-bottom: 10px;
     }
     .admin_content .admin_main_content > .container .bottom_sched .btn{
-        display: flex;
+        display: none;
         justify-content: flex-end;
         align-items: center;
     }

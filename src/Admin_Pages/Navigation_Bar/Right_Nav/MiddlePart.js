@@ -19,9 +19,10 @@ import Slide from '@mui/material/Slide';
 import Grid from '@mui/material/Grid';
 import SearchIcon  from "../Right_Nav/search.svg";
 import TaskBoxAll_component from './TaskScheduler/EachTaskboxAll';
-import Delete_Modal from '../../../Modals/DeleteModal';
+
 import Edit_Task_Modal from './TaskScheduler/EditTask';
 import $ from 'jquery'; 
+import Delete_Modal from '../../../Modals/DeleteModal';
 
 
 const Alert = React.forwardRef(function Alert(props, ref) {
@@ -76,7 +77,6 @@ export default function Middle_Nav_Part(){
   let email_key = localStorage.getItem('admin_login_email');
   //Hook for view the list of task of user
   const [task, setTask] = useState([]);  
-
   const loadTasks = async () =>{
       const result = await axios.get(localStorage.getItem("url_hosting")+"List_Of_Task.php");
       setTask(result.data.phpresult);

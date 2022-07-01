@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import { styled } from '@mui/material/styles';
 import Tooltip, { tooltipClasses } from '@mui/material/Tooltip';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
@@ -10,7 +10,7 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import CheckIcon from '@mui/icons-material/Check';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
-export default function EachPendingRow(){
+export default function EachPendingRow(props){
 
    //Tooltip
    const LightTooltip = styled(({ className, ...props }) => (
@@ -33,26 +33,72 @@ export default function EachPendingRow(){
       setAnchorEl(null);
   };
 
+   //Showing delete modal
+   function Show_Appointment_Delete_Modal(){
+       document.getElementById("reject_sched_modal_container").style.display = "flex";
+       document.getElementById("reject_schedule_modal_key").value = props.id;
+       document.getElementById("email_reject_key").value = props.email;
+       document.getElementById("name_reject_key").value = props.motherFname+" "+props.motherLname;
+       document.getElementById("date_reject_key").value = props.appointmentDate;
+   }
+
+    //Showing Accept modal
+    function Show_Appointment_Accept_Modal(){
+        document.getElementById("Accept_sched_modal_container").style.display = "flex";
+        document.getElementById("accept_modal_key").value = props.id;
+        document.getElementById("email_accept_key").value = props.email;
+        document.getElementById("name_accept_key").value = props.motherFname+" "+props.motherLname;
+        document.getElementById("date_accept_key").value = props.appointmentDate;
+    }
+ 
+    //View schedule Modal
+    function ViewScheduleModal(){
+        document.getElementById("view_schedule_container").style.display = "flex";
+        setTimeout(function () {
+            document.getElementById("view_schedule").style.marginRight = "0";
+        }, 10);
+        document.getElementById("mother_fname").textContent = props.motherFname;
+        document.getElementById("mother_mname").textContent = props.motherMname;
+        document.getElementById("mother_lname").textContent = props.motherLname;
+        document.getElementById("mother_id").textContent = props.motherID;
+        document.getElementById("mother_email").textContent = props.email;
+        document.getElementById("mother_contact").textContent = props.contact;
+        document.getElementById("mother_purok").textContent = props.purok;
+        document.getElementById("mother_barangay").textContent = props.barangay;
+        document.getElementById("mother_city").textContent = props.municipality;
+        document.getElementById("mother_province").textContent = props.province;
+        document.getElementById("mother_date").textContent = props.appointmentDate;
+        document.getElementById("mother_status").textContent = props.appointmentStatus;
+        document.getElementById("child_fname").textContent = props.child_fname;
+        document.getElementById("child_mname").textContent = props.child_mname;
+        document.getElementById("child_lname").textContent = props.child_lname;
+        document.getElementById("child_bday").textContent = props.child_bdate;
+        document.getElementById("child_age").textContent = props.child_age+" days old";
+        document.getElementById("child_sex").textContent = props.child_sex;
+        document.getElementById("child_weight").textContent = props.child_weight+" kgs";
+        document.getElementById("child_pod").textContent = props.child_placeDelivery;
+        document.getElementById("child_vaxName").textContent = props.child_vaccineName;
+        document.getElementById("child_vaxDate").textContent = props.child_vaccineDate;
+        document.getElementById("child_vaxDose").textContent = props.child_vaccineDose+" Dose";
+    }
+
     return(
-    <div className="table_tr">
-        <div className="header1" style={{borderBottom:"1px solid rgb(150, 150, 150)"}}>
-          <input type="checkbox"/>
+    <div className="table_tr each_Table" id="each_Table">
+        <div className="header2" style={{borderBottom:"1px solid #DCE3EC"}}>
+            <span className="header_span pending_Date" style={{textAlign:"center",fontSize:".9rem"}}>{props.appointmentDate}</span>
         </div>
-        <div className="header2" style={{borderBottom:"1px solid rgb(150, 150, 150)"}}>
-            <span className="header_span" style={{textAlign:"center",fontSize:".9rem"}}>06/24/2022</span>
+        <div className="header3" style={{borderBottom:"1px solid #DCE3EC"}}>
+            <span className="header_span" style={{textAlign:"center",fontSize:".9rem"}}>{props.motherFname+" "+props.motherLname}</span>
         </div>
-        <div className="header3" style={{borderBottom:"1px solid rgb(150, 150, 150)"}}>
-            <span className="header_span" style={{textAlign:"center",fontSize:".9rem"}}>Jayson Batoon</span>
+        <div className="header4" style={{borderBottom:"1px solid #DCE3EC"}}>
+            <span className="header_span" style={{textAlign:"center",fontSize:".9rem"}}>{props.contact}</span>
         </div>
-        <div className="header4" style={{borderBottom:"1px solid rgb(150, 150, 150)"}}>
-            <span className="header_span" style={{textAlign:"center",fontSize:".9rem"}}>09396164116</span>
-        </div>
-        <div className="header5" style={{borderBottom:"1px solid rgb(150, 150, 150)"}}>
+        <div className="header5" style={{borderBottom:"1px solid #DCE3EC"}}>
             <div className="header_status">
-               Pending
+               {props.appointmentStatus}
              </div>
         </div>
-        <div className="header6" style={{borderBottom:"1px solid rgb(150, 150, 150)"}}>
+        <div className="header6" style={{borderBottom:"1px solid #DCE3EC"}}>
             <span className="header_span" style={{textAlign:"center",fontSize:".9rem"}}
                 onClick={handleClick}
                 size="small"
@@ -62,8 +108,7 @@ export default function EachPendingRow(){
                 aria-expanded={open ? 'true' : undefined}
             >
               <LightTooltip title="See more actions">
-                <MoreVertIcon id="action_table_btn"
-                />
+                <MoreVertIcon id="action_table_btn"/>
               </LightTooltip>
             </span>
             <Menu
@@ -102,19 +147,23 @@ export default function EachPendingRow(){
                 anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
             >
                 <MenuItem style={{display:"none"}}></MenuItem>
-                <MenuItem>
+
+                <form>
+                <MenuItem onClick={ViewScheduleModal}>
                     <ListItemIcon>
                         <VisibilityIcon fontSize="medium"/>
                     </ListItemIcon>
                     &nbsp;&nbsp;View &nbsp;&nbsp;&nbsp;
                 </MenuItem>
-                <MenuItem>
+                </form>
+
+                <MenuItem onClick={Show_Appointment_Accept_Modal}>
                     <ListItemIcon>
                         <CheckIcon fontSize="medium"/>
                     </ListItemIcon>
                     &nbsp;&nbsp;Accept &nbsp;&nbsp;&nbsp;
                 </MenuItem>
-                <MenuItem>
+                <MenuItem onClick={Show_Appointment_Delete_Modal}>
                     <ListItemIcon>
                         <DeleteForeverIcon fontSize="medium"/>
                     </ListItemIcon>

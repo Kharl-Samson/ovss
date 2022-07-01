@@ -53,6 +53,18 @@ export default function CloseModals(){
         else if (event.target === document.getElementById("edit_task_modal_container")) {
             document.getElementById("edit_task_modal_container").style.display = "none";
         }  
+        else if (event.target === document.getElementById("reject_sched_modal_container")) {
+            document.getElementById("reject_sched_modal_container").style.display = "none";
+        }  
+        else if (event.target === document.getElementById("Accept_sched_modal_container")) {
+            document.getElementById("Accept_sched_modal_container").style.display = "none";
+        }  
+        else if (event.target === document.getElementById("view_schedule_container")) {
+            setTimeout(function () {
+                document.getElementById("view_schedule_container").style.display = "none";
+            }, 400);
+            document.getElementById("view_schedule").style.marginRight = "-100%";
+        }  
     }
 }
 
