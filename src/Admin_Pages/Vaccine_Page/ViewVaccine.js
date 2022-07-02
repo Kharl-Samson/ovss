@@ -40,7 +40,8 @@ return(
 
             <div className="second">
               <div className="left">
-                <img alt="" id="vaccine_image" src={localStorage.getItem("url_vaccine")+"ipv.png"}/>
+                <img alt="" id="vaccine_image" src=""
+                 onError={(e)=>{e.target.onerror = null; e.target.src=localStorage.getItem("url_vaccine")+"default_img.jpg"}}/>
               </div>
               <div className="right">
                 <label>VACCINE NAME</label>

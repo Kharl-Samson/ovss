@@ -430,6 +430,224 @@ body{
 
 
 
+
+/*Edit vaccine modal*/
+.edit_vaccine_container{
+    z-index: 101;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.292);
+    position: fixed;
+    inset: 0;
+    display: none;
+    justify-content: flex-end;
+}
+.edit_vaccine_container #edit_container{
+    margin-right: -100%;
+    transition: .5s ease;
+}
+.edit_vaccine_container .edit_container{
+    height: 100%;
+    width: 600px;
+    background-color: #ffff;
+    display: flex;
+    flex-direction: column;
+}
+.edit_container .close_btn{
+    height: auto;
+    display: flex;
+    justify-content: flex-end;
+}
+.edit_container .close_btn span{
+    font-size: 3rem;
+    font-weight: 800;
+    margin-right: 20px;
+}
+.edit_container .close_btn span:hover{
+    cursor: pointer;
+    opacity: 70%;
+}
+.edit_container .top{
+    height: auto;
+    width: 85%;
+    margin: 0% auto;
+    margin-top: -25px;
+}
+.edit_container .top .first{
+    margin-bottom: 20px;
+    height: 5vh;
+    width: 95%;
+    display: flex;
+    align-items: center;
+}
+.edit_container .top .first img{
+    height: 30px;
+    width: auto;
+    margin-right: 15px;
+}
+.edit_container .top .first p{
+    line-height: 1.1;
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 800;
+}
+.edit_container .top .second{
+    width: 100%;
+    height: 200px;
+    display: flex;
+}
+.edit_container .top .second .left{
+    width: 40%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.edit_container .top .second .left img{
+    height: 150px;
+    width: 150px;
+    background-color: #4D77FF;
+    border-radius: 10px;
+    object-fit: cover;
+}
+.edit_container .top .second .right{
+    width: 60%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.edit_container .top .second .right .upload_btn{
+    font-size: 1rem;
+    width: 120px;
+    padding: 8px 0;
+    font-weight: 700;
+    background-color: #e7eaee;
+    border: 2px solid #e7eaee;
+    border-radius: 5px;
+    color: #4D77FF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+}
+.edit_container .top .second .right .upload_btn:hover,
+.edit_container .top .second .right .remove_btn:hover{
+    border: 2px solid #000000;
+    cursor: pointer;
+}
+.edit_container .top .second .right .remove_btn{
+    font-size: 1rem;
+    width: 120px;
+    padding: 8px 0;
+    font-weight: 700;
+    background-color: #ffff;
+    border: 2px solid #4D77FF;
+    border-radius: 5px;
+    color: #4D77FF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+}
+
+
+.edit_container .bottom{
+    flex-grow: 1;
+    width: 100%;
+    margin: 0% auto;
+    margin-bottom: 5%;
+    overflow-y: scroll;
+}
+.edit_container .bottom::-webkit-scrollbar {
+    width: 4px;
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+}
+.edit_container .bottom::-webkit-scrollbar-track {
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+}
+.edit_container .bottom::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    background: #4D77FF; 
+}
+.edit_container .bottom::-webkit-scrollbar-thumb:window-inactive {
+    background: transparent; 
+}
+.edit_container .bottom .content{
+    width: 85%;
+    margin: 0% auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+.edit_container .bottom .content label{
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    font-weight: 800;
+}
+.edit_container .bottom .content input{
+    border:2px solid #b9c5d2;
+    font-size: 1rem;
+    padding: 10px 0;
+    font-weight: 500;
+    outline-color: #4D77FF;
+    text-indent: 10px;
+    border-radius: 10px;
+}
+.edit_container .bottom .content textarea{
+    border:2px solid #b9c5d2;
+    resize: none;
+    height: 100px;
+    font-size: 1rem;
+    padding: 10px 2%;
+    font-weight: 500;
+    outline-color: #4D77FF;
+    text-indent: 10px;
+    border-radius: 10px;
+}
+.edit_container .bottom .content .flex_bot{
+    width: 100%;
+    display: flex;
+}
+.edit_container .bottom .content .flex_bot .box{
+    width: 50%;
+}
+.edit_container .bottom .content .flex_bot .box input{
+    margin-top: 10px;
+    width: 90%;
+}
+.edit_container .bottom .content .button{
+    margin-top: 20px;
+    height: 40px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.edit_container .bottom .content .button button{
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0 10px;
+    height: 100%;
+    width: 120px;
+    border-radius: 5px;
+}
+.edit_container .bottom .content .button button:hover{
+    cursor: pointer;
+    opacity: 80%;
+}
+.edit_container .bottom .content .button button[type="button"]{
+    border: 2px solid #4D77FF;
+    color: #4D77FF;
+}
+.edit_container .bottom .content .button button[type="submit"]{
+    border: 2px solid #4D77FF;
+    background-color: #4D77FF;
+    color: #ffff;
+}
+
 /*RESPONSIVE*/
 @media screen and (max-width: 851px) {
     .admin_content{

@@ -71,7 +71,12 @@ export default function CloseModals(){
             }, 400);
             document.getElementById("view_container").style.marginRight = "-100%";
         }  
+        else if (event.target === document.getElementById("edit_vaccine_container")) {
+            setTimeout(function () {
+                document.getElementById("edit_vaccine_container").style.display = "none";
+            }, 400);
+            document.getElementById("edit_container").style.marginRight = "-100%";
+        }  
     }
 }
-
 

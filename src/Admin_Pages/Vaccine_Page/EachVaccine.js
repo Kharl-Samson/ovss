@@ -52,6 +52,24 @@ export default function EachVaccine(props){
     
   }
 
+  function EditVaccineModal(){
+    document.getElementById("edit_vaccine_container").style.display = "flex";
+    setTimeout(function () {
+        document.getElementById("edit_container").style.marginRight = "0";
+    }, 10);
+
+    document.getElementById("vaccine_image_edit").src = localStorage.getItem("url_vaccine")+props.image;
+    document.getElementById("image_input").value = props.image;
+    document.getElementById("edit_vax_id").value = props.id;
+    document.getElementById("edit_vax_name").value = props.name;
+    document.getElementById("edit_vax_abbreviation").value = props.abbreviation;
+    document.getElementById("edit_vax_descripiton").value = props.description;
+    document.getElementById("edit_vax_disease").value = props.prevented;
+    document.getElementById("edit_vax_age").value = props.age;
+    document.getElementById("edit_vax_dosage").value = props.dose_no;
+    document.getElementById("edit_vax_days").value = props.days_interval;
+  }
+
     return(
     <div className="vaccine_cotainer">
 
@@ -112,7 +130,7 @@ export default function EachVaccine(props){
             &nbsp;&nbsp;View &nbsp;&nbsp;&nbsp;
           </MenuItem>
 
-          <MenuItem>
+          <MenuItem onClick={EditVaccineModal}>
             <ListItemIcon>
               <ModeEditIcon fontSize="medium"/>
             </ListItemIcon>
@@ -120,7 +138,9 @@ export default function EachVaccine(props){
           </MenuItem>
         </Menu>
 
-        <img alt="" src={localStorage.getItem("url_vaccine")+props.image}/>
+        <img alt="" src={localStorage.getItem("url_vaccine")+props.image}
+        onError={(e)=>{e.target.onerror = null; e.target.src=localStorage.getItem("url_vaccine")+"default_img.jpg"}}
+        />
         <div className='bot1'>
             <span>{props.abbreviation}</span>
         </div>

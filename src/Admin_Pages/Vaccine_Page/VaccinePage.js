@@ -19,6 +19,8 @@ import "react-date-range/dist/theme/default.css"; // theme css file
 import EachVaccine from './EachVaccine';
 import speechRecog from "./Images/speechRecog.gif";
 import ViewVaccine from './ViewVaccine';
+import EditVaccine from './EditVaccine';
+import SuccesSlideModal from '../../Modals/SuccesSlideModal';
 
 export default function Admin_Vaccine_Page(){
 
@@ -129,6 +131,42 @@ function record() {
   } 
 
 
+  //Edit vaccine form 
+  const editForm=(e)=>{
+    e.preventDefault();
+    const data = new FormData();          
+    //Sending the data request to call it on backend
+    const sendData = {
+      id: document.getElementById("edit_vax_id").value,
+      name: document.getElementById("edit_vax_name").value,
+      abbreviation: document.getElementById("edit_vax_abbreviation").value,
+      description: document.getElementById("edit_vax_descripiton").value,
+      prevented: document.getElementById("edit_vax_disease").value,
+      age: document.getElementById("edit_vax_age").value,
+      dose_no: document.getElementById("edit_vax_dosage").value,
+      days_interval: document.getElementById("edit_vax_days").value,
+      image: document.getElementById("image_input").value,
+    }
+    axios.post(localStorage.getItem("url_hosting")+"Edit_Vaccine.php",sendData).then((result)=>{
+      if(result.data.status === "Success"){
+          loadVaccines();
+          setTimeout(function () {
+            document.getElementById("edit_vaccine_container").style.display = "none";
+          }, 400);
+          document.getElementById("edit_container").style.marginRight = "-100%";
+          document.getElementById("slide_modal_container").style.left = "75px";
+          setTimeout(function () {
+            document.getElementById("slide_modal_container").style.left = "-100%";
+          }, 2000);
+      }
+    })//End of axios
+    for (let i = 0; i < document.getElementsByName("img_vaccine[]").length; i++) {
+      data.append("file[]", document.getElementsByName("img_vaccine[]")[i].files[0]);
+    }
+    let url = localStorage.getItem("url_hosting")+"Edit_Vaccine.php";
+    axios.post(url, data, {}).then((res) => {});
+  }
+
 return(
   <div className="admin_schedule_container">
     <Admin_Left_Navigation_Bar/>
@@ -209,17 +247,25 @@ return(
     </div>
 
 
-        {/*MODAL FOR SPEECH RECOGNITION */}
-        <div className="speech_Modal">
-          <LightTooltip title="Close">
-            <p className="close_speech" onClick={close_speechModal}>&#215;</p>
-          </LightTooltip> 
-          <p id="speak_text">Speak now</p>
-          <img src={speechRecog}/> 
+      {/*MODAL FOR SPEECH RECOGNITION */}
+      <div className="speech_Modal">
+        <LightTooltip title="Close">
+          <p className="close_speech" onClick={close_speechModal}>&#215;</p>
+        </LightTooltip> 
+        <p id="speak_text">Speak now</p>
+        <img src={speechRecog}/> 
       </div>
 
        {/*MODAL FOR VIEW VACCINE */}
        <ViewVaccine/>
+
+      {/*MODAL FOR EDIT VACCINE */}
+      <EditVaccine
+        formAction = {editForm}
+      />
+
+      {/*Success slide modal*/}
+      <SuccesSlideModal/>
 
   </div>
 )
