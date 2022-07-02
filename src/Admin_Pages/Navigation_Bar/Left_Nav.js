@@ -249,17 +249,16 @@ return(
 
 
 
-      <div id="link_dashboard" style={{marginBottom: "10px"}}  onClick={manage_vaccine_choice}>
-        <div className="link_container">
-            <div className="left">
-                <img alt="" src={Vaccine_Icon}/>
-            </div>
-            <div className="right"><span>Manage Vaccines</span>
-            <LightTooltip title="Expand">
-                <span id="expand_span_vaccine">&#x3e;</span>
-            </LightTooltip></div>
-        </div>
+      <div className="link_container" style={{marginBottom: "10px"}} id="admin_vax_link" onClick={manage_vaccine_choice}>
+          <div className="left" id="left_nav_vaccine_border">
+              <img alt="" src={Vaccine_Icon}/>
+          </div>
+          <div className="right"><span>Manage Vaccines</span>
+          <LightTooltip title="Expand">
+              <span id="expand_span_vaccine">&#x3e;</span>
+          </LightTooltip></div>
       </div>
+
 
               <div className="choice_container" id="manage_vaccine_choice">
                 <div className="link_container">
@@ -271,14 +270,19 @@ return(
                   </div>
                 </div>
 
-                <div className="link_container">
-                  <div className="left">
+              <div id="link_vaccine_report">
+                <Link to="/Administration_Vaccine_Management" style={{textDecoration:"none"}}>
+                <div className="link_container" id="admin_Vaccine_Management_link">
+                  <div className="left" id="left_nav_Vaccine_Management_border">
                       <img alt="" src={Vaccine_Report_Icon}/>
                   </div>
                   <div className="right">
                     <span>Vaccine Report</span>
                   </div>
                 </div>
+                </Link>
+              </div>  
+
               </div>
 
       <div id="link_dashboard" style={{marginBottom: "10px"}}>

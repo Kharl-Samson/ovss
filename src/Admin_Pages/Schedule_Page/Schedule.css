@@ -266,6 +266,9 @@ body{
     font-weight: 600;
 }
 
+#voice_search_icon:hover{
+    cursor: pointer;
+}
 
 /*View full info schedule*/
 .view_schedule_container{
@@ -611,5 +614,41 @@ body{
         color: #ffff;
         border-radius: 5px;
     }
+ 
     
+    .view_schedule{
+        width: 100%;
+    }
+    .view_schedule .top .first img{
+        height: 25px;
+    }
+    .view_schedule .top .first p{
+        font-size: 1.5rem;
+    }
+
+    .view_schedule .bottom .first{
+        margin-bottom: 40px;
+    }
+    .view_schedule .bottom .first img{
+        height: 25px;;
+    }
+    .view_schedule .bottom .first p{
+        font-size: 1.5rem;
+    }
+
+    .view_schedule .top .info_container .left_right p,
+    .view_schedule .top .info_container .center p{
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        margin-right: 10px;
+    }
+    .view_schedule .bottom .info_container .left_right p,
+    .view_schedule .bottom .info_container .center p{
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        margin-right: 10px;
+    }
+
 }

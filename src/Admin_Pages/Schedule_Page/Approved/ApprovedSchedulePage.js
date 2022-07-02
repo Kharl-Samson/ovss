@@ -51,8 +51,8 @@ export default function Admin_Approved_Schedule_Page(){
   //Setting the color of active navigation text
   setTimeout(function () {
     document.getElementById("link_approved_sched").style.pointerEvents="none";
-    document.getElementById("admin_approved_schedule_link").style.backgroundColor = "#FFF7DB";
-    document.getElementById("left_nav_approved_sched_border").style.borderLeft = "5px solid #E2AB1D";
+    document.getElementById("admin_approved_schedule_link").style.backgroundColor = "#e7e7ff";
+    document.getElementById("left_nav_approved_sched_border").style.borderLeft = "5px solid #4D77FF";
     document.getElementById("left_nav_sched_border").style.borderLeft = "5px solid #4D77FF";
     document.getElementById("admin_schedule_link").style.backgroundColor = "#e7e7ff";
   }, 10);
@@ -279,7 +279,7 @@ function search_Schedule(){
                         <input type="text" placeholder="Search here" id="search_approved_schedule" onKeyUp={search_Schedule}/>
                         <div className="icon">
                           <LightTooltip title="Search by voice">
-                            <img alt="" src={Mic_Icon} onClick={record}/>
+                            <img alt="" src={Mic_Icon} onClick={record} id="voice_search_icon"/>
                           </LightTooltip>
                         </div>
                       </div>

@@ -4,6 +4,7 @@ import AdminDashboard_Page from "./Admin_Pages/Dashboard_Page/AdminDashboard";
 import Admin_Approved_Schedule_Page from "./Admin_Pages/Schedule_Page/Approved/ApprovedSchedulePage";
 import Admin_History_Schedule_Page from "./Admin_Pages/Schedule_Page/History/HistorySchedulePage";
 import Admin_Pending_Schedule_Page from "./Admin_Pages/Schedule_Page/Pending/PendingSchedulePage";
+import Admin_Vaccine_Page from "./Admin_Pages/Vaccine_Page/VaccinePage";
 
 import "./Assets/Styles/global.css";
 import AnnouncementPage from "./Landing_Pages/Announcement_Page/Announcement";
@@ -33,6 +34,7 @@ export default function App() {
           <Route path="/Administration_Pending_Schedule" element={<Admin_Pending_Schedule_Page/>}/>
           <Route path="/Administration_Approved_Schedule" element={<Admin_Approved_Schedule_Page/>}/>
           <Route path="/Administration_History_Schedule" element={<Admin_History_Schedule_Page/>}/>
+          <Route path="/Administration_Vaccine_Management" element={<Admin_Vaccine_Page/>}/>
 
         </Routes>
     </div>

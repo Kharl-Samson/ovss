@@ -121,3 +121,12 @@
 .delete_task_container > .bottom_modal button:hover{
     opacity: 80%;
 }
+
+/*RESPONSIVE*/
+@media screen and (max-width: 501px) {
+    .delete_task_container{
+        width: 400px;
+        height: 200px;
+        margin: 0 5%;
+    }
+}

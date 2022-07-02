@@ -1,0 +1,517 @@
+body{
+    overflow-x: hidden;
+}
+.admin_schedule_container{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+}
+
+.admin_content{
+    width: 95.1%;
+    height: 100%;
+    margin-left: 75px;
+    display: flex;
+}
+.admin_content .admin_main_content{
+    height: 100%;
+    width: 77%;
+    background-color: #eeeefb;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+}
+.admin_content .admin_main_content::-webkit-scrollbar-track{
+	background-color: transparent;
+}
+.admin_content .admin_main_content::-webkit-scrollbar{
+	width: 5px;
+	background-color: transparent;
+}
+.admin_content .admin_main_content::-webkit-scrollbar-thumb{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #b9b9f8;
+}
+.admin_content .admin_main_content > .container{
+    width: 90%;
+    height: auto;
+    margin: 0% auto;
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+.admin_content .admin_main_content > .container h1:nth-child(1){
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-weight: 1000;
+}
+
+
+
+
+
+
+.admin_content .admin_main_content > .container .schedule_top{
+    height: auto;
+    width: 94%;
+    padding: 10px 3%;
+    border-radius: 10px;
+    background: #ffff;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    display: flex;
+}
+.admin_content .admin_main_content > .container .schedule_top .left{
+    height: auto;
+    display: flex;
+    align-items: center;
+}
+.admin_content .admin_main_content > .container .schedule_top .search_container{
+    border-radius: 5px;
+    height: 30px;
+    width: 250px;
+    border: 1.5px solid rgb(150, 150, 150);
+    display: flex;
+    overflow: hidden;
+    margin-right: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.admin_content .admin_main_content > .container .schedule_top .search_container:hover{
+    border: 1.5px solid #4D77FF;
+}
+.admin_content .admin_main_content > .container .schedule_top .search_container .icon{
+    height: 100%;
+    width: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.admin_content .admin_main_content > .container .schedule_top .search_container .icon img{
+    height: 50%;
+    width: auto;
+}
+.admin_content .admin_main_content > .container .schedule_top .search_container input{
+    height: 100%;
+    border: none;
+    outline: none;
+    font-weight: 500;
+    font-size: .9rem;
+    flex-grow: 1;
+}
+.admin_content .admin_main_content > .container .schedule_top .search_container .icon:nth-child(2):hover,
+.admin_content .admin_main_content > .container .schedule_top .filter_date{
+    cursor: pointer;
+}
+
+.admin_content .admin_main_content > .container .schedule_top .right{
+    height: auto;
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+.admin_content .admin_main_content > .container .schedule_top .right .search_container{
+    font-size: 1rem;
+    display: flex;
+    margin-right: 0;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    font-size: .9rem;
+}
+.admin_content .admin_main_content > .container .schedule_top .right .search_container:hover{
+    cursor: pointer;
+    opacity: 90%;
+}
+.admin_content .admin_main_content > .container .schedule_top .right .search_container span{
+    margin: 0 13px;
+}
+
+.admin_content .admin_main_content > .container .all_vaccine_container{
+    margin-top: 40px;
+    height: auto;
+    width: 100%;
+}
+.admin_content .admin_main_content > .container .all_vaccine_container .vaccine_cotainer{
+    margin: 20px 20px;
+    height: 295px;
+    width: 290px;
+    background-color: #FFFFFF;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.admin_content .admin_main_content > .container .all_vaccine_container .vaccine_cotainer .top{
+    height: 35px;
+    margin-top: 10px;
+    color: #323233;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.admin_content .admin_main_content > .container .all_vaccine_container .vaccine_cotainer .top #dot:hover{
+    cursor: pointer;
+    color: rgb(104, 104, 104);
+}
+.admin_content .admin_main_content > .container .all_vaccine_container .vaccine_cotainer img{
+    height: 150px;
+    width: 150px;
+    background-color: #4D77FF;
+    border-radius: 12px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+.admin_content .admin_main_content > .container .all_vaccine_container .vaccine_cotainer .bot1{
+    height: 30px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.admin_content .admin_main_content > .container .all_vaccine_container .vaccine_cotainer .bot1 span{
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin: 0 15px;
+}
+.admin_content .admin_main_content > .container .all_vaccine_container .vaccine_cotainer .bot2{
+    height: 40px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.admin_content .admin_main_content > .container .all_vaccine_container .vaccine_cotainer .bot2 p{
+    font-size: 1rem;
+    font-weight: 600;
+    color: #A1ACB8;
+    text-align: center;
+    margin: 0 15px;
+    line-height: 1.1;
+}
+
+#voice_search_icon:hover{
+    cursor: pointer;
+}
+
+.no_schedule_available{
+    height: 400px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.no_schedule_available img{
+    height: 150px;
+}
+.no_schedule_available p{
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+
+.filter_btn{
+    width: 95%;
+    margin: 0% auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+.filter_btn .left span{
+    font-weight: 800;
+    font-size: 1rem;
+    color: #696CFF;
+}
+.filter_btn .left span:hover,.filter_btn .right span:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.filter_btn .right span:nth-child(1){
+    font-weight: 800;
+    font-size: 1rem;
+    color: rgb(68, 68, 68);
+}
+.filter_btn .right span:nth-child(2){
+    margin-left: 10px;
+    font-weight: 800;
+    font-size: 1rem;
+    color: #696CFF;
+}
+
+/*SPEECH MODAL*/
+.speech_Modal{
+    height: 100vh;
+    width: 100%;
+    background-color: #ffffff;
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+.speech_Modal .close_speech{
+    font-size: 2.3rem;
+    font-weight: 600;
+    position: fixed;
+    right: 2%;
+    top: 1%;
+    z-index: 99999999999;
+}
+.speech_Modal .close_speech:hover{
+    cursor: pointer;
+    opacity: 80%;
+}
+.speech_Modal #speak_text{
+    font-size: 2rem;
+    color: rgb(103, 103, 103);
+    margin-right: 140px;
+    transition: .3s ease;
+}
+.speech_Modal #speak_text:first-letter {
+    text-transform: uppercase;
+}
+.speech_Modal img{
+    height: 200px;
+    width: auto;
+    transition: .3s ease;
+}
+
+
+/*View vaccine modal*/
+.view_vaccine_container{
+    z-index: 101;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.292);
+    position: fixed;
+    inset: 0;
+    display: none;
+    justify-content: flex-end;
+}
+.view_vaccine_container .view_container{
+    margin-right: -100%;
+    height: 100%;
+    width: 650px;
+    background-color: #ffff;
+    transition: .5s ease;
+    display: flex;
+    flex-direction: column;
+}
+.view_container .close_btn{
+    height: auto;
+    display: flex;
+    justify-content: flex-end;
+}
+.view_container .close_btn span{
+    font-size: 3rem;
+    font-weight: 800;
+    margin-right: 20px;
+}
+.view_container .close_btn span:hover{
+    cursor: pointer;
+    opacity: 70%;
+}
+.view_container .top{
+    height: auto;
+    width: 90%;
+    margin: 0% auto;
+    margin-top: -25px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #4D77FF;
+}
+.view_container .top .first{
+    margin-bottom: 20px;
+    height: 5vh;
+    width: 90%;
+    display: flex;
+    align-items: center;
+}
+.view_container .top .first img{
+    height: 30px;
+    width: auto;
+    margin-right: 15px;
+}
+.view_container .top .first p{
+    line-height: 1.1;
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 800;
+}
+.view_container .top .second{
+    width: 100%;
+    height: 200px;
+    display: flex;
+}
+.view_container .top .second .left{
+    width: 30%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.view_container .top .second .left img{
+    height: 150px;
+    width: 150px;
+    background-color: #4D77FF;
+    border-radius: 10px;
+    object-fit: cover;
+}
+.view_container .top .second .right{
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.view_container .top .second .right label{
+    font-size: 1.2rem;
+    color: #8A8A8A;
+    font-weight: 600;
+}
+.view_container .top .second .right p{
+    font-size: 2rem;
+    color: #000000;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-right: 20px;
+}
+.view_container .bottom{
+    flex-grow: 1;
+    width: 100%;
+    margin: 0% auto;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    overflow-y: scroll;
+}
+.view_container .bottom::-webkit-scrollbar {
+    width: 4px;
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+}
+.view_container .bottom::-webkit-scrollbar-track {
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+}
+.view_container .bottom::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    background: #4D77FF; 
+}
+.view_container .bottom::-webkit-scrollbar-thumb:window-inactive {
+    background: transparent; 
+}
+.view_container .bottom .content{
+    width: 90%;
+    height: auto;
+    margin: 0% auto;
+}
+.view_container .bottom .content p{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    font-weight: 500;
+}
+.view_container .bottom .content label{
+    font-size: 1rem;
+    color: #8A8A8A;
+    font-weight: 600;
+}
+
+.view_container .bottom .content .flex_bot{
+    display: flex;
+    margin-top: 10px;
+}
+.view_container .bottom .content .flex_bot .box{
+    width: 50%;
+}
+
+
+
+/*RESPONSIVE*/
+@media screen and (max-width: 851px) {
+    .admin_content{
+        overflow-y: hidden;
+    }
+    .admin_content .admin_main_content{
+        width: 100%;
+        overflow-x: hidden;
+    }
+    .admin_content .admin_main_content > .container  .box_stats{
+        height:auto;
+        flex-direction: column;
+    }
+    .admin_content .admin_main_content > .container  .box_stats .container{
+        width: 100%;
+        height: 130px;
+        margin-bottom: 20px;
+        overflow: hidden;
+    }
+    .admin_content .admin_main_content > .container  .box_stats .container .right p:nth-child(1){
+        font-size: 1rem;
+    }
+    .admin_content .admin_main_content > .container  .box_stats .container .right p:nth-child(2){
+        font-size: 2.5rem;
+    }
+  
+    
+}
+
+@media screen and (max-width: 550px) {
+    .view_vaccine_container .view_container{
+        width: 100%;
+    }
+
+
+    .view_container .top .first img{
+        height: 25px;
+    }
+    .view_container .top .first p{
+        font-size: 1.5rem;
+    }
+
+    .view_container .top .second{
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+    .view_container .top .second .left{
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+    }
+    .view_container .top .second .left img{
+        height: 150px;
+        width: 150px;
+        background-color: #4D77FF;
+        border-radius: 10px;
+        object-fit: cover;
+    }
+    .view_container .top .second .right{
+        margin-top: 10px;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .view_container .top .second .right label{
+        text-align: center;
+    }
+    .view_container .top .second .right p{
+        font-size: 1.5rem;
+        text-align: center;
+        margin: 0 20px;
+    }
+
+    .view_container .bottom .content .flex_bot{
+        flex-direction: column;
+        margin-top: 10px;
+    }
+    .view_container .bottom .content .flex_bot .box{
+        width: 100%;
+    }
+}
