@@ -59,11 +59,13 @@ export default function Admin_History_Schedule_Page(){
   }, 10);
 
 
-
+  //Loading while fetching data in axios
+  const [loading,setLoading] = useState(false);
    //Hook for view the list of task of user
    const [appointments, setAppoointments] = useState([]);  
    const loadAppointment = async () =>{
        const result = await axios.get(localStorage.getItem("url_hosting")+"List_Of_Appointments.php");
+       setLoading(true);
        setAppoointments(result.data.phpresult);
    };
    useEffect(() => {
@@ -140,12 +142,6 @@ function search_Schedule(){
   }
 }
     
-  //Page loader
-  setTimeout(function () {
-    document.getElementById("header_body").style.display ="flex";
-    document.getElementById("table_loader").style.display ="none";
-  }, 500);
-
 
   //Filter dates
   const [state, setState] = useState([
@@ -380,26 +376,28 @@ function search_Schedule(){
                   </div>
                 </div>
 
+
+                {loading ?  
+                <div className="header_table header_body" id="header_body">
+                  {array_history_schedule_ctr === 0 ?
+                  <div className='no_schedule_available no_schedule_available1'>
+                    <img src={No_Records_Available} alt=""/>
+                    <p style={{fontSize:"1.3rem"}}>No schedule available</p>
+                  </div>  :   box_history_schedule
+                  } 
+                  <div div className='no_schedule_available no_schedule_available2' style={{display:"none"}}>
+                    <img src={No_Records_Available} alt=""/>
+                    <p style={{fontSize:"1.3rem"}}>No schedule found</p>
+                  </div>
+                </div>
+                :
                 <div className="header_table header_body" id="table_loader">
-                    <div div className='no_schedule_available'>
-                      <CircularProgress style={{height:"60px",width:"60px"}}/>
-                      <p style={{fontSize:"1.3rem"}}>Please wait...</p>
-                    </div> 
+                  <div className='no_schedule_available'>
+                    <CircularProgress style={{height:"60px",width:"60px"}}/>
+                    <p style={{fontSize:"1.3rem"}}>Please wait...</p>
+                  </div> 
                 </div>
-
-                <div className="header_table header_body" id="header_body" style={{display:"none"}}>
-                    {array_history_schedule_ctr === 0 ?
-                    <div className='no_schedule_available no_schedule_available1'>
-                      <img src={No_Records_Available} alt=""/>
-                      <p style={{fontSize:"1.3rem"}}>No schedule available</p>
-                    </div>  :   box_history_schedule
-                   } 
-
-                    <div div className='no_schedule_available no_schedule_available2' style={{display:"none"}}>
-                      <img src={No_Records_Available} alt=""/>
-                      <p style={{fontSize:"1.3rem"}}>No schedule found</p>
-                    </div>
-                </div>
+                }
 
                 <div className="bottom_sched">
                    <p>{"Total of "+array_history_schedule_ctr+" schedules"}</p>

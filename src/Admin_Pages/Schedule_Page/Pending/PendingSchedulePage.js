@@ -59,14 +59,16 @@ export default function Admin_Pending_Schedule_Page(){
   }, 10);
 
 
-
-   //Hook for view the list of task of user
-   const [appointments, setAppoointments] = useState([]);  
-   const loadAppointment = async () =>{
-       const result = await axios.get(localStorage.getItem("url_hosting")+"List_Of_Appointments.php");
-       setAppoointments(result.data.phpresult);
-   };
-   useEffect(() => {
+  //Loading while fetching data in axios
+  const [loading,setLoading] = useState(false);
+  //Hook for view the list of task of user
+  const [appointments, setAppoointments] = useState([]);  
+  const loadAppointment = async () =>{
+    const result = await axios.get(localStorage.getItem("url_hosting")+"List_Of_Appointments.php");
+    setLoading(true);
+    setAppoointments(result.data.phpresult);
+  };
+  useEffect(() => {
       loadAppointment();
    }, []);
  
@@ -140,19 +142,19 @@ function search_Schedule(){
         name : document.getElementById("name_reject_key").value,
         date : document.getElementById("date_reject_key").value,   
     }
-    document.getElementById("reject_sched_modal_container").style.display = "none";
-    document.getElementById("header_body").style.display ="none";//Table will hide when the button is triggered
-    document.getElementById("table_loader").style.display ="flex";//Loader will show when the button is triggered
+    document.getElementsByClassName("text_btn_sched_Vax")[0].style.display = "none";
+    document.getElementsByClassName("progress_btn_schedule_modal")[0].style.display = "flex";
     axios.post(localStorage.getItem("url_hosting")+'Reject_Schedule.php',sendData)
     .then((result)=>{
         if(result.data.status === "Success"){
+          document.getElementById("reject_sched_modal_container").style.display = "none";
           loadAppointment();
           document.getElementById("slide_modal_container").style.left = "75px";
           setTimeout(function () {
             document.getElementById("slide_modal_container").style.left = "-100%";
           }, 2000);
-          document.getElementById("table_loader").style.display ="none"; //Loader will hide after get success status
-          document.getElementById("header_body").style.display ="flex"; //Table will show after getting success status
+          document.getElementsByClassName("text_btn_sched_Vax")[0].style.display = "flex";
+          document.getElementsByClassName("progress_btn_schedule_modal")[0].style.display = "none";
         }
         else{
           alert("SQL error")
@@ -172,19 +174,19 @@ function search_Schedule(){
       name : document.getElementById("name_accept_key").value,
       date : document.getElementById("date_accept_key").value,   
     }
-    document.getElementById("Accept_sched_modal_container").style.display = "none";
-    document.getElementById("header_body").style.display ="none";//Table will hide when the button is triggered
-    document.getElementById("table_loader").style.display ="flex";//Loader will show when the button is triggered
+    document.getElementsByClassName("text_btn_Acceptsched_Vax")[0].style.display = "none";
+    document.getElementsByClassName("progress_btn_schedule_modal")[0].style.display = "flex";
     axios.post(localStorage.getItem("url_hosting")+'Accept_Schedule.php',sendData)
     .then((result)=>{
       if(result.data.status === "Success"){
+        document.getElementById("Accept_sched_modal_container").style.display = "none";
         loadAppointment();
         document.getElementById("slide_modal_container").style.left = "75px";
         setTimeout(function () {
           document.getElementById("slide_modal_container").style.left = "-100%";
         }, 2000);
-        document.getElementById("table_loader").style.display ="none"; //Loader will hide after get success status
-        document.getElementById("header_body").style.display ="flex"; //Table will show after getting success status
+        document.getElementsByClassName("text_btn_Acceptsched_Vax")[0].style.display = "flex";
+        document.getElementsByClassName("progress_btn_schedule_modal")[0].style.display = "none";
       }
       else{
         alert("SQL error")
@@ -193,13 +195,6 @@ function search_Schedule(){
     //Axios for mailer
     axios.post(localStorage.getItem("url_hosting")+'Accept_Schedule_Mailer.php',sendData).then((result)=>{})
   }
-
-  //Page loader
-  setTimeout(function () {
-    document.getElementById("header_body").style.display ="flex";
-    document.getElementById("table_loader").style.display ="none";
-  }, 500);
-
 
   //Filter dates
   const [state, setState] = useState([
@@ -433,14 +428,8 @@ function search_Schedule(){
                   </div>
                 </div>
 
-                <div className="header_table header_body" id="table_loader">
-                    <div div className='no_schedule_available'>
-                      <CircularProgress style={{height:"60px",width:"60px"}}/>
-                      <p style={{fontSize:"1.3rem"}}>Please wait...</p>
-                    </div> 
-                </div>
-
-                <div className="header_table header_body" id="header_body" style={{display:"none"}}>
+                {loading ?
+                <div className="header_table header_body" id="header_body">
                     {array_pending_schedule_ctr === 0 ?
                     <div className='no_schedule_available no_schedule_available1'>
                       <img src={No_Records_Available} alt=""/>
@@ -448,11 +437,19 @@ function search_Schedule(){
                     </div>  :   box_pending_schedule
                    } 
 
-                    <div div className='no_schedule_available no_schedule_available2' style={{display:"none"}}>
+                    <div className='no_schedule_available no_schedule_available2' style={{display:"none"}}>
                       <img src={No_Records_Available} alt=""/>
                       <p style={{fontSize:"1.3rem"}}>No schedule found</p>
                     </div>
                 </div>
+                :
+                <div className="header_table header_body" id="table_loader">
+                  <div div className='no_schedule_available'>
+                    <CircularProgress style={{height:"60px",width:"60px"}}/>
+                    <p style={{fontSize:"1.3rem"}}>Please wait...</p>
+                  </div> 
+                </div>
+                }
 
                 <div className="bottom_sched">
                    <p>{"Total of "+array_pending_schedule_ctr+" pending schedules"}</p>

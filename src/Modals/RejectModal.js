@@ -2,6 +2,7 @@ import React from "react";
 import { styled } from '@mui/material/styles';
 import Tooltip, { tooltipClasses } from '@mui/material/Tooltip';
 import Delete_Icon from "../Assets/Icons/Delete_Icon.png";
+import CircularProgress from '@mui/material/CircularProgress';
 
 export default function Reject_Modal(props){
 
@@ -42,8 +43,15 @@ return(
          <input type="hidden" id="email_reject_key"/>
          <input type="hidden" id="name_reject_key"/>
          <input type="hidden" id="date_reject_key"/>
-         <button type="button" onClick={Close_Reject_Sched_Modal}>Cancel</button>
-         <button type="submit">Delete</button>
+         <button type="submit">
+            <center>
+               <CircularProgress color="inherit" id="progress_btn_schedule_modal" className="progress_btn_schedule_modal"/>
+            </center>      
+            <span className="text_btn_sched_Vax">Reject</span>
+         </button>
+         <button type="button" onClick={Close_Reject_Sched_Modal}>
+            <span>Cancel</span>
+         </button>
       </form>
       </div>
      

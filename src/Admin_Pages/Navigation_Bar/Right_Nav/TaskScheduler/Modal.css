@@ -108,7 +108,7 @@
 }
 .task_modal .submit_container button:nth-child(2){
     height: auto;
-    width: auto;
+    width: 120px;
     padding: 5px 20px ;
     background-color: #696CFF;
     border: none;
@@ -123,7 +123,7 @@
 }
 .task_modal .submit_container button:nth-child(1){
     height: auto;
-    width: auto;
+    width: 120px;
     padding: 5px 20px ;
     background-color: transparent;
     border: none;

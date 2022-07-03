@@ -2,6 +2,7 @@ import React from "react";
 import { styled } from '@mui/material/styles';
 import Tooltip, { tooltipClasses } from '@mui/material/Tooltip';
 import Accept_Icon from "./Images/Accept_Icon.png";
+import CircularProgress from '@mui/material/CircularProgress';
 
 export default function Accept_Modal(props){
 
@@ -42,8 +43,13 @@ return(
          <input type="hidden" id="email_accept_key"/>
          <input type="hidden" id="name_accept_key"/>
          <input type="hidden" id="date_accept_key"/>
+         <button type="submit" style={{backgroundColor:"#3498db"}}> 
+            <center>
+               <CircularProgress color="inherit" id="progress_btn_schedule_modal" className="progress_btn_Acceptschedule_modal"/>
+            </center>      
+            <span className="text_btn_Acceptsched_Vax">Accept</span>
+         </button>
          <button type="button" onClick={Close_Accept_Modal}>Cancel</button>
-         <button type="submit" style={{backgroundColor:"#3498db"}}>Accept</button>
       </form>
       </div>
     </div>

@@ -380,11 +380,7 @@
     font-weight: 500;
 }
 
-#progress_btn{
-    display: none;
-    height: 25px !important;
-    width: 25px !important;
-}
+
 
 /*RESPONSIVE*/
 @media screen and (max-width: 851px) {

@@ -2,6 +2,7 @@ import React from "react";
 import Vaccine_Icon from "./Images/Vaccine_Icon.png";
 import { styled } from '@mui/material/styles';
 import Tooltip, { tooltipClasses } from '@mui/material/Tooltip';
+import CircularProgress from '@mui/material/CircularProgress';
 
 export default function EditVaccine(props){
 
@@ -104,7 +105,10 @@ return(
                 <div className="button">
                     <input type="hidden" id="edit_vax_id"/>
                     <button type="button" onClick={CloseVaccineModal}>Cancel</button>
-                    <button type="submit">Upload</button>
+                    <button type="submit">
+                      <CircularProgress color="inherit" id="progress_btn" className="progress_btn_edit_Vax"/>
+                      <span className="text_btn_edit_Vax">Upload</span>
+                    </button>
                 </div>
 
             </div>

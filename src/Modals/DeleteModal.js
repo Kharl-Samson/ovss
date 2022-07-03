@@ -2,6 +2,7 @@ import React from "react";
 import { styled } from '@mui/material/styles';
 import Tooltip, { tooltipClasses } from '@mui/material/Tooltip';
 import Delete_Icon from "../Assets/Icons/Delete_Icon.png";
+import CircularProgress from '@mui/material/CircularProgress';
 
 export default function Delete_Modal(props){
 
@@ -39,8 +40,14 @@ return(
       <div className="bottom_modal">
       <form onSubmit={props.formAction}>
          <input type="hidden" id="delete_modal_key"/>
+
+         <button type="submit">
+            <center>
+               <CircularProgress color="inherit" id="progress_btn_schedule_modal" className="progress_btn_Deleteschedule_modal"/>
+            </center>      
+            <span className="text_btn_Deleteched_Vax">Delete</span>
+         </button>
          <button type="button" onClick={Close_Task_Delete_Modal}>Cancel</button>
-         <button type="submit">Delete</button>
       </form>
       </div>
     </div>

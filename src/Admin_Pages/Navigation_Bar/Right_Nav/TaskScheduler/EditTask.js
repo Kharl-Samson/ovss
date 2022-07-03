@@ -1,6 +1,7 @@
 import React from "react";
 import "./Modal.css";
 import Task_Icon from "./Task_Icon.png";
+import CircularProgress from '@mui/material/CircularProgress';
 
 export default function Edit_Task_Modal(props){
 
@@ -39,7 +40,10 @@ return(
 
         <div className='submit_container'>
             <button type="button" onClick={CloseTaskModal}>Cancel</button>
-            <button type="submit">Submit</button>
+            <button type="submit">
+               <CircularProgress color="inherit" id="progress_btn_schedule_modal" className="progress_btn_edittask_modal"/>
+               <span className="text_btn_edittask_modal">Submit</span>
+            </button>
         </div>
         </form>
     </div>

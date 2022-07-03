@@ -646,6 +646,9 @@ body{
     border: 2px solid #4D77FF;
     background-color: #4D77FF;
     color: #ffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /*RESPONSIVE*/

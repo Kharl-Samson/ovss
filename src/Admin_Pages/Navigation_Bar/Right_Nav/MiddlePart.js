@@ -23,7 +23,7 @@ import TaskBoxAll_component from './TaskScheduler/EachTaskboxAll';
 import Edit_Task_Modal from './TaskScheduler/EditTask';
 import $ from 'jquery'; 
 import Delete_Modal from '../../../Modals/DeleteModal';
-
+import CircularProgress from '@mui/material/CircularProgress';
 
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -75,10 +75,13 @@ export default function Middle_Nav_Part(){
 
   //getting the email of user
   let email_key = localStorage.getItem('admin_login_email');
+  //Loading while fetching data in axios
+  const [loading,setLoading] = useState(false);
   //Hook for view the list of task of user
   const [task, setTask] = useState([]);  
   const loadTasks = async () =>{
       const result = await axios.get(localStorage.getItem("url_hosting")+"List_Of_Task.php");
+      setLoading(true);
       setTask(result.data.phpresult);
   };
 
@@ -177,9 +180,13 @@ export default function Middle_Nav_Part(){
           time: document.getElementById("task_time_input").value
       }
       //Sending the data to my backend
+      document.getElementsByClassName("progress_btn_addtask_modal")[0].style.display = "flex";
+      document.getElementsByClassName("text_btn_addtask_modal")[0].style.display = "none";
       axios.post(localStorage.getItem("url_hosting")+'Add_Task.php',sendData)
       .then((result)=>{ 
           if(result.data.status === "Success"){
+            document.getElementsByClassName("progress_btn_addtask_modal")[0].style.display = "none";
+            document.getElementsByClassName("text_btn_addtask_modal")[0].style.display = "flex";
             handleClick(TransitionLeft);
             document.getElementById("add_task_modal_container").style.display = "none";
             var input =  document.getElementsByClassName("task_input");
@@ -201,9 +208,13 @@ export default function Middle_Nav_Part(){
     const sendData = {
         key : document.getElementById("delete_modal_key").value,
     }
+    document.getElementsByClassName("progress_btn_Deleteschedule_modal")[0].style.display = "flex";
+    document.getElementsByClassName("text_btn_Deleteched_Vax")[0].style.display = "none";
     axios.post(localStorage.getItem("url_hosting")+'Delete_Task.php',sendData)
     .then((result)=>{
         if(result.data.status === "Success"){
+          document.getElementsByClassName("progress_btn_Deleteschedule_modal")[0].style.display = "none";
+          document.getElementsByClassName("text_btn_Deleteched_Vax")[0].style.display = "flex";
           handleClick(TransitionLeft);
           document.getElementById("delete_task_modal_container").style.display = "none";
           loadTasks();
@@ -225,9 +236,13 @@ export default function Middle_Nav_Part(){
       date: document.getElementById("edit_task_date_input").value,
       time: document.getElementById("edit_task_time_input").value
     }
+    document.getElementsByClassName("progress_btn_edittask_modal")[0].style.display = "flex";
+    document.getElementsByClassName("text_btn_edittask_modal")[0].style.display = "none";
     axios.post(localStorage.getItem("url_hosting")+'Edit_Of_Task.php',sendData)
     .then((result)=>{
       if(result.data.status === "Success"){
+        document.getElementsByClassName("progress_btn_edittask_modal")[0].style.display = "none";
+        document.getElementsByClassName("text_btn_edittask_modal")[0].style.display = "flex";
         handleClick(TransitionLeft);
         document.getElementById("edit_task_modal_container").style.display = "none";
         loadTasks();
@@ -394,6 +409,7 @@ function search_Task(){
            </div>
         </div>
 
+        {loading ?
         <div className="bottom">
           {key_task_ctr_Am !== 0 ? 
           Task_box_Am : ""}   
@@ -407,6 +423,14 @@ function search_Task(){
             <p>No tasks available</p>
           </div> : ""}
         </div>
+        :
+        <div className="header_table header_body" id="table_loader" style={{flexGrow:"1"}}>
+          <div style={{height:"100%",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center"}}>
+            <CircularProgress style={{height:"60px",width:"60px"}}/>
+            <p style={{fontSize:"1.3rem",marginTop:"5px"}}>Please wait...</p>
+          </div> 
+        </div>
+        }
         
         <div style={{width:"100%",minHeight:"10px"}}></div>
 

@@ -16,6 +16,7 @@ import $ from 'jquery';
 
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
+import CircularProgress from '@mui/material/CircularProgress';
 import EachVaccine from './EachVaccine';
 import speechRecog from "./Images/speechRecog.gif";
 import ViewVaccine from './ViewVaccine';
@@ -51,10 +52,14 @@ export default function Admin_Vaccine_Page(){
   }, 10);
   
 
+
+  //Loading while fetching data in axios
+  const [loading,setLoading] = useState(false);
   //Hook for view the list of vaccines
   const [vaccines, setVaccines] = useState([]);  
   const loadVaccines = async () =>{
     const result = await axios.get(localStorage.getItem("url_hosting")+"List_Of_Vaccines.php");
+    setLoading(true);
     setVaccines(result.data.phpresult);
   };
   useEffect(() => {
@@ -147,8 +152,13 @@ function record() {
       days_interval: document.getElementById("edit_vax_days").value,
       image: document.getElementById("image_input").value,
     }
+
+    document.getElementsByClassName("text_btn_edit_Vax")[0].style.display = "none";
+    document.getElementsByClassName("progress_btn_edit_Vax")[0].style.display = "flex";
     axios.post(localStorage.getItem("url_hosting")+"Edit_Vaccine.php",sendData).then((result)=>{
       if(result.data.status === "Success"){
+          document.getElementsByClassName("text_btn_edit_Vax")[0].style.display = "flex";
+          document.getElementsByClassName("progress_btn_edit_Vax")[0].style.display = "none";
           loadVaccines();
           setTimeout(function () {
             document.getElementById("edit_vaccine_container").style.display = "none";
@@ -225,19 +235,21 @@ return(
               alignItems="center"
               id="grid_vaccine"
             >
-                {vaccines.length === 0 ?
-                  <div className='no_schedule_available no_schedule_available1'>
-                    <img src={No_Records_Available} alt=""/>
-                    <p style={{fontSize:"1.3rem"}}>No vaccine available</p>
-                  </div>
+
+                {loading ? box_vaccines
                 :
-                  box_vaccines
+                <div className="header_table header_body" id="table_loader" style={{backgroundColor:"transparent",boxShadow:"none"}}>
+                  <div div className='no_schedule_available'>
+                    <CircularProgress style={{height:"60px",width:"60px"}}/>
+                    <p style={{fontSize:"1.3rem"}}>Please wait...</p>
+                  </div> 
+                </div>
                 }
 
-                    <div div className='no_schedule_available no_schedule_available2' style={{display:"none"}}>
-                      <img src={No_Records_Available} alt=""/>
-                      <p style={{fontSize:"1.3rem"}}>No vaccine found</p>
-                    </div>
+                <div div className='no_schedule_available no_schedule_available2' style={{display:"none"}}>
+                  <img src={No_Records_Available} alt=""/>
+                  <p style={{fontSize:"1.3rem"}}>No vaccine found</p>
+                </div>
             </Grid>
           </div>
 

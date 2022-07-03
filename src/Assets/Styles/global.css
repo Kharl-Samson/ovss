@@ -70,8 +70,17 @@ button:hover{
     z-index: 101;
 }
 
+#progress_btn{
+    display: none;
+    height: 25px !important;
+    width: 25px !important;
+}
 
-
+#progress_btn_schedule_modal{
+    display: none;
+    height: 17px !important;
+    width: 17px !important;
+}
 
 /*RESPONSIVE*/
 @media screen and (max-width: 851px) {
