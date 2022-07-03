@@ -25,7 +25,6 @@ import SuccesSlideModal from '../../Modals/SuccesSlideModal';
 
 export default function Admin_Vaccine_Page(){
 
-
   //Tooltip
   const LightTooltip = styled(({ className, ...props }) => (
     <Tooltip {...props} classes={{ popper: className }}/>

@@ -258,17 +258,22 @@ return(
               <span id="expand_span_vaccine">&#x3e;</span>
           </LightTooltip></div>
       </div>
+      
 
+        <div className="choice_container" id="manage_vaccine_choice">
 
-              <div className="choice_container" id="manage_vaccine_choice">
-                <div className="link_container">
-                  <div className="left">
+              <div id="link_add_vaccine">
+                <Link to="/Administration_Add_Vaccine" style={{textDecoration:"none"}}>
+                <div className="link_container" id="admin_Add_Vaccine_link">
+                  <div className="left" id="left_nav_Add_Vaccine_border">
                       <img alt="" src={Add_Vaccine_Icon}/>
                   </div>
                   <div className="right">
                     <span>Add Vaccine</span>
                   </div>
                 </div>
+                </Link>
+              </div>  
 
               <div id="link_vaccine_report">
                 <Link to="/Administration_Vaccine_Management" style={{textDecoration:"none"}}>
@@ -283,7 +288,7 @@ return(
                 </Link>
               </div>  
 
-              </div>
+        </div>
 
       <div id="link_dashboard" style={{marginBottom: "10px"}}>
         <Link to="#" style={{textDecoration:"none"}}>

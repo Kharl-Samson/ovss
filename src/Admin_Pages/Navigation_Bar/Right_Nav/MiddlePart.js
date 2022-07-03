@@ -427,7 +427,6 @@ function search_Task(){
         <div className="header_table header_body" id="table_loader" style={{flexGrow:"1"}}>
           <div style={{height:"100%",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center"}}>
             <CircularProgress style={{height:"60px",width:"60px"}}/>
-            <p style={{fontSize:"1.3rem",marginTop:"5px"}}>Please wait...</p>
           </div> 
         </div>
         }
