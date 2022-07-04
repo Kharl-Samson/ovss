@@ -240,6 +240,7 @@ body{
 .add_patient_container .button_submit button{
     font-size: 1rem;
     padding: 5px 0;
+    height: 37px;
     width: 150px;
     border: none;
     border-radius: 5px;

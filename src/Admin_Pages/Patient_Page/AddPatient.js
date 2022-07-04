@@ -423,7 +423,7 @@ return(
 
                 <div className="button_submit">
                     <button type="submit" onMouseOver={getAllChildData}>
-                        <CircularProgress color="inherit" id="progress_btn" className="progress_btn_add_Patient"/>
+                        <CircularProgress color="inherit" id="progress_btn" className="progress_btn_add_Patient" />
                         <span className="text_btn_add_Patient">Save</span>
                     </button>
                 </div>
