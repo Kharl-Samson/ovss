@@ -216,8 +216,8 @@ return(
 
               </div>
 
-      <div className="link_container" style={{marginBottom: "10px"}} onClick={manage_patient_choice}>
-          <div className="left">
+      <div className="link_container" id="admin_patient_link" style={{marginBottom: "10px"}} onClick={manage_patient_choice}>
+          <div className="left"  id="left_nav_patient_border">
               <img alt="" src={Patients_Icon}/>
           </div>
           <div className="right"><span>Manage Patients</span>
@@ -228,14 +228,19 @@ return(
       </div>
 
               <div className="choice_container" id="manage_patient_choice">
-                <div className="link_container">
-                  <div className="left">
+
+              <div id="link_add_patient">
+                <Link to="/Administration_Add_Patient" style={{textDecoration:"none"}}>
+                <div className="link_container" id="admin_Add_Patient_link">
+                  <div className="left" id="left_nav_Add_Patient_border">
                       <img alt="" src={Add_Patient_Icon}/>
                   </div>
                   <div className="right">
                     <span>Add  Patients</span>
                   </div>
                 </div>
+                </Link>
+              </div>
 
                 <div className="link_container">
                   <div className="left">
@@ -245,6 +250,7 @@ return(
                     <span>View  Patients</span>
                   </div>
                 </div>
+
               </div>
 
 

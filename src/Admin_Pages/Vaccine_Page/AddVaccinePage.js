@@ -114,7 +114,6 @@ function okay_success_modal(){
     document.getElementsByClassName("text_btn_add_Vax")[0].style.display = "none";
     document.getElementsByClassName("progress_btn_add_Vax")[0].style.display = "flex";
     axios.post(localStorage.getItem("url_hosting")+"Add_Vaccine.php",sendData).then((result)=>{
-      console.log(result.data)
       if(result.data.status === "Success"){
         document.getElementsByClassName("success_addVaccine_modal")[0].style.display = "flex";
       }
@@ -199,7 +198,7 @@ return(
                   <button type="submit">
                       <center>
                         <CircularProgress color="inherit" id="progress_btn" className="progress_btn_add_Vax"/>
-                        <span className="text_btn_add_Vax">Save Changes</span>
+                        <span className="text_btn_add_Vax">Save</span>
                       </center>
                   </button>
               </div>

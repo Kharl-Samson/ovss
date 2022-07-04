@@ -560,8 +560,12 @@ body{
 
 @media screen and (max-width: 501px) {
     .admin_content .admin_main_content > .container .schedule_top .search_container, .filter_date{
-        width: 85%;
+        width: 200px !important;
     }
+    .admin_content .admin_main_content > .container .schedule_top .search_container input{
+        width: 50px;
+    }
+
     .admin_content .admin_main_content > .container .header_table .header2{
         width: 70%;
         justify-content: flex-start;

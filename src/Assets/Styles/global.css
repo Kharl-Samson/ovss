@@ -20,6 +20,11 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
+input::-ms-reveal,
+input::-ms-clear {
+  display: none;
+}
+
 html{
     scroll-behavior: smooth;
 }

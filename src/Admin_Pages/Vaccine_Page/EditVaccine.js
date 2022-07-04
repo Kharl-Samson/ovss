@@ -107,7 +107,7 @@ return(
                     <button type="button" onClick={CloseVaccineModal}>Cancel</button>
                     <button type="submit">
                       <CircularProgress color="inherit" id="progress_btn" className="progress_btn_edit_Vax"/>
-                      <span className="text_btn_edit_Vax">Upload</span>
+                      <span className="text_btn_edit_Vax">Save</span>
                     </button>
                 </div>
 
