@@ -163,8 +163,11 @@ body{
     font-size: .9rem;
     font-weight: 700;
     border-radius: 10px;
+    width: 80px;
     padding: 5px 15px;
     margin-left: 10px;
+    display: flex;
+    justify-content: center;
 }
 .admin_content .admin_main_content > .container .header_table .header6{
     height: 50px;
@@ -180,7 +183,7 @@ body{
 }
 
 .admin_content .admin_main_content > .container .header_body{
-    height: 415px;
+    height: 55vh;
     width: 94%;
     padding: 10px 3%;
     border-radius: 5px;
@@ -508,7 +511,207 @@ body{
 }
 
 
+/*Next Schedule Container*/
+.next_schedule_container{
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    inset: 0;
+    z-index: 101;
+    display: none;
+    justify-content: flex-end;
+}
+.next_schedule{
+    margin-right: -100%;
+    height: 100vh;
+    width: 550px;
+    background-color: #ffff;
+    transition: .5s ease;
+}
+.next_schedule .close_btn{
+    height: auto;
+    float: right;
+}
+.next_schedule .close_btn span{
+    font-size: 3rem;
+    font-weight: 800;
+    margin-right: 20px;
+}
+.next_schedule .close_btn span:hover{
+    cursor: pointer;
+    opacity: 70%;
+}
+.next_schedule .top{
+    height: 85%;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 5%;
+    overflow-y: scroll;
+}
+.next_schedule .top::-webkit-scrollbar {
+    width: 4px;
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+}
+.next_schedule .top::-webkit-scrollbar-track {
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+}
+.next_schedule .top::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    background: #4D77FF; 
+}
+.next_schedule .top::-webkit-scrollbar-thumb:window-inactive {
+    background: transparent; 
+}
+.next_schedule .top .first{
+    margin-bottom: 40px;
+    height: 5vh;
+    width: 90%;
+    display: flex;
+    align-items: center;
+}
+.next_schedule .top .first img{
+    height: 30px;
+    width: auto;
+    margin-right: 15px;
+}
+.next_schedule .top .first p{
+    line-height: 1.1;
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 800;
+}
 
+.next_schedule .top .info_container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.next_schedule .top .info_container .left_right{
+    width: 48%;
+    height: 100%;
+}
+.next_schedule .top .info_container .left_right label{
+    font-size: .9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #8A8A8A;
+}
+.next_schedule .top .info_container .left_right p{
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+.next_schedule .top .info_container .date{
+    margin-top: 5px;
+    width: 80%;
+    height: 34px;
+    border:2px solid #e2ecfd;
+    background-color: #e2ecfd;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.next_schedule .top .info_container .date .left{
+    height: 100%;
+    width: 75%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: .9rem;
+    font-weight: 700;
+    color: #4D77FF;
+}
+.next_schedule .top .info_container .date .right{
+    height: 100%;
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.next_schedule .top .info_container .date .right img{
+    height: 50%;
+    width: auto;
+}
+.next_schedule .top .info_container input{
+    margin-top: 5px;
+    border:2px solid #b9c5d2;
+    background-color: #EFF5FF;
+    color: #4D77FF;
+    font-size: 1rem;
+    padding: 5px 0;
+    width: 80%;
+    font-weight: 500;
+    outline-color: #4D77FF;
+    text-indent: 10px;
+    border-radius: 10px;
+}
+.next_schedule .top .info_container .vax_dose{
+    margin-top: 5px;
+    width: 30%;
+    height: 34px;
+    border:2px solid #e2ecfd;
+    background-color: #e2ecfd;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.next_schedule .top .info_container .vax_dose .left{
+    height: 100%;
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.next_schedule .top .info_container .vax_dose .left img{
+    height: 50%;
+    width: auto;
+}
+.next_schedule .top .info_container .vax_dose .right{
+    height: 100%;
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #4D77FF;
+}
+
+.next_schedule .bottom{
+    z-index: 1;
+    height: 10vh;
+    width: 80%;
+    margin: 0% auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.next_schedule .bottom button{
+    font-size: 1rem;
+    width: 150px;
+    height: 40px;
+    font-weight: 600;
+    border: 2px solid transparent;
+    border-radius: 10px;
+}
+.next_schedule .bottom button[type="button"]{
+    border: 2px solid #4D77FF;
+    color: #4D77FF;
+    margin-right: 20px;
+}
+.next_schedule .bottom button[type="submit"]{
+    border: 2px solid #4D77FF;
+    color: #ffff;
+    background-color: #4D77FF;
+}
+.next_schedule .bottom button:hover{
+    opacity: 80%;
+}
 
 /*RESPONSIVE*/
 @media screen and (max-width: 851px) {
@@ -655,4 +858,24 @@ body{
         margin-right: 10px;
     }
 
+    .next_schedule{
+        width: 100%;
+    }
+    .next_schedule .top .first img{
+        height: 25px;
+    }
+    .next_schedule .top .first p{
+        font-size: 1.5rem;
+        white-space: nowrap;
+    }
+    .next_schedule .top .info_container{
+        width: 80%;
+        margin: 0% auto;
+        flex-direction: column;
+    }
+    .next_schedule .top .info_container .left_right{
+        margin: 10px 0;
+        width: 100%;
+        height: 100%;
+    }
 }

@@ -476,6 +476,7 @@ function search_Schedule(){
            title = "Accept this appointment?"
            description = "If you accpet this appointment an email will send to the patient. Are you sure you want to proceed?"
            formAction = {AccpetScheduleForm}
+           button = "Accept"
         />
         {/*View schedule modal*/}
         <ViewScheduleInfo/>

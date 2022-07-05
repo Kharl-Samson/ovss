@@ -78,7 +78,6 @@ export default function EachPendingRow(props){
         document.getElementById("child_weight").textContent = props.child_weight+" kgs";
         document.getElementById("child_pod").textContent = props.child_placeDelivery;
         document.getElementById("child_vaxName").textContent = props.child_vaccineName;
-        document.getElementById("child_vaxDate").textContent = props.child_vaccineDate;
         document.getElementById("child_vaxDose").textContent = props.child_vaccineDose+" Dose";
     }
 

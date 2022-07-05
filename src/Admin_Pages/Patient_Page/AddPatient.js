@@ -112,13 +112,15 @@ function hover_image(){
 
  //Getting the data of all child
  function getAllChildData(){
-    var fname_Str = "", mname_Str = "", lname_Str = "", gender_Str = "", weight_Str = "", place_Str = "";
+    var fname_Str = "", mname_Str = "", lname_Str = "", gender_Str = "", weight_Str = "", place_Str = "", cbday_Str = "", cage_Str = "";
     var fname = document.getElementsByClassName("add_patient_Cfname");
     var mname = document.getElementsByClassName("add_patient_Cmname");
     var lname = document.getElementsByClassName("add_patient_Clname");
     var gender = document.getElementsByClassName("add_patient_Cgender");
     var weight = document.getElementsByClassName("add_patient_Cweight");
     var place = document.getElementsByClassName("add_patient_Cplace");
+    var cbday = document.getElementsByClassName("cbday");
+    var cage = document.getElementsByClassName("cage");
     for(var i = 0 ; i < fname.length ; i++){
         fname_Str += fname[i].value + " || ";
         mname_Str += mname[i].value + " || ";
@@ -126,6 +128,8 @@ function hover_image(){
         gender_Str += gender[i].value + " || ";
         weight_Str += weight[i].value + " || ";
         place_Str += place[i].value + " || ";
+        cbday_Str += cbday[i].value + " || ";
+        cage_Str += cage[i].value + " || ";
     }
     document.getElementById("fname_collection").value = fname_Str;
     document.getElementById("mname_collection").value = mname_Str;
@@ -133,6 +137,8 @@ function hover_image(){
     document.getElementById("gender_collection").value = gender_Str;
     document.getElementById("weight_collection").value = weight_Str;
     document.getElementById("place_collection").value = place_Str;
+    document.getElementById("bday_collection").value = cbday_Str;
+    document.getElementById("age_collection").value = cage_Str;
  }
 
 //To validate email
@@ -192,6 +198,10 @@ function phonenumber() {
       cweight: document.getElementById("weight_collection").value,
       cplace: document.getElementById("place_collection").value,
       password: document.getElementById("add_patient_fname").value+moment().format('L'),
+      bday: document.getElementById("add_patient_birthday").value,
+      age: document.getElementById("add_patient_age").value,
+      cbday: document.getElementById("bday_collection").value,
+      cage: document.getElementById("age_collection").value,
     }
 
     if(document.getElementById("span_email").textContent === "* Invalid email"){
@@ -238,6 +248,32 @@ function phonenumber() {
 //Function click okay in success modal
 function okay_success_modal(){
   navigate(`/Administration_Dashboard`);//To change
+}
+
+//Getting users age in input
+function getAge() {
+  var bdate_input = document.getElementById("add_patient_birthday").value;
+  var dob = new Date(bdate_input);
+  var month_diff = Date.now() - dob.getTime(); //calculate month difference from current date in time
+  var age_dt = new Date(month_diff); //convert the calculated difference in date format
+  var year = age_dt.getUTCFullYear(); //extract year from date
+  var age = Math.abs(year - 1970); //now calculate the age of the user
+  document.getElementById("add_patient_age").value = age;
+  getAllChildData();
+}
+
+var today = moment().format("L");
+today = today.split("/");
+var maxDateInput = today[2] + "-" + today[0] + "-" + today[1];
+
+
+function getDaysChild(key){
+  const date1 = new Date(document.getElementsByClassName("cbday")[key].value);
+  const date2 = new Date(maxDateInput);
+  const diffTime = Math.abs(date2 - date1);
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));    
+  document.getElementsByClassName("cage")[key].value=diffDays;
+  getAllChildData();
 }
 
 return(
@@ -297,25 +333,21 @@ return(
                     <input type="text" placeholder="Email here" id="add_patient_email" className="input_top" required onChange={email_validation}/>
                   </div>
                   <div className="box">
-                    <label className="label">Province <span style={{color:"red"}}>*</span></label>
-                    <input type="text" placeholder="Province here" value="Bulacan" id="add_patient_prov" 
-                     className="input_top" readOnly style={{backgroundColor:"#EBEBEB"}}
-                    />
+                    <label className="label">Contact # <span style={{color:"red"}} id="span_contact">*</span></label>
+                    <input type="number" placeholder="Ex. 09196712224" id="add_patient_contact" className="input_top" required onChange={phonenumber}/>
                   </div>
                 </div>
 
                 <div className="flex_bot" style={{marginTop:"20px"}}>
                   <div className="box">
-                     <label className="label">Municipality <span style={{color:"red"}}>*</span></label>
-                    <input type="text" placeholder="Municipality here" value="Baliuag" id="add_patient_city" 
-                     className="input_top" readOnly style={{backgroundColor:"#EBEBEB"}}
-                    />
-                  </div>
+                    <label className="label">Birthday <span style={{color:"red"}} id="span_email">*</span></label>
+                    <input type="date" id="add_patient_birthday" className="input_top" 
+                    required onChange={getAge} max={maxDateInput}/>
+                  </div> 
                   <div className="box">
-                    <label className="label">Barangay <span style={{color:"red"}}>*</span></label>
-                    <input type="text" placeholder="Barangay here" value="Pinagbarilan" id="add_patient_bar" 
-                     className="input_top" readOnly style={{backgroundColor:"#EBEBEB"}}
-                    />
+                    <label className="label">Age <span style={{color:"red"}} id="span_contact">*</span></label>
+                    <input type="number" placeholder="0" id="add_patient_age" className="input_top" 
+                    style={{backgroundColor:"#EBEBEB"}} readOnly/>
                   </div>
                 </div>
 
@@ -338,9 +370,27 @@ return(
                     </select>
                   </div>
                   <div className="box">
-                    <label className="label">Contact # <span style={{color:"red"}} id="span_contact">*</span></label>
-                    <input type="number" placeholder="Ex. 09196712224" id="add_patient_contact" className="input_top" required onChange={phonenumber}/>
+                    <label className="label">Barangay <span style={{color:"red"}}>*</span></label>
+                    <input type="text" placeholder="Barangay here" value="Pinagbarilan" id="add_patient_bar" 
+                     className="input_top" readOnly style={{backgroundColor:"#EBEBEB"}}
+                    />
                   </div>
+                </div>
+
+                <div className="flex_bot" style={{marginTop:"20px"}}>
+                  <div className="box">
+                     <label className="label">Municipality <span style={{color:"red"}}>*</span></label>
+                    <input type="text" placeholder="Municipality here" value="Baliuag" id="add_patient_city" 
+                     className="input_top" readOnly style={{backgroundColor:"#EBEBEB"}}
+                    />
+                  </div>
+                  <div className="box">
+                    <label className="label">Province <span style={{color:"red"}}>*</span></label>
+                    <input type="text" placeholder="Province here" value="Bulacan" id="add_patient_prov" 
+                     className="input_top" readOnly style={{backgroundColor:"#EBEBEB"}}
+                    />
+                  </div>
+
                 </div>
 
                 <h1>Child <span style={{color:"#4D77FF"}}>Information</span></h1>
@@ -389,6 +439,21 @@ return(
 
                   <div className="flex_bot" style={{marginTop:"20px"}}>
                     <div className="box">
+                      <label className="label">Birthday <span style={{color:"red"}} id="span_email">*</span></label>
+                      <input type="date" id="add_Cpatient_birthday" className="input_top cbday" 
+                      required
+                      onChange={() => { getDaysChild(i-1);}} 
+                      max={maxDateInput}/>
+                    </div> 
+                    <div className="box">
+                      <label className="label">Days old <span style={{color:"red"}} id="span_contact">*</span></label>
+                      <input type="text" placeholder="0" id="add_Cpatient_age" className="input_top cage" 
+                      style={{backgroundColor:"#EBEBEB"}} readOnly/>
+                    </div>
+                  </div>
+
+                  <div className="flex_bot" style={{marginTop:"20px"}}>
+                    <div className="box">
                         <label className="label">Weight <span style={{color:"red"}}>*</span></label>
                         <input type="number" placeholder="Weight here" id="add_patient_Cweight" className="input_top add_patient_Cweight" required onChange={getAllChildData}/>
                     </div>
@@ -419,7 +484,10 @@ return(
                 <input type="hidden" id="lname_collection"/>
                 <input type="hidden" id="gender_collection"/>
                 <input type="hidden" id="weight_collection"/>
-                <input type="hidden" id="place_collection"/>
+                <input type="hidden" id="place_collection"/>     
+                <input type="hidden" id="bday_collection"/>
+                <input type="hidden" id="age_collection"/>
+
 
                 <div className="button_submit">
                     <button type="submit" onMouseOver={getAllChildData}>

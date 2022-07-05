@@ -47,7 +47,7 @@ return(
             <center>
                <CircularProgress color="inherit" id="progress_btn_schedule_modal" className="progress_btn_Acceptschedule_modal"/>
             </center>      
-            <span className="text_btn_Acceptsched_Vax">Accept</span>
+            <span className="text_btn_Acceptsched_Vax">{props.button}</span>
          </button>
          <button type="button" onClick={Close_Accept_Modal}>Cancel</button>
       </form>

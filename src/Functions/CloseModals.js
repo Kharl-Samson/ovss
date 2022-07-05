@@ -77,6 +77,12 @@ export default function CloseModals(){
             }, 400);
             document.getElementById("edit_container").style.marginRight = "-100%";
         }  
+        else if (event.target === document.getElementById("next_schedule_container")) {
+            setTimeout(function () {
+                document.getElementById("next_schedule_container").style.display = "none";
+            }, 400);
+            document.getElementById("next_schedule").style.marginRight = "-100%";
+        }  
     }
 }
 

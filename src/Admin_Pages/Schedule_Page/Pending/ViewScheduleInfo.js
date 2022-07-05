@@ -37,7 +37,7 @@ return(
         <div className="top">
             <div className="first">
                 <img alt="" src={Patient_Info_Icon}/>
-                <p>Patient <span style={{color:"#4D77FF"}}>Information</span></p>
+                <p>Mother's <span style={{color:"#4D77FF"}}>Information</span></p>
             </div>
             <div className="info_container">
                 <div className="left_right">
@@ -148,11 +148,7 @@ return(
                 </div>
                 <div className="info_container">
                     <div className="left_right">
-                        <label>Vaccine Date</label>
-                        <p id="child_vaxDate"></p>
-                    </div>
-                    <div className="center">
-                        <label>Vaccine Dose no.</label>
+                    <label>Vaccine Dose no.</label>
                         <p id="child_vaxDose"></p>
                     </div>
                 </div>

@@ -28,6 +28,8 @@ import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import EachApprovedRow from './EachApprovedRow';
 import speechRecog from "../Images/speechRecog.gif";
+import NextSchedule from './NextSchedule';
+import Accept_Modal from '../../../Modals/AcceptModal';
 
 export default function Admin_Approved_Schedule_Page(){
 
@@ -241,6 +243,93 @@ function search_Schedule(){
   } 
 
 
+
+  //Form Accept Schedule
+  const SubmitNextAppointment=(e)=>{
+    e.preventDefault();
+    //Sending the data request to call it on backend
+    const sendData = {
+      id : document.getElementById("nextValue_oldID").value,
+      email : document.getElementById("nextValue_email").value,
+      mother_id : document.getElementById("nextValue_mother_id").value,
+      mother_fname : document.getElementById("nextValue_mother_fname").value,
+      mother_mname : document.getElementById("nextValue_mother_mname").value,   
+      mother_lname : document.getElementById("nextValue_mother_lname").value,
+      purok : document.getElementById("nextValue_purok").value,
+      barangay : document.getElementById("nextValue_barangay").value,
+      municipality : document.getElementById("nextValue_municipality").value,   
+      province : document.getElementById("nextValue_province").value,
+      appointment_date : document.getElementById("nextValue_appointment_date").value,
+      contact : document.getElementById("nextValue_contact").value,
+      child_fname : document.getElementById("nextValue_child_fname").value,   
+      child_mname : document.getElementById("nextValue_child_mname").value,
+      child_lname : document.getElementById("nextValue_child_lname").value,
+      child_bdate : document.getElementById("nextValue_child_bdate").value,
+      child_age : document.getElementById("nextValue_child_age").value,   
+      child_sex : document.getElementById("nextValue_child_sex").value,
+      child_weight : document.getElementById("nextValue_child_weight").value,
+      child_placeDelivery : document.getElementById("nextValue_child_placeDelivery").value,
+      child_vaccineName : document.getElementById("nextValue_child_vaccineName").value,   
+      child_vaccineDose : document.getElementById("nextValue_child_vaccineDose").value,
+      appointment_status : document.getElementById("nextValue_appointment_status").value,   
+    }
+    document.getElementsByClassName("text_btn_next_sched")[0].style.display = "none";
+    document.getElementsByClassName("progress_btn_next_sched")[0].style.display = "flex";
+    axios.post(localStorage.getItem("url_hosting")+'Done_Schedule.php',sendData)
+    .then((result)=>{
+
+      if(result.data.status === "Success"){
+        document.getElementsByClassName("text_btn_next_sched")[0].style.display = "block";
+        document.getElementsByClassName("progress_btn_next_sched")[0].style.display = "none";
+        setTimeout(function () {
+          document.getElementById("next_schedule_container").style.display = "none";
+        }, 400);
+        document.getElementById("slide_modal_container").style.left = "75px";
+        setTimeout(function () {
+          document.getElementById("slide_modal_container").style.left = "-100%";
+        }, 2000);
+        document.getElementById("next_schedule").style.marginRight = "-100%";
+        loadAppointment();
+      }
+      else{
+        alert("SQL error")
+      }
+    })
+    //Axios for adding next schedule
+    axios.post(localStorage.getItem("url_hosting")+'Add_Schedule.php',sendData).then((result)=>{})
+    //Axios for mailer
+    axios.post(localStorage.getItem("url_hosting")+'Add_Schedule_Mailer.php',sendData).then((result)=>{})
+  }
+
+  //Mark as Done
+  const MarkAsDoneForm=(e)=>{
+    e.preventDefault();
+    //Sending the data request to call it on backend
+    const sendData = {
+      id : document.getElementById("accept_modal_key").value,
+      email : document.getElementById("email_accept_key").value,
+    }
+    document.getElementsByClassName("text_btn_next_sched")[0].style.display = "none";
+    document.getElementsByClassName("progress_btn_next_sched")[0].style.display = "flex";
+    axios.post(localStorage.getItem("url_hosting")+'Done_Schedule.php',sendData)
+    .then((result)=>{
+      if(result.data.status === "Success"){
+        document.getElementsByClassName("text_btn_next_sched")[0].style.display = "block";
+        document.getElementsByClassName("progress_btn_next_sched")[0].style.display = "none";
+        document.getElementById("slide_modal_container").style.left = "75px";
+        setTimeout(function () {
+          document.getElementById("slide_modal_container").style.left = "-100%";
+        }, 2000);
+        document.getElementById("Accept_sched_modal_container").style.display = "none";
+        loadAppointment();
+      }
+      else{
+        alert("SQL error")
+      }
+    })
+  }
+  
+
     return(
     <div className="admin_schedule_container">
     <Admin_Left_Navigation_Bar/>
@@ -404,6 +493,17 @@ function search_Schedule(){
         <ViewScheduleInfo/>
         {/*Success slide modal*/}
         <SuccesSlideModal/>
+        {/*Next schedule modal*/}
+        <NextSchedule
+          formAction={SubmitNextAppointment}
+        />
+        {/*Done schedule modal*/}
+        <Accept_Modal
+            title = "Mark as Done?"
+            description = "If you mark as done this appointment it will be moved to schedule history. Are you sure you want to proceed?"
+            formAction = {MarkAsDoneForm}
+            button = "Okay"
+        />
         {/*MODAL FOR SPEECH RECOGNITION */}
         <div className="speech_Modal">
           <LightTooltip title="Close">

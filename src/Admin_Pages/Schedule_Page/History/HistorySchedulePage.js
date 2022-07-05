@@ -89,6 +89,10 @@ export default function Admin_History_Schedule_Page(){
         bg_color = "#FCC4C7"
         color = "#EC4C4C"
       }
+      else if(res.appointment_status === "Done"){
+        bg_color = "#e2ecfd"
+        color = "#4D77FF"
+      }
       return (
         <EachAllRow
         key={array_history_schedule_ctr}
