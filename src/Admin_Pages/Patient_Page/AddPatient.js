@@ -247,7 +247,7 @@ function phonenumber() {
 
 //Function click okay in success modal
 function okay_success_modal(){
-  navigate(`/Administration_Dashboard`);//To change
+  navigate(`/Administration_View_Patient`);
 }
 
 //Getting users age in input

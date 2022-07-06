@@ -5,6 +5,7 @@ export default function Url(){
     window.localStorage.setItem('url_default_avatar', "http://localhost/ovss/Default_Avatar/");
     window.localStorage.setItem('url_admin_signin', "http://localhost:3000/");
     window.localStorage.setItem('url_vaccine', "http://localhost/ovss/BackEnd/Vaccine_Img/");
+    window.localStorage.setItem('url_account_img', "http://localhost/ovss/BackEnd/user_img/");
  
 
     //Change when using live hosting
@@ -13,4 +14,5 @@ export default function Url(){
     //window.localStorage.setItem('url_default_avatar', "Default_Avatar/");  
     //window.localStorage.setItem('url_admin_signin', "https://ovss.site/");
     //window.localStorage.setItem('url_vaccine', "BackEnd/Vaccine_Img/");
+    //window.localStorage.setItem('url_account_img', "BackEnd/user_img/");
 }

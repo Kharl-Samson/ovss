@@ -256,6 +256,112 @@ body{
 }
 
 
+/*View Patient*/
+.left_in_top_Patient{
+    width: auto;
+}
+.left_in_top_Patient .search_container{
+
+}
+.left_in_top_Patient .change_view{
+    height: 30px;
+    width: auto;
+    display: flex;
+    align-items: center;
+    font-size: .9rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+.left_in_top_Patient .change_view .box{
+    margin-left: 10px;
+    height: 30px;
+    width: 80px;
+    border: 1.5px solid rgb(150, 150, 150);
+    border-radius: 5px;
+    display: flex;
+    background-color: rgb(232, 230, 230);
+}
+.left_in_top_Patient .change_view .box .content{
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: .5rem;
+}
+.left_in_top_Patient .change_view .box .content #grid_icon{
+    color: #4D77FF;
+}
+.left_in_top_Patient .change_view .box .content #row_icon{
+    color: #898a95;
+}
+.left_in_top_Patient .change_view .box .content:hover{
+    cursor: pointer;
+    background-color: rgb(210, 210, 210);
+}
+.patient_box_container{
+    margin: 25px 30px;
+    height: 310px;
+    width: 260px;
+    background-color: #FFFFFF;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.patient_box_container .top{
+    height: 15%;
+    width: 97%;
+    margin: 0% auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.patient_box_container .top #dot{
+    color: #232325;
+}
+.patient_box_container .top #dot:hover{
+    cursor: pointer;
+    color: rgb(104, 104, 104);
+}
+.patient_box_container .middle{
+    height: 60%;
+    width: 85%;
+    margin: 0% auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.patient_box_container .middle img{
+    height: 150px;
+    width: 150px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+.patient_box_container .bottom{
+    height: auto;
+    width: 85%;
+    margin: 0% auto;
+}
+.patient_box_container .bottom p:nth-child(1){
+    font-size: 1.3rem;
+    text-align: center;
+    font-weight: 700;
+}
+.patient_box_container .bottom p:nth-child(2){
+    font-size: .9rem;
+    text-align: center;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    color: #697A8D;
+    text-overflow: ellipsis;
+}
+
+
 /*Success Slide Modal*/
 .success_addPatient_modal{
     height: 100vh;
@@ -315,6 +421,8 @@ body{
 .success_patient_container button:hover{
     opacity: 90%;
 }
+
+
 
 
 

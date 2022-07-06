@@ -227,8 +227,7 @@ return(
           </div>
       </div>
 
-              <div className="choice_container" id="manage_patient_choice">
-
+            <div className="choice_container" id="manage_patient_choice">
               <div id="link_add_patient">
                 <Link to="/Administration_Add_Patient" style={{textDecoration:"none"}}>
                 <div className="link_container" id="admin_Add_Patient_link">
@@ -242,16 +241,19 @@ return(
                 </Link>
               </div>
 
-                <div className="link_container">
-                  <div className="left">
+              <div id="link_view_patient">
+                <Link to="/Administration_View_Patient" style={{textDecoration:"none"}}>
+                <div className="link_container" id="admin_View_Patient_link">
+                  <div className="left" id="left_nav_View_Patient_border">
                       <img alt="" src={View_Patient_Icon}/>
                   </div>
                   <div className="right">
                     <span>View  Patients</span>
                   </div>
                 </div>
-
+                </Link>
               </div>
+            </div>
 
 
 
