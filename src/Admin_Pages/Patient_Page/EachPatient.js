@@ -5,8 +5,10 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import VisibilityIcon from '@mui/icons-material/Visibility';
+import { useNavigate } from "react-router-dom";
 
 export default function EachPatient_box(props){
+  let navigate = useNavigate();
 
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
@@ -17,6 +19,11 @@ export default function EachPatient_box(props){
       setAnchorEl(null);
     };
   
+
+    function goToPatientProfile(){
+      window.localStorage.setItem('patient_profile_key', props.email);
+      navigate(`/Administration_Patient_Profile`);
+    }
 
 return(
 <div className='patient_box_container patient_container'>
@@ -90,7 +97,7 @@ return(
           anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
         >
           <MenuItem style={{display:"none"}}></MenuItem>
-          <MenuItem>
+          <MenuItem onClick={goToPatientProfile}>
             <ListItemIcon>
               <VisibilityIcon fontSize="medium"/>
             </ListItemIcon>

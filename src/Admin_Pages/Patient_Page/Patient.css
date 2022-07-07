@@ -362,6 +362,203 @@ body{
 }
 
 
+/*Patient Profile*/
+.breadcrumbs_patient_profile{
+    width: 100%;
+    height: auto;
+    display: flex;
+}
+.breadcrumbs_patient_profile p{
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #626F75;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.breadcrumbs_patient_profile p:nth-child(2){
+    margin: 0 10px;
+    font-size: 1.6rem;
+    line-height: 1;
+    color: #4D77FF;
+}
+.breadcrumbs_patient_profile p:nth-child(3){
+    color: #4D77FF;
+}
+.breadcrumbs_patient_profile p:nth-child(1):hover{
+    cursor: pointer;
+    text-decoration: underline;
+} 
+.profile_cover{
+    margin-top: 20px;
+    height: 200px;
+    width: 100%;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.name_image{
+    margin-top: -100px;
+    height: 200px;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+}
+.name_image img{
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+    border-radius: 20px;
+    margin-left: 60px;
+    margin-right: 20px;
+}
+.name_image .name_container{
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.name_image .name_container p:nth-child(1){
+    font-size: 2rem;
+    font-weight: 800;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-transform: capitalize;
+}
+.name_image .name_container p:nth-child(2){
+    font-size: 1rem;
+    font-weight: 500;
+    color: #697A8D;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.mother_child_info_container{
+    margin-top: 40px;
+    height: auto;
+    width: 100%;
+    padding: 30px 0;
+    border-radius: 10px;
+    background-color: #ffff;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.mother_child_info_container .top{
+    margin: 0% auto;
+    margin-bottom: 40px;
+    width: 90%;
+    height: auto;
+    display: flex;
+    align-items: center;
+}
+.mother_child_info_container .top img{
+    height: 25px;
+    width: auto;
+}
+.mother_child_info_container .top p{
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-left: 15px;
+    line-height: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.info_container{
+    width: 90%;
+    height: auto;
+    margin: 0% auto;
+    margin-top: 30px;
+    display: flex;
+}
+.info_container .a_c{
+    width: 30%;
+    height: auto;
+}
+.info_container .b{
+    width: 40%;
+    height:auto;
+}
+.info_container .label{
+    font-size: 1rem;
+    color: #8A8A8A;
+    font-weight: 700;
+    margin-bottom: 2px;
+}
+.info_container .value{
+    font-size: 1.1rem;
+    color: black;
+    font-weight: 800;
+    text-transform: capitalize;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.view_record{
+    margin: 0% auto;
+    margin-top: 20px;
+    width: 90%;
+    height: auto;
+    display: flex;
+    justify-content: flex-end;
+}
+.view_record p{
+    font-size: 1rem;
+    font-weight: 600;
+    color: #4D77FF;
+    text-decoration: underline;
+}
+.view_record p:hover{
+    cursor: pointer;
+    color: black;
+}
+.vaccine_record_container{
+    display: none;
+    height: auto;
+    width: 100%;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.vaccine_record_container table{
+    width: 100%;
+    height: auto;
+    background-color: #ffff;
+    border-collapse: collapse;
+}
+.vaccine_record_container table tr th{
+    padding: 10px 0;
+    background-color: #4D77FF;
+    text-align: center;
+    color: #ffff;
+    border: 1.5px solid #4D77FF;
+}
+.vaccine_record_container table tr th span{
+    font-size: 1rem;
+    margin: 0 10px;
+    text-align: center;
+}
+.vaccine_record_container table tr td{
+    padding: 10px 0;
+    text-align: center;
+    color: black;
+    border: 1.5px solid #4D77FF;
+}
+.vaccine_record_container table tr td span{
+    margin: 0 10px;
+    font-size: .8rem;
+    font-weight: 700;
+    color: #4D77FF;
+    text-align: center;
+}
+.vaccine_record_container table tr td img{
+    height: 15px;
+}
+
+
+
 /*Success Slide Modal*/
 .success_addPatient_modal{
     height: 100vh;
@@ -498,4 +695,57 @@ body{
         width: 100%;
     }
     
+
+    .name_image{
+        height: auto;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .name_image img{
+        height: 150px;
+        width: 150px;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .name_image .name_container{
+        width: 100%;
+        height: auto;
+    }
+
+    .name_image .name_container p:nth-child(1){
+        text-align: center;
+    }
+    .name_image .name_container p:nth-child(2){
+        text-align: center;
+    }
+
+    .mother_child_info_container .top{
+        width: 80%;
+    }
+    .info_container{
+        width: 80%;
+        margin-top: 0;
+        flex-direction: column;
+    }
+    .info_container .a_c{
+        width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+    .info_container .b{
+        width: 100%;
+        height:auto;
+        margin-bottom: 20px;
+    }
+    .info_container .value{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+
+    .vaccine_record_container{
+        overflow-x: scroll;
+    }
 }

@@ -2,6 +2,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import AdminDashboard_Page from "./Admin_Pages/Dashboard_Page/AdminDashboard";
 import AddPatientPage from "./Admin_Pages/Patient_Page/AddPatient";
+import Admin_PatientProfile from "./Admin_Pages/Patient_Page/PatientProfile";
 import Admin_ViewPatient_Page from "./Admin_Pages/Patient_Page/ViewPatient";
 import Admin_Approved_Schedule_Page from "./Admin_Pages/Schedule_Page/Approved/ApprovedSchedulePage";
 import Admin_History_Schedule_Page from "./Admin_Pages/Schedule_Page/History/HistorySchedulePage";
@@ -41,6 +42,7 @@ export default function App() {
           <Route path="/Administration_Vaccine_Management" element={<Admin_Vaccine_Page/>}/>
           <Route path="/Administration_Add_Patient" element={<AddPatientPage/>}/>
           <Route path="/Administration_View_Patient" element={<Admin_ViewPatient_Page/>}/>
+          <Route path="/Administration_Patient_Profile" element={<Admin_PatientProfile/>}/>
 
         </Routes>
     </div>
