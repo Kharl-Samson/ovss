@@ -400,3 +400,128 @@
     font-weight: 600;
     margin: 0 20px;
 }
+
+.notification_container{
+    height: 500px;
+    width: 370px;
+}
+.notification_container .top{
+    height: 10%;
+    width: 90%;
+    margin: 0% auto;
+    font-size: 1.5rem;
+    font-weight: 800;
+    display: flex;
+    align-items: flex-start;
+    color: #4D77FF;
+}
+.notification_container .scrollable_container{
+    height: 85%;
+    width: 100%;
+    overflow-y: scroll;
+}
+.notification_container .scrollable_container::-webkit-scrollbar {
+    width: 4px;
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+}
+.notification_container .scrollable_container::-webkit-scrollbar-track {
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+}
+.notification_container .scrollable_container::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    background: #4D77FF; 
+}
+.notification_container .scrollable_container::-webkit-scrollbar-thumb:window-inactive {
+    background: transparent; 
+}
+
+.notification_container .scrollable_container .box{
+    width: 90%;
+    height: auto;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 0% auto;
+    padding: 10px 5px;
+    display: flex;
+    justify-content: space-between;
+}
+.notification_container .scrollable_container .box:hover{
+    background-color: rgb(235, 235, 235);
+}
+.notification_container .scrollable_container .box .left{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.notification_container .scrollable_container .box .left .icon{
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #4D77FF;
+    color: #ffff;
+}
+.notification_container .scrollable_container .box .right{
+    width: 78%;
+}
+.notification_container .scrollable_container .box .right p:nth-child(1){
+    font-size: 1rem;
+    line-height: 1.1;
+}
+.notification_container .scrollable_container .box .right p:nth-child(2){
+    font-size: .9rem;
+    font-weight: 600;
+    margin-top: 3px;
+    color: #9d9b9b;
+}
+.notification_container .scrollable_container .box .right .btn{
+    width: 100%;
+    height: 35px;
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+.notification_container .scrollable_container .box .right .btn button{
+    height: 100%;
+    width: 100%;
+    font-size: .9rem;
+    font-weight: 600;
+    border-radius: 5px;
+    border: 2px solid transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.notification_container .scrollable_container .box .right .btn button:hover{
+    opacity: 80%;
+}
+.notification_container .scrollable_container .box .right .btn #btn1{
+    background-color: #4D77FF;
+    color: #ffff;
+}
+.notification_container .scrollable_container .box .right .btn #btn2{
+    background-color: #dcdcdc;
+    color: black;
+}
+.notification_container .bottom{
+    height: 5%;
+    width: 90%;
+    margin: 0% auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.notification_container .bottom span{
+    font-size: .9rem;
+    font-weight: 600;
+    color: #4D77FF;
+}
+.notification_container .bottom span:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
