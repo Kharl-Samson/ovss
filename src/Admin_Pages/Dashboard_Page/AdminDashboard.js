@@ -57,7 +57,7 @@ return(
         <div className="admin_main_content">
             <div className="container">
 
-                <h1>Hello, <span style={{color:"#4D77FF"}}>Jayson</span></h1>
+                <h1>Hello, <span style={{color:"#4D77FF"}}>{localStorage.getItem("admin_login_firstname")}</span></h1>
 
                 <div
                   className="image_banner"

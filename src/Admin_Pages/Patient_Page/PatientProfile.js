@@ -32,7 +32,7 @@ export default function Admin_PatientProfile(){
   
     //Profile key
     var key_profile = localStorage.getItem("patient_profile_key");
-    var child_id = 1000;
+    var child_id = localStorage.getItem("patient_profile_id_key");
 
     //Loading while fetching data in axios
     const [loading,setLoading] = useState(false);
@@ -56,29 +56,25 @@ export default function Admin_PatientProfile(){
     };
     useEffect(() => {
       loadPatients();
+      setTimeout(function () {
+        var array_Cfname = document.getElementById("child_fname").value.slice(0, -4).split(" || ");
+        var array_Cmname = document.getElementById("child_mname").value.slice(0, -4).split(" || ");
+        var array_Clname = document.getElementById("child_lname").value.slice(0, -4).split(" || ");
+        var array_Csex = document.getElementById("child_sex").value.slice(0, -4).split(" || ");
+        var array_Cweight = document.getElementById("child_weight").value.slice(0, -4).split(" || ");
+        var array_Cplace = document.getElementById("child_place").value.slice(0, -4).split(" || ");
+        var array_Cbday = document.getElementById("child_bday").value.slice(0, -4).split(" || ");
+        var array_Cage = document.getElementById("child_age").value.slice(0, -4).split(" || ");
+        setfnameChild(array_Cfname);
+        setmnameChild(array_Cmname);
+        setlnameChild(array_Clname);
+        setsexChild(array_Csex);
+        setweightChild(array_Cweight);
+        setplaceChild(array_Cplace);
+        setbdayChild(array_Cbday);
+        setageChild(array_Cage);
+       }, 100);
     }, []);
-
-
-  
-   setTimeout(function () {
-    var array_Cfname = document.getElementById("child_fname").value.slice(0, -4).split(" || ");
-    var array_Cmname = document.getElementById("child_mname").value.slice(0, -4).split(" || ");
-    var array_Clname = document.getElementById("child_lname").value.slice(0, -4).split(" || ");
-    var array_Csex = document.getElementById("child_sex").value.slice(0, -4).split(" || ");
-    var array_Cweight = document.getElementById("child_weight").value.slice(0, -4).split(" || ");
-    var array_Cplace = document.getElementById("child_place").value.slice(0, -4).split(" || ");
-    var array_Cbday = document.getElementById("child_bday").value.slice(0, -4).split(" || ");
-    var array_Cage = document.getElementById("child_age").value.slice(0, -4).split(" || ");
-    setfnameChild(array_Cfname);
-    setmnameChild(array_Cmname);
-    setlnameChild(array_Clname);
-    setsexChild(array_Csex);
-    setweightChild(array_Cweight);
-    setplaceChild(array_Cplace);
-    setbdayChild(array_Cbday);
-    setageChild(array_Cage);
-   }, 500);
-
 
     var array_child_ctr = -1;
     const Child_Info = fnameChild.map(() => {
@@ -125,7 +121,7 @@ export default function Admin_PatientProfile(){
       array_patient_ctr++;
       if(key_profile === res.email)
       return (
-      <div className='mother_child_info_container'>
+      <div className='mother_child_info_container' key={array_patient_ctr}>
         <div className='top'>
           <img alt="" src={mother_info_icon}/>
           <p>Mother Information</p>

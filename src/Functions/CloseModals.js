@@ -83,6 +83,9 @@ export default function CloseModals(){
             }, 400);
             document.getElementById("next_schedule").style.marginRight = "-100%";
         }  
+        else if (event.target === document.getElementById("delete_announcement_modal_container")) {
+            document.getElementById("delete_announcement_modal_container").style.display = "none";
+        }  
     }
 }
 

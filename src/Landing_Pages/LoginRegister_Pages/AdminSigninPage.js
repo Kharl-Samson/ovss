@@ -119,6 +119,13 @@ const submitForm=(e)=>{
            document.getElementById("sign_in_Text").style.display =  "block";
 
            window.localStorage.setItem('admin_login_email', result.data.email);
+           window.localStorage.setItem('admin_login_photo', result.data.photo);
+           window.localStorage.setItem('admin_login_fullname', result.data.fname+" "+result.data.lname);
+           window.localStorage.setItem('admin_login_firstname', result.data.fname);
+           window.localStorage.setItem('admin_login_middlename', result.data.mname);
+           window.localStorage.setItem('admin_login_lastname', result.data.lname);
+           window.localStorage.setItem('admin_login_contact', result.data.contact);
+           window.localStorage.setItem('admin_login_id', result.data.id);
            navigate(`/Administration_Dashboard`);
         }
         else if(result.data.status === "Invalid"){ //If email or password is invalid

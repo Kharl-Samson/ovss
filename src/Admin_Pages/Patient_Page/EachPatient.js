@@ -22,6 +22,7 @@ export default function EachPatient_box(props){
 
     function goToPatientProfile(){
       window.localStorage.setItem('patient_profile_key', props.email);
+      window.localStorage.setItem('patient_profile_id_key', props.id);
       navigate(`/Administration_Patient_Profile`);
     }
 

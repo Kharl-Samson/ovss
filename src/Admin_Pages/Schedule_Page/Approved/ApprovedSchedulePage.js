@@ -84,7 +84,7 @@ export default function Admin_Approved_Schedule_Page(){
         propsKey = {array_approved_schedule_ctr}
         id = {res.id}
         email = {res.email}
-        motherID = {res.mother_id}
+        motherID = {"OVSS-"+res.mother_id}
         motherFname = {res.mother_fname}
         motherMname = {res.mother_mname}
         motherLname = {res.mother_lname}

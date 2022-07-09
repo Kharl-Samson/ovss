@@ -17,7 +17,6 @@ import CircularProgress from '@mui/material/CircularProgress';
 import $ from 'jquery'; 
 import moment from "moment";
 import { addDays } from "date-fns";
-
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import { DateRangePicker } from "react-date-range";
@@ -28,6 +27,7 @@ import speechRecog from "./Images/speechRecog.gif";
 import MenuIcon from '@mui/icons-material/Menu';
 import AppsIcon from '@mui/icons-material/Apps';
 import EachPatient_box from './EachPatient';
+import EachRowPatient from './EachRowPatient';
 
 export default function Admin_ViewPatient_Page(){
 
@@ -102,6 +102,37 @@ export default function Admin_ViewPatient_Page(){
       />
     ); 
   });
+  var array_patient_ctr1 = 0;
+  const each_patient = patients.map((res) => {
+    array_patient_ctr1++;
+    return (
+      <EachRowPatient
+      key = {array_patient_ctr1}
+      id = {res.id}
+      email = {res.email}  
+      fname = {res.fname}
+      mname = {res.mname}
+      lname = {res.lname}
+      bday = {res.bday}
+      age = {res.age}
+      purok = {res.purok}
+      barangay = {res.barangay}
+      municipality = {res.municipality}
+      province = {res.province}
+      contact = {res.contact}
+      profile_photo = {res.profile_photo}
+      date_created = {res.date_created}
+      child_fname = {res.child_fname}
+      child_mname = {res.child_mname}
+      child_lname = {res.child_lname}
+      child_sex = {res.child_sex}
+      child_weight = {res.child_weight}
+      child_place = {res.child_place}
+      child_bday = {res.child_bday}
+      child_age = {res.child_age}
+      />
+    ); 
+  });
 
 
 //Filter Search
@@ -117,9 +148,25 @@ function search_Patient(){
   else if($('#grid_patient .patient_container:visible').length !== 0){//if found
       document.getElementsByClassName("no_schedule_available2")[0].style.display = "none";
   }
+
+  $("#header_body .row_patient_container").filter(function() {
+    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+  });
+  if($('#header_body .row_patient_container:visible').length === 0) {//if not found
+    document.getElementsByClassName("no_schedule_available3")[0].style.display = "flex";
+  }
+  else if($('#header_body .row_patient_container:visible').length !== 0){//if found
+    document.getElementsByClassName("no_schedule_available3")[0].style.display = "none";
+  }
+
   if(document.getElementById("search_patient").value.length === 0){
     document.getElementsByClassName("no_schedule_available2")[0].style.display = "none";
   }
+  if(document.getElementById("search_patient").value.length === 0){
+    document.getElementsByClassName("no_schedule_available3")[0].style.display = "none";
+  }
+
+  
 }
 
   //Filter dates
@@ -157,10 +204,13 @@ function search_Patient(){
     document.getElementById("input_to").value = "";
 
     var div = document.getElementsByClassName("patient_container");  
+    var div1 = document.getElementsByClassName("row_patient_container");  
     for (var i = 0; i < div.length; i++) {
       div[i].style.display = "flex";
+      div1[i].style.display = "flex";
     }
     document.getElementsByClassName("no_schedule_available2")[0].style.display ="none";
+    document.getElementsByClassName("no_schedule_available3")[0].style.display = "none";
     document.getElementById("search_patient").value = "";
   }
 
@@ -182,14 +232,17 @@ function search_Patient(){
     document.getElementById("search_patient").value = "";
     document.getElementById("basic-menu1").style.display = "none";
     var div = document.getElementsByClassName("patient_container");  
+    var div1 = document.getElementsByClassName("row_patient_container");  
       if (document.getElementById("input_from").value !== "" && document.getElementById("input_to").value !== "") {
         for (var i = 0; i < div.length; i++) {
           var key = document.getElementsByClassName("date_created")[i].value;
           if (key) {
             if ( key >= document.getElementById("input_from").value && key <= document.getElementById("input_to").value) {
               div[i].style.display = "flex";
+              div1[i].style.display = "flex";
             } else {
               div[i].style.display = "none";
+              div1[i].style.display = "none";
             }
           }
           if ($("#grid_patient .patient_container:visible").length === 0) {
@@ -198,6 +251,12 @@ function search_Patient(){
           else if ($("#grid_patient .patient_container:visible").length != 0) {
             document.getElementsByClassName("no_schedule_available2")[0].style.display ="none";
           }
+          if($('#header_body .row_patient_container:visible').length === 0) {//if not found
+            document.getElementsByClassName("no_schedule_available3")[0].style.display = "flex";
+          }
+          else if($('#header_body .row_patient_container:visible').length !== 0){//if found
+            document.getElementsByClassName("no_schedule_available3")[0].style.display = "none";
+          }        
         }
       }
   }
@@ -232,6 +291,23 @@ function record() {
       document.getElementsByClassName("speech_Modal")[0].style.display="none";
   } 
 
+
+  function rowView(){
+    document.getElementById("row_view").style.display = "block";
+    document.getElementById("grid_view").style.display = "none";
+    document.getElementsByClassName("grid_content")[0].style.backgroundColor = "transparent";
+    document.getElementsByClassName("row_content")[0].style.backgroundColor = "#ffff";
+    document.getElementById("grid_icon").style.color = "#898a95";
+    document.getElementById("row_icon").style.color = "#4D77FF";
+  }
+  function gridView(){
+    document.getElementById("row_view").style.display = "none";
+    document.getElementById("grid_view").style.display = "block";
+    document.getElementsByClassName("grid_content")[0].style.backgroundColor = "#ffff";
+    document.getElementsByClassName("row_content")[0].style.backgroundColor = "transparent";
+    document.getElementById("grid_icon").style.color = "#4D77FF";
+    document.getElementById("row_icon").style.color = "#898a95";
+  }
 return(
   <div className="admin_schedule_container">
     <Admin_Left_Navigation_Bar/>
@@ -316,8 +392,8 @@ return(
                 <div className="change_view">
                     <p>View</p>
                     <div className='box'>
-                      <div className='content' style={{backgroundColor:"#ffff"}}><AppsIcon fontSize='small' id="grid_icon"/></div>
-                      <div className='content'><MenuIcon fontSize='small' id="row_icon"/></div>
+                      <div className='content grid_content' style={{backgroundColor:"#ffff"}}><AppsIcon fontSize='small' id="grid_icon" onClick={gridView}/></div>
+                      <div className='content row_content'><MenuIcon fontSize='small' id="row_icon" onClick={rowView}/></div>
                     </div>
                 </div>
 
@@ -337,7 +413,7 @@ return(
             </Grid>
           </div>
 
-          <div className="all_patient_container all_vaccine_container">
+          <div className="all_patient_container all_vaccine_container" id="grid_view">
             <Grid
               container
               direction="row"
@@ -360,6 +436,48 @@ return(
                 </div>  
             </Grid>
           </div>
+
+        <div id="row_view" style={{display:"none"}}>
+          <div className="header_table">
+            <div className="header2">
+                <span className="header_span" style={{fontWeight:"700",textAlign:"center"}}>Mother ID</span>
+            </div>
+            <div className="header3">
+                <span className="header_span" style={{fontWeight:"700",textAlign:"center"}}>Name</span>
+            </div>
+            <div className="header4">
+                <span className="header_span" style={{fontWeight:"700",textAlign:"center"}}>CONCACT</span>
+            </div>
+            <div className="header5">
+                <span className="header_span" style={{fontWeight:"700",textAlign:"center"}}>DATE CREATED</span>
+            </div>
+            <div className="header6">
+                <span className="header_span" style={{fontWeight:"700",textAlign:"center"}}>ACTION</span>
+            </div>
+          </div>
+
+          <div className="header_table header_body" id="header_body">
+          {loading ?   
+            each_patient     
+          :
+            <div className="header_table header_body" id="table_loader" style={{backgroundColor:"transparent",boxShadow:"none"}}>
+              <div div className='no_schedule_available'>
+                <CircularProgress style={{height:"60px",width:"60px"}}/>
+                <p style={{fontSize:"1.3rem"}}>Please wait...</p>
+              </div> 
+            </div>
+          }
+            <div div className='no_schedule_available no_schedule_available3' style={{display:"none"}}>
+              <img src={No_Records_Available} alt=""/>
+              <p style={{fontSize:"1.3rem"}}>No patient found</p>
+            </div>  
+          </div>
+          
+          <div className="bottom_sched">
+            <p>{"Total of "+array_patient_ctr1+" records"}</p>
+          </div>
+        </div>
+    
 
         </div>
       </div>

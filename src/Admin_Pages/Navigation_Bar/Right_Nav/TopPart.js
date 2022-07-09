@@ -5,12 +5,14 @@ import Tooltip, { tooltipClasses } from '@mui/material/Tooltip';
 import IconButton from '@mui/material/IconButton';
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 
-import SettingsIcon from '@mui/icons-material/Settings';
+import KeyIcon from '@mui/icons-material/Key';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
+import FaceIcon from '@mui/icons-material/Face';
 import Logout from '@mui/icons-material/Logout';
+import { useNavigate } from "react-router-dom";
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
     '& .MuiBadge-badge': {
@@ -24,6 +26,18 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
   }));
 
 export default function Top_Nav_Part(){
+    let navigate = useNavigate();
+    //Navigate to view patient
+    function gotoViewProfile(){
+      navigate(`/Administration_View_Profile`);
+    }
+    function gotoEditProfile(){
+      navigate(`/Administration_Edit_Profile`);
+    }
+    function gotoChangePassword(){
+      navigate(`/Administration_Change_Password`);
+    }
+
     //Tooltip
     const LightTooltip = styled(({ className, ...props }) => (
         <Tooltip {...props} classes={{ popper: className }}/>
@@ -66,10 +80,10 @@ export default function Top_Nav_Part(){
             >
                 <div className="left">
                     <img 
-                      src={localStorage.getItem("url_default_avatar")+"template.png"}  alt="" 
-                      onError={(e)=>{e.target.onerror = null; e.target.src=localStorage.getItem("url_default_avatar")+"Default_Avatar.png"}}
+                      src={localStorage.getItem("url_admin_img")+localStorage.getItem("admin_login_photo")}  alt="" 
+                      onError={(e)=>{e.target.onerror = null; e.target.src=localStorage.getItem("url_admin_img")+"Default_Avatar.png"}}
                     />
-                    <p>Jayson</p>
+                    <p>{localStorage.getItem("admin_login_firstname")}</p>
                 </div>
                 <span>&#62;</span>
             </div>     
@@ -109,17 +123,23 @@ export default function Top_Nav_Part(){
                 anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
             >
                 <MenuItem style={{display:"none"}}></MenuItem>
-                <MenuItem>
+                <MenuItem onClick={gotoViewProfile}>
                     <ListItemIcon>
-                        <ManageAccountsIcon fontSize="medium"/>
+                        <FaceIcon fontSize="medium"/>
                     </ListItemIcon>
                     &nbsp;&nbsp;My Profile &nbsp;&nbsp;&nbsp;
                 </MenuItem>
-                <MenuItem>
+                <MenuItem onClick={gotoEditProfile}>
                     <ListItemIcon>
-                        <SettingsIcon fontSize="medium"/>
+                        <ManageAccountsIcon fontSize="medium"/>
                     </ListItemIcon>
-                    &nbsp;&nbsp;Settings &nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;Edit Profile &nbsp;&nbsp;&nbsp;
+                </MenuItem>
+                <MenuItem onClick={gotoChangePassword}>
+                    <ListItemIcon>
+                        <KeyIcon fontSize="medium"/>
+                    </ListItemIcon>
+                    &nbsp;&nbsp;Change Password &nbsp;&nbsp;&nbsp;
                 </MenuItem>
                 <MenuItem>
                     <ListItemIcon>

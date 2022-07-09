@@ -298,10 +298,10 @@ return(
 
         </div>
 
-      <div id="link_dashboard" style={{marginBottom: "10px"}}>
-        <Link to="#" style={{textDecoration:"none"}}>
-        <div className="link_container">
-          <div className="left">
+      <div id="link_Settings" style={{marginBottom: "10px"}}>
+        <Link to="/Administration_Settings" style={{textDecoration:"none"}}>
+        <div className="link_container" id="admin_Settings_link">
+          <div className="left" id="left_nav_settings_border">
             <img alt="" src={Setting_Icon}/>
           </div>
           <div className="right"><span>Settings</span></div>

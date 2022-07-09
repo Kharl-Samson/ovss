@@ -26,7 +26,14 @@ import Url from "../../Functions/Url";
 export default function Navigation_Bar(){
     //Removing local storage
     localStorage.removeItem("admin_login_email");
-
+    localStorage.removeItem("admin_login_photo");
+    localStorage.removeItem("admin_login_fullname");
+    localStorage.removeItem("admin_login_firstname");
+    localStorage.removeItem("admin_login_middlename");
+    localStorage.removeItem("admin_login_lastname");
+    localStorage.removeItem("admin_login_contact");
+    localStorage.removeItem("admin_login_id");
+    
     //Calling the url of announcement
     Url();
 

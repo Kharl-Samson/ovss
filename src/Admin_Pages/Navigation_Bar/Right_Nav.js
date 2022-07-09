@@ -27,9 +27,9 @@ return(
             </div>
             <div className="bottom">
                 <p>Contact Person</p>
-                <p>Jayson Batoon</p>
+                <p>{localStorage.getItem("admin_login_fullname")}</p>
                 <p>Email Address</p>
-                <p>juandelacruz@gmail.com</p>
+                <p>{localStorage.getItem("admin_login_email")}</p>
             </div>
         </div>
 

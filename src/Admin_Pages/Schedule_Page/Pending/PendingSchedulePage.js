@@ -83,7 +83,7 @@ export default function Admin_Pending_Schedule_Page(){
           propsKey = {array_pending_schedule_ctr}
           id = {res.id}
           email = {res.email}
-          motherID = {res.mother_id}
+          motherID = {"OVSS-"+res.mother_id}
           motherFname = {res.mother_fname}
           motherMname = {res.mother_mname}
           motherLname = {res.mother_lname}
@@ -94,7 +94,6 @@ export default function Admin_Pending_Schedule_Page(){
           appointmentDate = {res.appointment_date}
           contact = {res.contact}
           appointmentStatus = {res.appointment_status}
-
           child_fname = {res.child_fname}
           child_mname = {res.child_mname}          
           child_lname = {res.child_lname}

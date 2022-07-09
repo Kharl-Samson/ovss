@@ -12,12 +12,12 @@ function show_latest_specific_announcements_function(){
   document.getElementById("specific_announcement_date").textContent = props.date;
   document.getElementById("specific_announcement_img").src = props.imageUrl;
   document.getElementById("specific_announcement_headline").textContent = props.headline;
-  document.getElementById("announcement_content").textContent = props.content;
+  document.getElementById("announcement_content").innerHTML = props.content;
 }
     return(
     <div className={"box box_Announcement_ctr"+props.propsKey} key={props.propsKey}>
         <div className="img_container">
-          <img src={props.imageUrl} alt=""/>
+          <img src={props.imageUrl} alt=""  onError={(e)=>{e.target.onerror = null; e.target.src=localStorage.getItem("url_announcement")+"template.jpg"}}/>
         </div>
         <div className="content">
           <p className="headline">{props.headline }</p>
