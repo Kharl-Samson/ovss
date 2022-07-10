@@ -54,9 +54,12 @@ export default function Admin_PatientProfile(){
       setLoading(true);
       setPatients(result.data.phpresult);
     };
+
+
     useEffect(() => {
       loadPatients();
       setTimeout(function () {
+        document.getElementById("table_loader_child").style.display = "none";
         var array_Cfname = document.getElementById("child_fname").value.slice(0, -4).split(" || ");
         var array_Cmname = document.getElementById("child_mname").value.slice(0, -4).split(" || ");
         var array_Clname = document.getElementById("child_lname").value.slice(0, -4).split(" || ");
@@ -73,7 +76,7 @@ export default function Admin_PatientProfile(){
         setplaceChild(array_Cplace);
         setbdayChild(array_Cbday);
         setageChild(array_Cage);
-       }, 100);
+       }, 1000);
     }, []);
 
     var array_child_ctr = -1;
@@ -223,6 +226,13 @@ return(
               {Photo_Name_Email}
               {/*Mother information*/}
               {Mother_Information}
+
+              <div className="header_table header_body" id="table_loader_child" style={{backgroundColor:"transparent",boxShadow:"none"}}>
+                <div div className='no_schedule_available'>
+                  <CircularProgress style={{height:"60px",width:"60px"}}/>
+                </div> 
+              </div>
+
               {/*Child information*/}
               {Child_Info}
             </div>

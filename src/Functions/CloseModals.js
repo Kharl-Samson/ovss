@@ -86,6 +86,9 @@ export default function CloseModals(){
         else if (event.target === document.getElementById("delete_announcement_modal_container")) {
             document.getElementById("delete_announcement_modal_container").style.display = "none";
         }  
+        else if (event.target === document.getElementById("Register_Modal_Container")) {
+            document.getElementById("Register_Modal_Container").style.display = "none";
+        }   
     }
 }
 

@@ -95,7 +95,7 @@ button:hover{
 }
 
 /*RESPONSIVE*/
-@media screen and (max-width: 251px) {
+@media screen and (max-width: 300px) {
     body{
         display: none;
     }

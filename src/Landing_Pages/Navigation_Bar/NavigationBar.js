@@ -22,6 +22,7 @@ import HowToRegIcon from '@mui/icons-material/HowToReg';
 import Signup_Page from "../LoginRegister_Pages/SignupPage";
 import CloseModals from "../../Functions/CloseModals";
 import Url from "../../Functions/Url";
+import Register_Page from "../LoginRegister_Pages/RegisterPage";
 
 export default function Navigation_Bar(){
     //Removing local storage
@@ -47,6 +48,7 @@ export default function Navigation_Bar(){
         } 
       }
     });
+
 
      const [state, setState] = React.useState({
         left: false,
@@ -97,15 +99,6 @@ export default function Navigation_Bar(){
                 <ListItemText primary="Geotagging" />
             </ListItem>
             </Link>
-
-            <Link to="/Schedule" className="Link_React">
-            <ListItem>
-                <ListItemIcon>
-                  <DateRangeIcon/>
-                </ListItemIcon>
-                <ListItemText primary="Schedule" />
-            </ListItem>
-            </Link>
             
           </List>
 
@@ -119,14 +112,12 @@ export default function Navigation_Bar(){
                 <ListItemText primary="Sign In" />
             </ListItem>
 
-            <Link to="#" className="Link_React">
-            <ListItem>
+            <ListItem onClick={Show_register_modal}>
                 <ListItemIcon>
                   <HowToRegIcon/>
                 </ListItemIcon>
                 <ListItemText primary="Sign Up" />
             </ListItem>
-            </Link>
           </List>
         </Box>
       );
@@ -137,6 +128,11 @@ export default function Navigation_Bar(){
     document.getElementById("Login_Modal_Container").style.display = "flex";
     document.getElementById("email_input").value = localStorage.getItem("email_input");
     document.getElementById("password_input").value = localStorage.getItem("password_input");
+  }
+
+  //Show Login Modal
+  function Show_register_modal(){
+    document.getElementById("Register_Modal_Container").style.display = "flex";
   }
 
     return(
@@ -156,14 +152,11 @@ export default function Navigation_Bar(){
             <Link to="/Geotagging" className="Link_React">
                 <span id="geotagging_span_nav">Geotagging</span>
             </Link>        
-            <Link to="/Schedule" className="Link_React">
-                <span id="schedule_span_nav">Schedule</span>
-            </Link>        
-
+    
         </div>
 
         <div className="right">
-            <span>Sign Up</span>
+            <span onClick={Show_register_modal}>Sign Up</span>
       
             <div className="signup_btn" onClick={Show_login_modal}>Sign In</div>
 
@@ -182,11 +175,14 @@ export default function Navigation_Bar(){
             ))}
         </div>
 
-        {/*Login and Register Component */}
+        {/*Login Component */}
         <Signup_Page/>
 
-       {/*Close modals functions */}
-       <CloseModals/>
+        {/*Register Component */}
+        <Register_Page/>
+
+        {/*Close modals functions */}
+        <CloseModals/>
 
        </nav>
     )

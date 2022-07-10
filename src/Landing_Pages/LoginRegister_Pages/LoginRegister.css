@@ -381,6 +381,76 @@
 }
 
 
+/*Register*/
+#RegisterForm_Container{
+    height: 550px;
+    width: 900px;
+}
+#RegisterForm_Container .right .right_container{
+    width: 80%;
+}
+#RegisterForm_Container .right h1{
+    line-height: 1;
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+#RegisterForm_Container .right .new_here_text{
+    margin-bottom: 5%;
+}
+.input_register{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+}
+.input_register .input_box{
+    width: 47.5%;
+    height: auto;
+    margin-bottom: 20px;
+}
+.input_register .input_box .label{
+    font-size: .9rem;
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+.input_register .input_box input{
+    width: 100%;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    font-size: 1rem;
+    padding: 7px 0;
+    font-weight: 600;
+    background-color: #dfe7fb;
+    outline-color: #4D77FF;
+    text-indent: 10px;
+}
+.input_register #label{
+    font-size: .9rem;
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+.input_register input[type="email"]{
+    width: 100%;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    font-size: 1rem;
+    padding: 7px 0;
+    font-weight: 600;
+    background-color: #dfe7fb;
+    outline-color: #4D77FF;
+    text-indent: 10px;
+}
+
+.input_register .password_input_container .password_input_register{
+    width: 85%;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 7px 0;
+    background-color: transparent;
+    outline: none;
+    text-indent: 10px;
+}
 
 /*RESPONSIVE*/
 @media screen and (max-width: 851px) {
@@ -420,5 +490,19 @@
 @media screen and (max-width: 501px) {
     .admin_login_container .box{
         width: 90%;
+    }
+
+    .input_register{
+        flex-direction: column;
+    }
+    .input_register .input_box{
+        width: 100%;
+    }
+
+    #RegisterForm_Container{
+        height: 100%;  
+        width: 100%;
+        margin: 0;
+        border-radius: 0;
     }
 }

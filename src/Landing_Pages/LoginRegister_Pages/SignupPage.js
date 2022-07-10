@@ -96,6 +96,14 @@ window.onclick = function(event) {
   }   
 }
 
+//Show Login Modal
+function Show_register_modal(){
+  document.getElementById("Register_Modal_Container").style.display = "flex";
+  document.getElementById("Login_Modal_Container").style.display = "none";
+  document.getElementById("email_input").value = "";
+  document.getElementById("password_input").value = "";
+}
+
 return(
   <div className="LoginRegister_Container Login_Modal_Container" id="Login_Modal_Container">
     <div className="LoginForm_Container">
@@ -125,7 +133,7 @@ return(
 
           <div className="right_container">
             <h1>Welcome Back!</h1>
-            <p className="new_here_text"><b>New here?</b>&nbsp;&nbsp; <LightTooltip title="Create an account"><span>Sign up</span></LightTooltip></p>
+            <p className="new_here_text"><b>New here?</b>&nbsp;&nbsp; <span onClick={Show_register_modal}>Sign up</span></p>
 
             <p className="label">Email or username</p>
             <input type="text" placeholder="Email or username here" className="email_input" id="email_input" defaultValue={localStorage.getItem("email_input")} required />
