@@ -21,6 +21,7 @@ import AnnouncementPage from "./Landing_Pages/Announcement_Page/Announcement";
 import GeotaggingPage from "./Landing_Pages/Geotagging_Page/GeotaggingPage";
 import HomePage from "./Landing_Pages/Home_Page/HomePage";
 import AdminSignin_Page from "./Landing_Pages/LoginRegister_Pages/AdminSigninPage";
+import PatientDashboard_Page from "./Patient_Pages/Dashboard_Page/PatientDashboard";
 
 export default function App() {
 
@@ -53,6 +54,9 @@ export default function App() {
           <Route path="/Administration_View_Profile" element={<Admin_ViewProfile/>}/>
           <Route path="/Administration_Edit_Profile" element={<Admin_EditProfile/>}/>
           <Route path="/Administration_Change_Password" element={<Admin_ChangePassword/>}/>
+     
+          {/* Patient Pages */}
+          <Route path="/Patient_Dashboard" element={<PatientDashboard_Page/>}/>
 
         </Routes>
     </div>

@@ -34,6 +34,15 @@ export default function Navigation_Bar(){
     localStorage.removeItem("admin_login_lastname");
     localStorage.removeItem("admin_login_contact");
     localStorage.removeItem("admin_login_id");
+    localStorage.removeItem("patient_login_email");
+    localStorage.removeItem("patient_login_photo");
+    localStorage.removeItem("patient_login_fullname");
+    localStorage.removeItem("patient_login_firstname");
+    localStorage.removeItem("patient_login_middlename");
+    localStorage.removeItem("patient_login_lastname");
+    localStorage.removeItem("patient_login_contact");
+    localStorage.removeItem("patient_login_id");
+
     
     //Calling the url of announcement
     Url();

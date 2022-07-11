@@ -59,7 +59,7 @@ export default function AnnouncementPage(){
           headline = {res.title}
           content_to_show = {content_var_to_show}
           content = { content }
-          date = {moment(res.date).format('LL')}
+          date = {moment(res.date).format('ll')}
         />
       );
     }
@@ -71,7 +71,7 @@ export default function AnnouncementPage(){
           headline = {res.title}
           content_to_show = {content_var_to_show}
           content = { content }
-          date = {moment(res.date).format('LL')}
+          date = {moment(res.date).format('ll')}
         />
       );
     }
@@ -116,7 +116,7 @@ function Minimize_latest_announcements(){
           headline = {res.title}
           content_to_show = {content_var_to_show}
           content = { content_prev }
-          date = {moment(res.date).format('LL')}
+          date = {moment(res.date).format('ll')}
         />
       );
     }
@@ -128,7 +128,7 @@ return(
     <Navigation_Bar/>
     <div className="latest_announcement_container">
         <h1>Latest <span>Announcements</span></h1>
-        <p className="Latest_announcement_date">{moment().format('LL')}</p>
+        <p className="Latest_announcement_date">{moment().format('ll')}</p>
         <div className="box_container">
         <Grid
               container
@@ -167,7 +167,7 @@ return(
             box_previous_announcement   
           :
             <div className="header_table header_body" id="table_loader" style={{backgroundColor:"transparent",boxShadow:"none"}}>
-              <div div className='no_schedule_available'>
+              <div className='no_schedule_available'>
                 <CircularProgress style={{height:"60px",width:"60px"}}/>
               </div> 
             </div>

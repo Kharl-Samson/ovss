@@ -3,6 +3,7 @@ export default function CloseModals(){
     //Close modals
     window.onclick = function(event) {
         if (event.target === document.getElementById("Login_Modal_Container")) {
+            document.getElementById("login_validation1").style.display = "none";
             document.getElementById("Login_Modal_Container").style.display = "none";
             document.getElementById("email_input").value = "";
             document.getElementById("password_input").value = "";
@@ -88,7 +89,41 @@ export default function CloseModals(){
         }  
         else if (event.target === document.getElementById("Register_Modal_Container")) {
             document.getElementById("Register_Modal_Container").style.display = "none";
+            document.getElementById("add_register_email").value = "";
+            document.getElementById("add_register_fname").value = "";
+            document.getElementById("add_register_lname").value = "";
+            document.getElementById("add_register_password").value = "";
+            document.getElementById("add_register_password1").value = "";  
+            document.getElementById("span_email_register").textContent = "*";
+            document.getElementsByClassName("register_password_validation")[0].textContent = "*";
+            document.getElementsByClassName("register_password_validation")[1].textContent = "*";
+            document.getElementById("add_register_email").style.border = "2px solid transparent";
+
+            document.getElementById("step2").style.display = "none";
+            document.getElementById("step1").style.display = "block";
+            document.getElementsByClassName("text_btn_register1")[0].style.display = "flex";
+            document.getElementsByClassName("progress_btn_register1")[0].style.display = "none";
         }   
+        else if (event.target === document.getElementById("registered_successfully")) {
+            document.getElementById("registered_successfully").style.display = "none";
+            document.getElementById("add_register_email").value = "";
+            document.getElementById("add_register_fname").value = "";
+            document.getElementById("add_register_lname").value = "";
+            document.getElementById("add_register_password").value = "";
+            document.getElementById("add_register_password1").value = "";  
+            document.getElementById("span_email_register").textContent = "*";
+            document.getElementsByClassName("register_password_validation")[0].textContent = "*";
+            document.getElementsByClassName("register_password_validation")[1].textContent = "*";
+            document.getElementById("add_register_email").style.border = "2px solid transparent";
+          
+            document.getElementById("email_input").value = "";
+            document.getElementById("password_input").value = "";
+          
+            document.getElementById("step2").style.display = "none";
+            document.getElementById("step1").style.display = "block";
+            document.getElementsByClassName("text_btn_register1")[0].style.display = "flex";
+            document.getElementsByClassName("progress_btn_register1")[0].style.display = "none";
+        }  
     }
 }
 

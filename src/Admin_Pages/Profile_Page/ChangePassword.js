@@ -148,7 +148,7 @@ function password_isMatch(){
     var confirm_password = document.getElementById('profile_new_pass1').value;
     if(new_password !== confirm_password && confirm_password.length !== 0){
         document.getElementsByClassName("error_password_validation")[2].style.visibility = "visible";
-        document.getElementsByClassName("error_password_validation")[2].textContent = "New password and confirm does'n match";
+        document.getElementsByClassName("error_password_validation")[2].textContent = "New password and confirm password doesn't match";
     }
     else{
         document.getElementsByClassName("error_password_validation")[2].style.visibility = "hidden";
