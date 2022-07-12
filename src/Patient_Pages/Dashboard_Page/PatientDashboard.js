@@ -85,6 +85,21 @@ export default function PatientDashboard_Page(){
     }
   });
 
+//If the width of screen is below 850px -> It will hide the profile notifyer
+const mq = window.matchMedia("(max-width: 850px)");
+if (mq.matches) {}
+else{
+    setTimeout(function(){
+        if(localStorage.getItem('patient_account_status') !=="Pending"){
+            document.getElementById("profile_notify_container").style.display="none"
+        }
+        else{
+            document.getElementById("profile_notify_container").style.display="flex";
+        }
+    },1000);
+}
+
+
 return(
 <div className="admin_dashboard_container">
     <Patient_Left_Navigation_Bar/>

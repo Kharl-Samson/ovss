@@ -73,6 +73,7 @@ export default function Admin_ViewPatient_Page(){
   
   var array_patient_ctr = 0;
   const box_patient = patients.map((res) => {
+    if(res.status !== "Pending"){
     array_patient_ctr++;
     return (
       <EachPatient_box
@@ -101,9 +102,11 @@ export default function Admin_ViewPatient_Page(){
         child_age = {res.child_age}
       />
     ); 
+   }
   });
   var array_patient_ctr1 = 0;
   const each_patient = patients.map((res) => {
+    if(res.status !== "Pending"){
     array_patient_ctr1++;
     return (
       <EachRowPatient
@@ -132,6 +135,7 @@ export default function Admin_ViewPatient_Page(){
       child_age = {res.child_age}
       />
     ); 
+    }
   });
 
 

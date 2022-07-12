@@ -33,7 +33,7 @@ export default function Top_Nav_Part(){
     let navigate = useNavigate();
     //Navigate to view patient
     function gotoViewProfile(){
-      navigate(`/Administration_View_Profile`);
+      navigate(`/Patient_View_Profile`);
     }
     function gotoEditProfile(){
       navigate(`/Administration_Edit_Profile`);

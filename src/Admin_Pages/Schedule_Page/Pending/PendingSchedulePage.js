@@ -174,7 +174,7 @@ function search_Schedule(){
       date : document.getElementById("date_accept_key").value,   
     }
     document.getElementsByClassName("text_btn_Acceptsched_Vax")[0].style.display = "none";
-    document.getElementsByClassName("progress_btn_schedule_modal")[0].style.display = "flex";
+    document.getElementsByClassName("progress_btn_Acceptschedule_modal")[0].style.display = "flex";
     axios.post(localStorage.getItem("url_hosting")+'Accept_Schedule.php',sendData)
     .then((result)=>{
       if(result.data.status === "Success"){
@@ -185,7 +185,7 @@ function search_Schedule(){
           document.getElementById("slide_modal_container").style.left = "-100%";
         }, 2000);
         document.getElementsByClassName("text_btn_Acceptsched_Vax")[0].style.display = "flex";
-        document.getElementsByClassName("progress_btn_schedule_modal")[0].style.display = "none";
+        document.getElementsByClassName("progress_btn_Acceptschedule_modal")[0].style.display = "none";
       }
       else{
         alert("SQL error")

@@ -15,6 +15,7 @@ import Mini_Logo from "../../Assets/Logo/Mini_Logo.png";
 import Profile_Icon from "../../Assets/Icons/Profile_Icon.png";
 import geotagging_icon from "../../Assets/Icons/geotagging_icon.png";
 import Schedule_Icon from "../../Assets/Icons/Schedule_Icon.png";
+import ProfileNotifyer from "../ProfileNotifyer";
 
 export default function Patient_Left_Navigation_Bar(){
 
@@ -55,7 +56,6 @@ function remove_hover_navbar(){
 }
 
 
-
 return(
    <div className="admin_navigation_bar_container" onMouseOver={hover_navbar} onMouseOut={remove_hover_navbar}>
 
@@ -77,10 +77,10 @@ return(
         </Link>
       </div>
 
-      <div id="link_dashboard" style={{marginBottom: "10px"}}>
-        <Link to="#" style={{textDecoration:"none"}}>
-        <div className="link_container" id="admin_dashboard_link">
-            <div className="left" id="left_nav_dashboard_border">
+      <div id="link_Profile" style={{marginBottom: "10px"}}>
+        <Link to="/Patient_View_Profile" style={{textDecoration:"none"}}>
+        <div className="link_container" id="admin_profile_link">
+            <div className="left" id="left_nav_profile_border">
                 <img alt="" src={Profile_Icon}/>
             </div>
             <div className="right"><span>Profile</span></div>
@@ -121,6 +121,9 @@ return(
         </div>
         </Link>
     </div>
+
+    <ProfileNotifyer/>
+
    </div>
 )
 }

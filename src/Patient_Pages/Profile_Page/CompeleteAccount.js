@@ -1,8 +1,6 @@
 import React ,{ Children, useEffect, useState } from "react";
-import "./Patient.css";
+import "./Profile.css";
 import axios from "axios";
-import Admin_Left_Navigation_Bar from "../Navigation_Bar/Left_Nav";
-import Admin_Right_Navigation_Bar from '../Navigation_Bar/Right_Nav';
 import { styled } from '@mui/material/styles';
 import Tooltip, { tooltipClasses } from '@mui/material/Tooltip';
 import TabLogo from "../../Assets/Logo/Tab_Logo.png";
@@ -16,8 +14,10 @@ import validator from 'validator';
 import ValidatorSlideModal from "../../Modals/ValidatorSlideModal";
 import moment from 'moment';
 import Patient_Icon from "./Images/Patient_Icon.png";
+import Patient_Left_Navigation_Bar from "../Navigation_Bar/Left_Nav";
+import Patient_Right_Navigation_Bar from "../Navigation_Bar/Right_Nav";
 
-export default function AddPatientPage(){
+export default function CompleteAccountPage(){
   let navigate = useNavigate();
   //Tooltip
   const LightTooltip = styled(({ className, ...props }) => (
@@ -33,15 +33,13 @@ export default function AddPatientPage(){
 
 //Loading the logo and the title on the Tab of the browser
 document.querySelector("link[rel='shortcut icon']").href = TabLogo;
-document.title = "OVSS | Add Patient";
+document.title = "OVSS | Account Form";
     
 //Setting the color of active navigation text
 setTimeout(function () {
-    document.getElementById("link_add_patient").style.pointerEvents="none";
-    document.getElementById("admin_Add_Patient_link").style.backgroundColor = "#e7e7ff";
-    document.getElementById("left_nav_Add_Patient_border").style.borderLeft = "5px solid #4D77FF";
-    document.getElementById("left_nav_patient_border").style.borderLeft = "5px solid #4D77FF";
-    document.getElementById("admin_patient_link").style.backgroundColor = "#e7e7ff";
+  document.getElementById("link_Profile").style.pointerEvents="none";
+  document.getElementById("left_nav_profile_border").style.borderLeft = "5px solid #4D77FF";
+  document.getElementById("admin_profile_link").style.backgroundColor = "#e7e7ff";
 }, 10);
 
 //Showing cancel when the image is hover
@@ -176,7 +174,7 @@ function phonenumber() {
 }
 
   //Add Patient Form
-  const addPatientForm=(e)=>{
+  const CompletePatientForm=(e)=>{
     e.preventDefault();
     const data = new FormData();          
     //Sending the data request to call it on backend
@@ -197,7 +195,6 @@ function phonenumber() {
       cgender: document.getElementById("gender_collection").value,
       cweight: document.getElementById("weight_collection").value,
       cplace: document.getElementById("place_collection").value,
-      password: document.getElementById("add_patient_fname").value+moment().format('L'),
       bday: document.getElementById("add_patient_birthday").value,
       age: document.getElementById("add_patient_age").value,
       cbday: document.getElementById("bday_collection").value,
@@ -217,17 +214,17 @@ function phonenumber() {
         }, 2000);
     }
     else{
-     document.getElementsByClassName("text_btn_add_Patient")[0].style.display = "none";
-     document.getElementsByClassName("progress_btn_add_Patient")[0].style.display = "flex";
-     axios.post(localStorage.getItem("url_hosting")+"Add_Patient.php",sendData).then((result)=>{
+     document.getElementsByClassName("text_btn_complete_Patient")[0].style.display = "none";
+     document.getElementsByClassName("progress_btn_complete_Patient")[0].style.display = "flex";
+     axios.post(localStorage.getItem("url_hosting")+"Complete_Details_Patient.php",sendData).then((result)=>{
          if(result.data.status === "Success"){
             document.getElementsByClassName("success_addPatient_modal")[0].style.display = "flex";
-            //Axios for mailer
-            axios.post(localStorage.getItem("url_hosting")+'Add_Patient_Mailer.php',sendData).then((result)=>{})
+
+            window.localStorage.setItem('patient_account_status', "");
          }
          else if(result.data.status === "Email taken"){
-            document.getElementsByClassName("text_btn_add_Patient")[0].style.display = "flex";
-            document.getElementsByClassName("progress_btn_add_Patient")[0].style.display = "none";
+            document.getElementsByClassName("text_btn_complete_Patient")[0].style.display = "flex";
+            document.getElementsByClassName("progress_btn_complete_Patient")[0].style.display = "none";
             document.getElementById("add_patient_email").style.border = "2px solid red";
             document.getElementById("span_email").textContent = "* Email already taken";
             document.getElementById("image_validator_container").style.left = "75px";
@@ -240,14 +237,14 @@ function phonenumber() {
      for (let i = 0; i < document.getElementsByName("img_patient[]").length; i++) {
          data.append("file[]", document.getElementsByName("img_patient[]")[i].files[0]);
         }
-     let url = localStorage.getItem("url_hosting")+"Add_Patient.php";
+     let url = localStorage.getItem("url_hosting")+"Complete_Details_Patient.php";
      axios.post(url, data, {}).then((res) => {});
     }
   }
 
 //Function click okay in success modal
 function okay_success_modal(){
-  navigate(`/Administration_View_Patient`);
+  navigate(`/Patient_View_Profile`);
 }
 
 //Getting users age in input
@@ -278,15 +275,15 @@ function getDaysChild(key){
 
 return(
     <div className="admin_schedule_container">
-    <Admin_Left_Navigation_Bar/>
+    <Patient_Left_Navigation_Bar/>
 
     <div className="admin_content">
       <div className="admin_main_content">
         <div className="container">
-          <h1>Add <span style={{color:"#4D77FF"}}>Patient</span></h1>
+          <h1>Compelete your <span style={{color:"#4D77FF"}}>Account</span></h1>
 
            <div className="add_patient_container">
-           <form onSubmit={addPatientForm}>
+           <form onSubmit={CompletePatientForm}>
               <div className="top">
 
                 <div div className="image_container" onMouseOver={hover_image} onMouseOut={out_hover_image}>
@@ -314,13 +311,13 @@ return(
 
                 <div className="right">
                     <label className="label">First Name <span style={{color:"red"}}>*</span></label>
-                    <input type="text" placeholder="First name here" className="input_top" id="add_patient_fname" required/>
+                    <input type="text" placeholder="First name here" className="input_top" id="add_patient_fname" defaultValue={localStorage.getItem("patient_login_firstname")} required/>
 
                     <label className="label" style={{marginTop:"20px"}}>Middle Name</label>
-                    <input type="text" placeholder="This is optional" className="input_top" id="add_patient_mname"/>
+                    <input type="text" placeholder="This is optional" className="input_top" id="add_patient_mname" defaultValue={localStorage.getItem("patient_login_middlename")}/>
 
                     <label className="label" style={{marginTop:"20px"}}>Last Name <span style={{color:"red"}}>*</span></label>
-                    <input type="text" placeholder="Last name here" className="input_top" id="add_patient_lname" required/>
+                    <input type="text" placeholder="Last name here" className="input_top" id="add_patient_lname" defaultValue={localStorage.getItem("patient_login_lastname")} required/>
                   </div>
 
               </div>
@@ -330,7 +327,7 @@ return(
                 <div className="flex_bot" style={{marginTop:"20px"}}>
                   <div className="box">
                     <label className="label">Email <span style={{color:"red"}} id="span_email">*</span></label>
-                    <input type="text" placeholder="Email here" id="add_patient_email" className="input_top" required onChange={email_validation}/>
+                    <input type="text" value={localStorage.getItem("patient_login_email")} id="add_patient_email" className="input_top" required style={{backgroundColor:"#EBEBEB",textTransform:"none"}} readOnly />
                   </div>
                   <div className="box">
                     <label className="label">Contact # <span style={{color:"red"}} id="span_contact">*</span></label>
@@ -342,7 +339,7 @@ return(
                   <div className="box">
                     <label className="label">Birthday <span style={{color:"red"}} id="span_email">*</span></label>
                     <input type="date" id="add_patient_birthday" className="input_top" 
-                    required onChange={getAge} max={maxDateInput}/>
+                    required onChange={getAge} max={maxDateInput} style={{textTransform:"none"}}/>
                   </div> 
                   <div className="box">
                     <label className="label">Age <span style={{color:"red"}} id="span_contact">*</span></label>
@@ -441,7 +438,7 @@ return(
                     <div className="box">
                       <label className="label">Birthday <span style={{color:"red"}} id="span_email">*</span></label>
                       <input type="date" id="add_Cpatient_birthday" className="input_top cbday" 
-                      required
+                      required style={{textTransform:"none"}}
                       onChange={() => { getDaysChild(i-1);}} 
                       max={maxDateInput}/>
                     </div> 
@@ -491,8 +488,8 @@ return(
 
                 <div className="button_submit">
                     <button type="submit" onMouseOver={getAllChildData}>
-                        <CircularProgress color="inherit" id="progress_btn" className="progress_btn_add_Patient" />
-                        <span className="text_btn_add_Patient">Save</span>
+                        <CircularProgress color="inherit" id="progress_btn" className="progress_btn_complete_Patient" />
+                        <span className="text_btn_complete_Patient">Save</span>
                     </button>
                 </div>
               </div>
@@ -502,7 +499,7 @@ return(
 
         </div>
       </div>
-      <Admin_Right_Navigation_Bar/>
+      <Patient_Right_Navigation_Bar/>
     </div>
 
     {/*Error if the image is too big modal */}
@@ -513,11 +510,11 @@ return(
     />
 
     {/*Success add vaccine modal */}
-    <div className="success_addPatient_modal">
+    <div className="success_addPatient_modal" style={{display:"none"}}>
         <div className="success_patient_container">
             <img src={Patient_Icon} alt=""/>
             <p className="head_text">Successful!</p>
-            <p>You have successfully added a new patients.</p>
+            <p>You have successfully completed your account.</p>
             <button onClick={okay_success_modal}>Okay</button>
         </div>
     </div>

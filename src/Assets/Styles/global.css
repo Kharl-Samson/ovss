@@ -87,6 +87,110 @@ button:hover{
     width: 17px !important;
 }
 
+
+/*Profile Notifyer*/
+.profile_notify_container{
+    display: none;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.477);
+    z-index: 9999999;
+    display: none;
+}
+.profile_notify_container .hand_mouse{
+    margin-top: -15px;
+    width: 40px;
+    height: auto;
+    -webkit-animation: slide-top 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) infinite;
+    animation: slide-top 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) infinite;
+}
+@-webkit-keyframes slide-top {
+    0% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+    }
+    100% {
+      -webkit-transform: translateY(-10px);
+      transform: translateY(-10px);
+    }
+  }
+  @keyframes slide-top {
+    0% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+    }
+    100% {
+      -webkit-transform: translateY(-10px);
+      transform: translateY(-10px);
+    }
+}
+
+.profile_notify_container .robot_container{
+    height: 340px;
+    width: auto;
+    position: fixed;
+    bottom: 0;
+    left: 300px;
+    display: flex;
+}
+.profile_notify_container .robot_container .left{
+    width: auto;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+.profile_notify_container .robot_container .left img{
+    height: 55%;
+    width: auto;
+}
+.profile_notify_container .robot_container .right{
+    width: auto;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.profile_notify_container .robot_container .right .convo_box{
+    margin-top: 80px;
+    height: auto;
+    width: 100%;
+    background-color: #ffff;
+    border-radius: 15px;
+    padding: 20px 20px;
+}
+.profile_notify_container .robot_container .right .convo_box p:nth-child(1){
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 0;
+    color: #4D77FF;
+}
+.profile_notify_container .robot_container .right .convo_box p:nth-child(2){
+    font-size: 1rem;
+    margin-top: 5px;
+    line-height: 1.2;
+}
+
+.profile_notify_container .nav_active_notifier:hover{
+    font-weight: bold;
+    background-color: #fff2df;
+    color: #4b4e52;
+    opacity: 90%;
+}
+
+
+
+#typewriter1, #typewriter2 , #typewriter3{
+    line-height: 1.2;
+    width: auto;
+    transition: 1s ease-in;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+
 /*RESPONSIVE*/
 @media screen and (max-width: 851px) {
     .admin_content .right_navigation{

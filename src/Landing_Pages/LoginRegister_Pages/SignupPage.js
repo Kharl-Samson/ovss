@@ -151,6 +151,7 @@ const submitForm=(e)=>{
          window.localStorage.setItem('patient_login_lastname', result.data.lname);
          window.localStorage.setItem('patient_login_contact', result.data.contact);
          window.localStorage.setItem('patient_login_id', result.data.id);
+         window.localStorage.setItem('patient_account_status', result.data.account_status);
         
          navigate(`/Patient_Dashboard`);
       }

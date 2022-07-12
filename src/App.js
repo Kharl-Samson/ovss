@@ -22,6 +22,8 @@ import GeotaggingPage from "./Landing_Pages/Geotagging_Page/GeotaggingPage";
 import HomePage from "./Landing_Pages/Home_Page/HomePage";
 import AdminSignin_Page from "./Landing_Pages/LoginRegister_Pages/AdminSigninPage";
 import PatientDashboard_Page from "./Patient_Pages/Dashboard_Page/PatientDashboard";
+import CompleteAccountPage from "./Patient_Pages/Profile_Page/CompeleteAccount";
+import Patient_Profile_Page from "./Patient_Pages/Profile_Page/ProfilePage";
 
 export default function App() {
 
@@ -57,6 +59,8 @@ export default function App() {
      
           {/* Patient Pages */}
           <Route path="/Patient_Dashboard" element={<PatientDashboard_Page/>}/>
+          <Route path="/Complete_Account" element={<CompleteAccountPage/>}/>
+          <Route path="/Patient_View_Profile" element={<Patient_Profile_Page/>}/>
 
         </Routes>
     </div>

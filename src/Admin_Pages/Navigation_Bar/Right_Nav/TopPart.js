@@ -102,8 +102,10 @@ export default function Top_Nav_Part(){
           name : document.getElementById("notif_name").value,
           date : document.getElementById("notif_date").value,   
         }
-        document.getElementsByClassName("text_btn_accept_notif")[0].style.display = "none";
-        document.getElementsByClassName("progress_btn_accept_notif")[0].style.display = "flex";
+        document.getElementById("load_notif_container").style.display = "flex";
+        for(var i = 0 ; i < document.getElementsByClassName("box_notifications").length ; i++){
+          document.getElementsByClassName("box_notifications")[i].style.display = "none";
+        }
         axios.post(localStorage.getItem("url_hosting")+'Accept_Schedule.php',sendData)
         .then((result)=>{
           if(result.data.status === "Success"){
@@ -112,8 +114,10 @@ export default function Top_Nav_Part(){
             setTimeout(function () {
               document.getElementById("slide_modal_container").style.left = "-100%";
             }, 2000);
-            document.getElementsByClassName("text_btn_accept_notif")[0].style.display = "flex";
-            document.getElementsByClassName("progress_btn_accept_notif")[0].style.display = "none";
+            document.getElementById("load_notif_container").style.display = "none";
+            for(var i = 0 ; i < document.getElementsByClassName("box_notifications").length ; i++){
+              document.getElementsByClassName("box_notifications")[i].style.display = "flex";
+            }
           }
           else{
             alert("SQL error")
@@ -133,8 +137,11 @@ export default function Top_Nav_Part(){
         name : document.getElementById("notif_name1").value,
         date : document.getElementById("notif_date1").value,   
     }
-    document.getElementsByClassName("text_btn_reject_notif")[0].style.display = "none";
-    document.getElementsByClassName("progress_btn_reject_notif")[0].style.display = "flex";
+
+    document.getElementById("load_notif_container").style.display = "flex";
+    for(var i = 0 ; i < document.getElementsByClassName("box_notifications").length ; i++){
+      document.getElementsByClassName("box_notifications")[i].style.display = "none";
+    }
     axios.post(localStorage.getItem("url_hosting")+'Reject_Schedule.php',sendData)
     .then((result)=>{
         if(result.data.status === "Success"){
@@ -143,8 +150,12 @@ export default function Top_Nav_Part(){
             setTimeout(function () {
               document.getElementById("slide_modal_container").style.left = "-100%";
             }, 2000);
-            document.getElementsByClassName("text_btn_reject_notif")[0].style.display = "flex";
-            document.getElementsByClassName("progress_btn_reject_notif")[0].style.display = "none";
+
+            document.getElementById("load_notif_container").style.display = "none";
+            for(var i = 0 ; i < document.getElementsByClassName("box_notifications").length ; i++){
+              document.getElementsByClassName("box_notifications")[i].style.display = "flex";
+            }
+ 
         }
         else{
           alert("SQL error")
@@ -242,7 +253,11 @@ export default function Top_Nav_Part(){
                     <CircularProgress style={{height:"60px",width:"60px"}}/>
                 </div> 
                 }
-                
+
+
+                    <div style={{height:"100%",width:"100%",display:"none",alignItems:"center",justifyContent:"center"}} id="load_notif_container">
+                      <CircularProgress style={{height:"60px",width:"60px"}}/>
+                    </div> 
                 </div>
                 <div className="bottom">
                     <span onClick={gotoPending}>View all schedule</span>

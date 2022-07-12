@@ -6,7 +6,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 export default function EachNotif(props){
     
 return(
-<div className="box">
+<div className="box box_notifications">
     <div className="left">
         <div className="icon"><CalendarMonthIcon fontSize="large"/></div>
     </div>
