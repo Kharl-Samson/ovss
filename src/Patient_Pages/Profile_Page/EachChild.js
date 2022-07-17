@@ -41,7 +41,7 @@ export default function EachChild(props){
     res.child_bdate === props.bday && 
     res.child_sex === props.sex && 
     res.child_placeDelivery === props.place && 
-    res.appointment_status === "Pending" && 
+    res.appointment_status === "Approved" && 
     res.child_vaccineDose === "1" && 
     res.child_vaccineName === "BCG"
    ){
@@ -71,7 +71,7 @@ export default function EachChild(props){
     res.child_bdate === props.bday && 
     res.child_sex === props.sex && 
     res.child_placeDelivery === props.place && 
-    res.appointment_status === "Pending" && 
+    res.appointment_status === "Approved" && 
     res.child_vaccineDose === "1" && 
     res.child_vaccineName === "Hepatitis B"
    ){
@@ -101,7 +101,7 @@ export default function EachChild(props){
     res.child_bdate === props.bday && 
     res.child_sex === props.sex && 
     res.child_placeDelivery === props.place && 
-    res.appointment_status === "Pending" && 
+    res.appointment_status === "Approved" && 
     res.child_vaccineDose === "1" && 
     res.child_vaccineName === "Pentavelent"
    ){
@@ -130,7 +130,7 @@ export default function EachChild(props){
     res.child_bdate === props.bday && 
     res.child_sex === props.sex && 
     res.child_placeDelivery === props.place && 
-    res.appointment_status === "Pending" && 
+    res.appointment_status === "Approved" && 
     res.child_vaccineDose === "2" && 
     res.child_vaccineName === "Pentavelent"
    ){
@@ -159,7 +159,7 @@ export default function EachChild(props){
     res.child_bdate === props.bday && 
     res.child_sex === props.sex && 
     res.child_placeDelivery === props.place && 
-    res.appointment_status === "Pending" && 
+    res.appointment_status === "Approved" && 
     res.child_vaccineDose === "3" && 
     res.child_vaccineName === "Pentavelent"
    ){
@@ -189,7 +189,7 @@ export default function EachChild(props){
     res.child_bdate === props.bday && 
     res.child_sex === props.sex && 
     res.child_placeDelivery === props.place && 
-    res.appointment_status === "Pending" && 
+    res.appointment_status === "Approved" && 
     res.child_vaccineDose === "1" && 
     res.child_vaccineName === "Oral Polio"
    ){
@@ -218,7 +218,7 @@ export default function EachChild(props){
     res.child_bdate === props.bday && 
     res.child_sex === props.sex && 
     res.child_placeDelivery === props.place && 
-    res.appointment_status === "Pending" && 
+    res.appointment_status === "Approved" && 
     res.child_vaccineDose === "2" && 
     res.child_vaccineName === "Oral Polio"
    ){
@@ -247,7 +247,7 @@ export default function EachChild(props){
     res.child_bdate === props.bday && 
     res.child_sex === props.sex && 
     res.child_placeDelivery === props.place && 
-    res.appointment_status === "Pending" && 
+    res.appointment_status === "Approved" && 
     res.child_vaccineDose === "3" && 
     res.child_vaccineName === "Oral Polio"
    ){
@@ -277,7 +277,7 @@ export default function EachChild(props){
     res.child_bdate === props.bday && 
     res.child_sex === props.sex && 
     res.child_placeDelivery === props.place && 
-    res.appointment_status === "Pending" && 
+    res.appointment_status === "Approved" && 
     res.child_vaccineDose === "1" && 
     res.child_vaccineName === "Inactivated Polio"
    ){
@@ -307,7 +307,7 @@ export default function EachChild(props){
     res.child_bdate === props.bday && 
     res.child_sex === props.sex && 
     res.child_placeDelivery === props.place && 
-    res.appointment_status === "Pending" && 
+    res.appointment_status === "Approved" && 
     res.child_vaccineDose === "1" && 
     res.child_vaccineName === "Pneumococcal Conjugative"
    ){
@@ -337,7 +337,7 @@ export default function EachChild(props){
     res.child_bdate === props.bday && 
     res.child_sex === props.sex && 
     res.child_placeDelivery === props.place && 
-    res.appointment_status === "Pending" && 
+    res.appointment_status === "Approved" && 
     res.child_vaccineDose === "2" && 
     res.child_vaccineName === "Pneumococcal Conjugative"
    ){
@@ -366,7 +366,7 @@ export default function EachChild(props){
     res.child_bdate === props.bday && 
     res.child_sex === props.sex && 
     res.child_placeDelivery === props.place && 
-    res.appointment_status === "Pending" && 
+    res.appointment_status === "Approved" && 
     res.child_vaccineDose === "3" && 
     res.child_vaccineName === "Pneumococcal Conjugative"
    ){
@@ -396,7 +396,7 @@ export default function EachChild(props){
     res.child_bdate === props.bday && 
     res.child_sex === props.sex && 
     res.child_placeDelivery === props.place && 
-    res.appointment_status === "Pending" && 
+    res.appointment_status === "Approved" && 
     res.child_vaccineDose === "1" && 
     res.child_vaccineName === "Measeles, Mumps, Rubella"
    ){
@@ -425,7 +425,7 @@ export default function EachChild(props){
     res.child_bdate === props.bday && 
     res.child_sex === props.sex && 
     res.child_placeDelivery === props.place && 
-    res.appointment_status === "Pending" && 
+    res.appointment_status === "Approved" && 
     res.child_vaccineDose === "2" && 
     res.child_vaccineName === "Measeles, Mumps, Rubella"
    ){

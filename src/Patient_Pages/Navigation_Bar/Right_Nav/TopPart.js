@@ -44,8 +44,8 @@ export default function Top_Nav_Part(){
     function gotoLogout(){
       navigate(`/`);
     }
-    function gotoPending(){
-        navigate(`/Administration_Pending_Schedule`);
+    function gotoViewSchedule(){
+        navigate(`/View_Schedule`);
     }
     //Tooltip
     const LightTooltip = styled(({ className, ...props }) => (
@@ -106,6 +106,7 @@ export default function Top_Nav_Part(){
         motherLname = {res.mother_lname}
         appointmentDate = {res.appointment_date}
         appoint_created = {res.appoint_created}
+        appoint_Status = {res.appointment_status}
         />
       ); 
     }
@@ -181,7 +182,7 @@ export default function Top_Nav_Part(){
                 
                 </div>
                 <div className="bottom">
-                    <span onClick={gotoPending}>View all schedule</span>
+                    <span onClick={gotoViewSchedule}>View all schedule</span>
                 </div>
             </div>
         </Menu>

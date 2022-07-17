@@ -1,0 +1,893 @@
+body{
+    overflow-x: hidden;
+}
+.admin_schedule_container{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+}
+
+.breadcrumbs_patient_profile p:nth-child(1){
+    color:#4D77FF;
+}
+.breadcrumbs_patient_profile p:nth-child(3){
+    color: #666f75;
+}
+.breadcrumbs_patient_profile p:nth-child(3):hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.admin_content{
+    width: 95.1%;
+    height: 100%;
+    margin-left: 75px;
+    display: flex;
+}
+.admin_content .admin_main_content{
+    height: 100%;
+    width: 77%;
+    background-color: #eeeefb;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+}
+.admin_content .admin_main_content::-webkit-scrollbar-track{
+	background-color: transparent;
+}
+.admin_content .admin_main_content::-webkit-scrollbar{
+	width: 5px;
+	background-color: transparent;
+}
+.admin_content .admin_main_content::-webkit-scrollbar-thumb{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #b9b9f8;
+}
+.admin_content .admin_main_content > .container{
+    width: 90%;
+    height: auto;
+    margin: 0% auto;
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+.admin_content .admin_main_content > .container h1:nth-child(1){
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-weight: 1000;
+}
+
+.admin_content .admin_main_content > .container .schedule_top{
+    margin-top: 10px;
+    height: auto;
+    width: 94%;
+    padding: 10px 3%;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background: #ffff;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    display: flex;
+}
+.admin_content .admin_main_content > .container .schedule_top .left{
+    height: auto;
+    display: flex;
+    align-items: center;
+}
+.admin_content .admin_main_content > .container .schedule_top .search_container{
+    border-radius: 5px;
+    height: 30px;
+    width: 250px;
+    border: 1.5px solid rgb(150, 150, 150);
+    display: flex;
+    overflow: hidden;
+    margin-right: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.admin_content .admin_main_content > .container .schedule_top .search_container:hover{
+    border: 1.5px solid #4D77FF;
+}
+.admin_content .admin_main_content > .container .schedule_top .search_container .icon{
+    height: 100%;
+    width: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.admin_content .admin_main_content > .container .schedule_top .search_container .icon img{
+    height: 50%;
+    width: auto;
+}
+.admin_content .admin_main_content > .container .schedule_top .search_container input{
+    height: 100%;
+    border: none;
+    outline: none;
+    font-weight: 500;
+    font-size: .9rem;
+    flex-grow: 1;
+}
+.admin_content .admin_main_content > .container .schedule_top .search_container .icon:nth-child(2):hover,
+.admin_content .admin_main_content > .container .schedule_top .filter_date{
+    cursor: pointer;
+}
+
+.admin_content .admin_main_content > .container .schedule_top .right{
+    height: auto;
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+.admin_content .admin_main_content > .container .schedule_top .right .search_container{
+    font-size: 1rem;
+    display: flex;
+    margin-right: 0;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    font-size: .9rem;
+}
+.admin_content .admin_main_content > .container .schedule_top .right .search_container:hover{
+    cursor: pointer;
+    opacity: 90%;
+}
+.admin_content .admin_main_content > .container .schedule_top .right .search_container span{
+    margin: 0 13px;
+}
+
+.admin_content .admin_main_content > .container .header_table{
+    height: auto;
+    width: 94%;
+    padding: 10px 3%;
+    background-color: #E3E9EF;
+    display: flex;
+}
+.admin_content .admin_main_content > .container .header_table .header2{
+    height: 50px;
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.admin_content .admin_main_content > .container .header_table .header3{
+    height: 50px;
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.admin_content .admin_main_content > .container .header_table .header4{
+    height: 50px;
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.admin_content .admin_main_content > .container .header_table .header5{
+    height: 50px;
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.admin_content .admin_main_content > .container .header_table .header5 .header_status{
+    background-color: #f8edc3;
+    color: #E2AB1D;
+    font-size: .9rem;
+    font-weight: 700;
+    border-radius: 10px;
+    width: 80px;
+    padding: 5px 15px;
+    margin-left: 10px;
+    display: flex;
+    justify-content: center;
+}
+.admin_content .admin_main_content > .container .header_table .header6{
+    height: 50px;
+    width: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.admin_content .admin_main_content > .container .header_table .header_span{
+    font-size: 1rem;
+    margin: 0 10px;
+    text-align: center;
+}
+
+.admin_content .admin_main_content > .container .header_body{
+    height: 50vh;
+    width: 94%;
+    padding: 10px 3%;
+    border-radius: 5px;
+    background: #ffff;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    overflow-y: scroll;
+    flex-direction: column;
+}
+.admin_content .admin_main_content > .container .header_body::-webkit-scrollbar-track{
+	background-color: transparent;
+}
+.admin_content .admin_main_content > .container .header_body::-webkit-scrollbar{
+	width: 5px;
+	background-color: transparent;
+}
+.admin_content .admin_main_content > .container .header_body::-webkit-scrollbar-thumb{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #b9b9f8;
+}
+.admin_content .admin_main_content > .container .header_body .table_tr{
+    display: flex;
+}
+.admin_content .admin_main_content > .container .header_body .table_tr #action_table_btn:hover{
+    cursor: pointer;
+    color: #4D77FF;
+}
+
+.admin_content .admin_main_content > .container .bottom_sched{
+    margin-top: 20px;
+    min-height: 35px;
+    width: 100%;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: transparent;
+}
+.admin_content .admin_main_content > .container .bottom_sched p{
+    font-size: 1rem;
+    font-weight: 700;
+}
+.admin_content .admin_main_content > .container .bottom_sched .btn{
+    display: none;
+    justify-content: flex-end;
+    align-items: center;
+}
+.admin_content .admin_main_content > .container .bottom_sched .btn button{
+    font-size: 1rem;
+    padding: 5px 10px;
+    border: none;
+}
+.admin_content .admin_main_content > .container .bottom_sched .btn button:hover{
+    cursor: pointer;
+    opacity: 80%;
+}
+.admin_content .admin_main_content > .container .bottom_sched .btn button:nth-child(1){
+    margin-right: 10px;
+    background-color: rgb(248, 85, 85);
+    color: #ffff;
+    border-radius: 5px;
+}
+.admin_content .admin_main_content > .container .bottom_sched .btn button:nth-child(2){
+    background-color: #4D77FF;
+    color: #ffff;
+    border-radius: 5px;
+}
+
+
+.no_schedule_available{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.no_schedule_available img{
+    height: 150px;
+}
+.no_schedule_available p{
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+#voice_search_icon:hover{
+    cursor: pointer;
+}
+
+/*View full info schedule*/
+.view_schedule_container{
+    z-index: 101;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.292);
+    position: fixed;
+    inset: 0;
+    display: none;
+    justify-content: flex-end;
+}
+.view_schedule{
+    margin-right: -100%;
+    height: 100%;
+    width: 650px;
+    background-color: #ffff;
+    transition: .5s ease;
+}
+.view_schedule .close_btn{
+    height: auto;
+    float: right;
+}
+.view_schedule .close_btn span{
+    font-size: 3rem;
+    font-weight: 800;
+    margin-right: 20px;
+}
+.view_schedule .close_btn span:hover{
+    cursor: pointer;
+    opacity: 70%;
+}
+.view_schedule .top{
+    height: auto;
+    width: 90%;
+    margin: 0% auto;
+    margin-top: 5%;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #4D77FF;
+}
+.view_schedule .top .first{
+    margin-bottom: 40px;
+    height: 5vh;
+    width: 90%;
+    display: flex;
+    align-items: center;
+}
+.view_schedule .top .first img{
+    height: 30px;
+    width: auto;
+    margin-right: 15px;
+}
+.view_schedule .top .first p{
+    line-height: 1.1;
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.view_schedule .top .info_container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    margin-top: 20px;
+}
+.view_schedule .top .info_container .left_right{
+    width: 27.5%;
+    height: 100%;
+}
+.view_schedule .top .info_container .left_right label,
+.view_schedule .top .info_container .center label{
+    font-size: .9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #8A8A8A;
+}
+.view_schedule .top .info_container .left_right p,
+.view_schedule .top .info_container .center p{
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+.view_schedule .top .info_container .left_right .appoint_stat{
+    background-color: #f8edc3;
+    color: #E2AB1D;
+    border-radius: 8px;
+    padding: 5px 20px;
+    float: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.view_schedule .top .info_container .left_right .appoint_stat span{
+    font-size: .9rem;
+    font-weight: 600;
+    margin-top: -2px;
+}
+.view_schedule .top .info_container .center{
+    width: 45%;
+    height: 100%;
+}
+
+.view_schedule .bottom{
+    width: 90%;
+    height: auto;
+    margin: 0% auto;
+    margin-top: 4%;
+}
+.view_schedule .bottom .first{
+    margin-bottom: 10px;
+    height: 5vh;
+    width: 90%;
+    display: flex;
+    align-items: center;
+}
+.view_schedule .bottom .first img{
+    height: 30px;
+    width: auto;
+    margin-right: 15px;
+}
+.view_schedule .bottom .first p{
+    line-height: 1.1;
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.view_schedule .bottom .info_container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    margin-top: 20px;
+}
+.view_schedule .bottom .info_container .left_right{
+    width: 27.5%;
+    height: 100%;
+}
+.view_schedule .bottom .info_container .left_right label,
+.view_schedule .bottom .info_container .center label{
+    font-size: .9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #8A8A8A;
+}
+.view_schedule .bottom .info_container .left_right p,
+.view_schedule .bottom .info_container .center p{
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+.view_schedule .bottom .info_container .left_right .appoint_stat{
+    background-color: #f8edc3;
+    color: #E2AB1D;
+    border-radius: 8px;
+    padding: 5px 20px;
+    float: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.view_schedule .bottom .info_container .left_right .appoint_stat span{
+    font-size: .9rem;
+    font-weight: 600;
+    margin-top: -2px;
+}
+.view_schedule .bottom .info_container .center{
+    width: 45%;
+    height: 100%;
+}
+
+.filter_btn{
+    width: 95%;
+    margin: 0% auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+.filter_btn .left span{
+    font-weight: 800;
+    font-size: 1rem;
+    color: #696CFF;
+}
+.filter_btn .left span:hover,.filter_btn .right span:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.filter_btn .right span:nth-child(1){
+    font-weight: 800;
+    font-size: 1rem;
+    color: rgb(68, 68, 68);
+}
+.filter_btn .right span:nth-child(2){
+    margin-left: 10px;
+    font-weight: 800;
+    font-size: 1rem;
+    color: #696CFF;
+}
+
+/*SPEECH MODAL*/
+.speech_Modal{
+    height: 100vh;
+    width: 100%;
+    background-color: #ffffff;
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+.speech_Modal .close_speech{
+    font-size: 2.3rem;
+    font-weight: 600;
+    position: fixed;
+    right: 2%;
+    top: 1%;
+    z-index: 99999999999;
+}
+.speech_Modal .close_speech:hover{
+    cursor: pointer;
+    opacity: 80%;
+}
+.speech_Modal #speak_text{
+    font-size: 2rem;
+    color: rgb(103, 103, 103);
+    margin-right: 140px;
+    transition: .3s ease;
+}
+.speech_Modal #speak_text:first-letter {
+    text-transform: uppercase;
+}
+.speech_Modal img{
+    height: 200px;
+    width: auto;
+    transition: .3s ease;
+}
+
+
+/*Next Schedule Container*/
+.next_schedule_container{
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    inset: 0;
+    z-index: 101;
+    display: none;
+    justify-content: flex-end;
+}
+.next_schedule{
+    margin-right: -100%;
+    height: 100vh;
+    width: 550px;
+    background-color: #ffff;
+    transition: .5s ease;
+}
+.next_schedule .close_btn{
+    height: auto;
+    float: right;
+}
+.next_schedule .close_btn span{
+    font-size: 3rem;
+    font-weight: 800;
+    margin-right: 20px;
+}
+.next_schedule .close_btn span:hover{
+    cursor: pointer;
+    opacity: 70%;
+}
+.next_schedule .top{
+    height: 85%;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 5%;
+    overflow-y: scroll;
+}
+.next_schedule .top::-webkit-scrollbar {
+    width: 4px;
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+}
+.next_schedule .top::-webkit-scrollbar-track {
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+}
+.next_schedule .top::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    background: #4D77FF; 
+}
+.next_schedule .top::-webkit-scrollbar-thumb:window-inactive {
+    background: transparent; 
+}
+.next_schedule .top .first{
+    margin-bottom: 40px;
+    height: 5vh;
+    width: 90%;
+    display: flex;
+    align-items: center;
+}
+.next_schedule .top .first img{
+    height: 30px;
+    width: auto;
+    margin-right: 15px;
+}
+.next_schedule .top .first p{
+    line-height: 1.1;
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.next_schedule .top .info_container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.next_schedule .top .info_container .left_right{
+    width: 48%;
+    height: 100%;
+}
+.next_schedule .top .info_container .left_right label{
+    font-size: .9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #8A8A8A;
+}
+.next_schedule .top .info_container .left_right p{
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+.next_schedule .top .info_container .date{
+    margin-top: 5px;
+    width: 80%;
+    height: 34px;
+    border:2px solid #e2ecfd;
+    background-color: #e2ecfd;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.next_schedule .top .info_container .date .left{
+    height: 100%;
+    width: 75%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: .9rem;
+    font-weight: 700;
+    color: #4D77FF;
+}
+.next_schedule .top .info_container .date .right{
+    height: 100%;
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.next_schedule .top .info_container .date .right img{
+    height: 50%;
+    width: auto;
+}
+.next_schedule .top .info_container input{
+    margin-top: 5px;
+    border:2px solid #b9c5d2;
+    background-color: #EFF5FF;
+    color: #4D77FF;
+    font-size: 1rem;
+    padding: 5px 0;
+    width: 80%;
+    font-weight: 500;
+    outline-color: #4D77FF;
+    text-indent: 10px;
+    border-radius: 10px;
+}
+.next_schedule .top .info_container .vax_dose{
+    margin-top: 5px;
+    width: 30%;
+    height: 34px;
+    border:2px solid #e2ecfd;
+    background-color: #e2ecfd;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.next_schedule .top .info_container .vax_dose .left{
+    height: 100%;
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.next_schedule .top .info_container .vax_dose .left img{
+    height: 50%;
+    width: auto;
+}
+.next_schedule .top .info_container .vax_dose .right{
+    height: 100%;
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #4D77FF;
+}
+
+.next_schedule .bottom{
+    z-index: 1;
+    height: 10vh;
+    width: 80%;
+    margin: 0% auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.next_schedule .bottom button{
+    font-size: 1rem;
+    width: 150px;
+    height: 40px;
+    font-weight: 600;
+    border: 2px solid transparent;
+    border-radius: 10px;
+}
+.next_schedule .bottom button[type="button"]{
+    border: 2px solid #4D77FF;
+    color: #4D77FF;
+    margin-right: 20px;
+}
+.next_schedule .bottom button[type="submit"]{
+    border: 2px solid #4D77FF;
+    color: #ffff;
+    background-color: #4D77FF;
+}
+.next_schedule .bottom button:hover{
+    opacity: 80%;
+}
+
+/*RESPONSIVE*/
+@media screen and (max-width: 851px) {
+    .admin_content{
+        overflow-y: hidden;
+    }
+    .admin_content .admin_main_content{
+        width: 100%;
+        overflow-x: hidden;
+    }
+    .admin_content .admin_main_content > .container  .box_stats{
+        height:auto;
+        flex-direction: column;
+    }
+    .admin_content .admin_main_content > .container  .box_stats .container{
+        width: 100%;
+        height: 130px;
+        margin-bottom: 20px;
+        overflow: hidden;
+    }
+    .admin_content .admin_main_content > .container  .box_stats .container .right p:nth-child(1){
+        font-size: 1rem;
+    }
+    .admin_content .admin_main_content > .container  .box_stats .container .right p:nth-child(2){
+        font-size: 2.5rem;
+    }
+    .admin_content .admin_main_content > .container .header_table .header2{
+        width: 25%;
+    }
+    .admin_content .admin_main_content > .container .header_table .header3{
+        width: 30%;
+    }
+    .admin_content .admin_main_content > .container .header_table .header4{
+        display: none;
+    }
+    .admin_content .admin_main_content > .container .header_table .header5{
+        width: 25%;
+    }
+    .admin_content .admin_main_content > .container .header_table .header6{
+        width: 20%;
+    }   
+    .admin_content .admin_main_content > .container .header_table .header_span{
+        font-size: .9rem;
+        margin: 0 10px;
+        text-align: center;
+    }
+    
+}
+
+@media screen and (max-width: 501px) {
+    .admin_content .admin_main_content > .container .schedule_top .search_container, .filter_date{
+        width: 200px !important;
+    }
+    .admin_content .admin_main_content > .container .schedule_top .search_container input{
+        width: 50px;
+    }
+
+    .admin_content .admin_main_content > .container .header_table .header2{
+        width: 70%;
+        justify-content: flex-start;
+    }
+    .admin_content .admin_main_content > .container .header_table .header3{
+        display: none;
+    }
+    .admin_content .admin_main_content > .container .header_table .header4{
+        display: none;
+    }
+    .admin_content .admin_main_content > .container .header_table .header5{
+        display: none;
+    }
+    .admin_content .admin_main_content > .container .header_table .header6{
+        width: 30%;
+    }
+    .admin_content .admin_main_content > .container .header_body{
+        margin-bottom: 30px;
+    }
+
+
+    .admin_content .admin_main_content > .container .bottom_sched{
+        margin-top: -10px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .admin_content .admin_main_content > .container .bottom_sched p{
+        font-size: 1rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+    .admin_content .admin_main_content > .container .bottom_sched .btn{
+        display: none;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    .admin_content .admin_main_content > .container .bottom_sched .btn button{
+        font-size: 1rem;
+        padding: 5px 10px;
+        border: none;
+    }
+    .admin_content .admin_main_content > .container .bottom_sched .btn button:nth-child(1){
+        margin-right: 10px;
+        background-color: rgb(248, 85, 85);
+        color: #ffff;
+        border-radius: 5px;
+    }
+    .admin_content .admin_main_content > .container .bottom_sched .btn button:nth-child(2){
+        background-color: #4D77FF;
+        color: #ffff;
+        border-radius: 5px;
+    }
+ 
+    
+    .view_schedule{
+        width: 100%;
+    }
+    .view_schedule .top .first img{
+        height: 25px;
+    }
+    .view_schedule .top .first p{
+        font-size: 1.5rem;
+    }
+
+    .view_schedule .bottom .first{
+        margin-bottom: 40px;
+    }
+    .view_schedule .bottom .first img{
+        height: 25px;;
+    }
+    .view_schedule .bottom .first p{
+        font-size: 1.5rem;
+    }
+
+    .view_schedule .top .info_container .left_right p,
+    .view_schedule .top .info_container .center p{
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        margin-right: 10px;
+    }
+    .view_schedule .bottom .info_container .left_right p,
+    .view_schedule .bottom .info_container .center p{
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        margin-right: 10px;
+    }
+
+    .next_schedule{
+        width: 100%;
+    }
+    .next_schedule .top .first img{
+        height: 25px;
+    }
+    .next_schedule .top .first p{
+        font-size: 1.5rem;
+        white-space: nowrap;
+    }
+    .next_schedule .top .info_container{
+        width: 80%;
+        margin: 0% auto;
+        flex-direction: column;
+    }
+    .next_schedule .top .info_container .left_right{
+        margin: 10px 0;
+        width: 100%;
+        height: 100%;
+    }
+}

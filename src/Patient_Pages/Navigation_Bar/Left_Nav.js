@@ -99,10 +99,10 @@ return(
         </Link>
       </div>
             
-      <div id="link_Settings" style={{marginBottom: "10px"}}>
-        <Link to="#" style={{textDecoration:"none"}}>
-        <div className="link_container" id="admin_Settings_link">
-          <div className="left" id="left_nav_settings_border">
+      <div id="link_Schedule" style={{marginBottom: "10px"}}>
+        <Link to="/Make_Schedule" style={{textDecoration:"none"}}>
+        <div className="link_container" id="admin_Schedule_link">
+          <div className="left" id="left_nav_schedule_border">
             <img alt="" src={Schedule_Icon}/>
           </div>
           <div className="right"><span>Schedule</span></div>

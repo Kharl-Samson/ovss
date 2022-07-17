@@ -199,8 +199,8 @@ return(
             <h1>Welcome Back!</h1>
             <p className="new_here_text"><b>New here?</b>&nbsp;&nbsp; <span onClick={Show_register_modal}>Sign up</span></p>
 
-            <p className="label">Email or username</p>
-            <input type="text" placeholder="Email or username here" className="email_input" id="email_input" defaultValue={localStorage.getItem("email_input")} onChange={close_validation1}  required />
+            <p className="label">Email Address</p>
+            <input type="text" placeholder="Email address here" className="email_input" id="email_input" defaultValue={localStorage.getItem("email_input")} onChange={close_validation1}  required />
 
             <p className="label" style={{marginTop:"5%"}}>Password</p>
             <div className="password_input_container">

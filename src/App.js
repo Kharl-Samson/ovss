@@ -24,6 +24,8 @@ import AdminSignin_Page from "./Landing_Pages/LoginRegister_Pages/AdminSigninPag
 import PatientDashboard_Page from "./Patient_Pages/Dashboard_Page/PatientDashboard";
 import CompleteAccountPage from "./Patient_Pages/Profile_Page/CompeleteAccount";
 import Patient_Profile_Page from "./Patient_Pages/Profile_Page/ProfilePage";
+import Schedule_Page from "./Patient_Pages/Scheduling_Page/SchedulePage";
+import ViewAllSchedulePage from "./Patient_Pages/Scheduling_Page/ViewAllSchedule";
 
 export default function App() {
 
@@ -61,6 +63,9 @@ export default function App() {
           <Route path="/Patient_Dashboard" element={<PatientDashboard_Page/>}/>
           <Route path="/Complete_Account" element={<CompleteAccountPage/>}/>
           <Route path="/Patient_View_Profile" element={<Patient_Profile_Page/>}/>
+          <Route path="/Make_Schedule" element={<Schedule_Page/>}/>
+          <Route path="/View_Schedule" element={<ViewAllSchedulePage/>}/>
+
 
         </Routes>
     </div>
