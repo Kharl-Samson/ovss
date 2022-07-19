@@ -1,0 +1,181 @@
+.admin_dashboard_container{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+}
+
+.admin_content{
+    width: 95.1%;
+    height: 100%;
+    margin-left: 75px;
+    display: flex;
+}
+
+.admin_content .admin_main_content{
+    height: 100%;
+    width: 77%;
+    background-color: #eeeefb;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+}
+.admin_content .admin_main_content::-webkit-scrollbar-track{
+	background-color: transparent;
+}
+.admin_content .admin_main_content::-webkit-scrollbar{
+	width: 5px;
+	background-color: transparent;
+}
+.admin_content .admin_main_content::-webkit-scrollbar-thumb{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #b9b9f8;
+}
+.admin_content .admin_main_content > .container{
+    width: 90%;
+    height: auto;
+    margin: 0% auto;
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+.map_container{
+    height: 70vh;
+    width: 100%;
+    border-radius: 10px;
+    display: flex;
+    align-items: flex-end;
+}
+.map_container .pinagpala_container{
+    height: 100%;
+    width: 45%;
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.map_container .pinagpala_container img{
+    height: 40px;
+    width: auto;
+    margin-top: -150px;
+}
+.map_container .pinagpala_container img:hover{
+    cursor: pointer;
+    opacity: 80%;
+}
+.map_container .right{
+    width: 55%;
+    height: 100%;
+}
+.map_container .right .masagana_container{
+    height: 74%;
+    width: 100%;
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    display: flex;
+    align-items: center;
+}
+.map_container .masagana_container img{
+    height: 40px;
+    width: auto;
+    margin-left: 23%;
+    margin-top: 210px;
+}
+.map_container .masagana_container img:hover{
+    cursor: pointer;
+    opacity: 80%;
+}
+.map_container .right .bagongSilang_container{
+    height: 26%;
+    width: 100%;
+    background-position: top left;  
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.map_container .bagongSilang_container img{
+    height: 40px;
+    width: auto;
+    margin-top: 5%;
+    margin-left: 15%;
+}
+.map_container .bagongSilang_container img:hover{
+    cursor: pointer;
+    opacity: 80%;
+}
+.data_container{
+    height: 300px;
+    width: 220px;
+    background-color: #ffff;
+    border-radius: 20px;
+    position: absolute;
+    margin-top: -330px;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.data_container .top{
+    width: 80%;
+    height: 40px;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 5%;
+}
+.data_container .top p:nth-child(1){
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #4D77FF;
+}
+.data_container .top p:nth-child(2){
+    margin-top: 2px;
+    font-size: .9rem;
+    font-weight: 600;
+}
+.data_container select{
+    width: 80%;
+    margin: 3% 10%;
+    border:2px solid #b9c5d2;
+    font-size: 1rem;
+    padding: 7px 0;
+    font-weight: 500;
+    outline-color: #4D77FF;
+    text-indent: 10px;
+    border-radius: 10px;
+}
+.data_container .vax_patient{
+    width: 80%;
+    margin: 0% auto;
+    margin-top: 5%;
+    font-size: 1rem;
+    font-weight: 700;
+}
+.data_container .vax_total{
+    width: 80%;
+    margin: 0% auto;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #4D77FF;
+}
+
+
+
+/*RESPONSIVE*/
+@media screen and (max-width: 851px) {
+    .admin_content{
+        overflow-y: hidden;
+    }
+    .admin_content .admin_main_content{
+        width: 100%;
+    }
+  
+}
+
+@media screen and (max-width: 501px) {
+
+
+}
+
+
+

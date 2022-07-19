@@ -22,10 +22,12 @@ import GeotaggingPage from "./Landing_Pages/Geotagging_Page/GeotaggingPage";
 import HomePage from "./Landing_Pages/Home_Page/HomePage";
 import AdminSignin_Page from "./Landing_Pages/LoginRegister_Pages/AdminSigninPage";
 import PatientDashboard_Page from "./Patient_Pages/Dashboard_Page/PatientDashboard";
+import PatientGeotagging from "./Patient_Pages/Geotagging_Page/PatientGeotagging";
 import CompleteAccountPage from "./Patient_Pages/Profile_Page/CompeleteAccount";
 import Patient_Profile_Page from "./Patient_Pages/Profile_Page/ProfilePage";
 import Schedule_Page from "./Patient_Pages/Scheduling_Page/SchedulePage";
 import ViewAllSchedulePage from "./Patient_Pages/Scheduling_Page/ViewAllSchedule";
+import Patient_Report from "./Reports_Pages/PatientReport";
 
 export default function App() {
 
@@ -65,7 +67,7 @@ export default function App() {
           <Route path="/Patient_View_Profile" element={<Patient_Profile_Page/>}/>
           <Route path="/Make_Schedule" element={<Schedule_Page/>}/>
           <Route path="/View_Schedule" element={<ViewAllSchedulePage/>}/>
-
+          <Route path="/Patient_Geotagging" element={<PatientGeotagging/>}/>
 
         </Routes>
     </div>

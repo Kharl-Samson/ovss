@@ -531,9 +531,9 @@ return(
 //List of purok
 const purok_object = [
     { label: "Bagong Silang" },
-    { label: "Camia" },
     { label: "Masagana" },
-  ];
+    { label: "Pinagpala" }, 
+];
 
 //List of gender
 const gender_object = [

@@ -88,10 +88,10 @@ return(
         </Link>
       </div>
       
-      <div id="link_dashboard" style={{marginBottom: "10px"}}>
-        <Link to="#" style={{textDecoration:"none"}}>
-        <div className="link_container" id="admin_dashboard_link">
-            <div className="left" id="left_nav_dashboard_border">
+      <div id="link_geotagging" style={{marginBottom: "10px"}}>
+        <Link to="/Patient_Geotagging" style={{textDecoration:"none"}}>
+        <div className="link_container" id="admin_geotagging_link">
+            <div className="left" id="left_nav_geotagging_border">
                 <img alt="" src={geotagging_icon}/>
             </div>
             <div className="right"><span>Geotagging</span></div>

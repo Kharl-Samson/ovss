@@ -29,6 +29,9 @@ import { DateRangePicker } from "react-date-range";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import speechRecog from "../Images/speechRecog.gif";
+import { jsPDF } from "jspdf";
+import html2canvas from "html2canvas";
+import Schedule_Report from '../../../Reports_Pages/ScheduleReport';
 
 export default function Admin_Pending_Schedule_Page(){
 
@@ -398,7 +401,7 @@ function search_Schedule(){
                    </div>
                    <div className="right">
                      <LightTooltip title="Export into PDF file">
-                      <div className="search_container" style={{width:"auto"}}>
+                      <div className="search_container" style={{width:"auto"}} onClick={printDocument}>
                         <div className="icon" style={{borderRight:"1.5px solid rgb(150, 150, 150)"}}>
                           <img alt="" src={Report_Icon}/>
                         </div>
@@ -490,8 +493,79 @@ function search_Schedule(){
           <p id="speak_text">Speak now</p>
           <img src={speechRecog}/> 
       </div>
+
+      {/*Report */}
+      <Schedule_Report
+        report_key = "Pending"
+      />
 </div>
     )
 }
 
 
+  //Printing PDF file
+  function printDocument() {
+    let len = document.getElementsByClassName('report_container').length;
+    var pdf = new jsPDF("p", "in", [8.5, 11]);
+    for (let i = 1;i  <= len; i++){
+      html2canvas(document.querySelector('#pending_report_container'), {
+        useCORS: true,
+        allowTaint: true,
+        scrollY: 0,
+      }).then((canvas) => {
+        const image = { type: "png", quality: 0.98 };
+        const margin = [0.5, 0.5];
+        const filename = "PendingSchedule.pdf";
+        var imgWidth = 8.5;
+        var pageHeight = 11;
+        var innerPageWidth = imgWidth - margin[0] * 2;
+        var innerPageHeight = pageHeight - margin[1] * 2;
+        // Calculate the number of pages.
+        var pxFullHeight = canvas.height;
+        var pxPageHeight = Math.floor(canvas.width * (pageHeight / imgWidth));
+        var nPages = Math.ceil(pxFullHeight / pxPageHeight);
+        // Define pageHeight separately so it can be trimmed on the final page.
+        var pageHeight = innerPageHeight;
+        // Create a one-page canvas to split up the full image.
+        var pageCanvas = document.createElement("canvas");
+        var pageCtx = pageCanvas.getContext("2d");
+        pageCanvas.width = canvas.width;
+        pageCanvas.height = pxPageHeight;
+        for (var page = 0; page < nPages; page++) {
+          // Trim the final page to reduce file size.
+          if (page === nPages - 1 && pxFullHeight % pxPageHeight !== 0) {
+            pageCanvas.height = pxFullHeight % pxPageHeight;
+            pageHeight = (pageCanvas.height * innerPageWidth) / pageCanvas.width;
+          }
+          // Display the page.
+          var w = pageCanvas.width;
+          var h = pageCanvas.height;
+          pageCtx.fillStyle = "white";
+          pageCtx.fillRect(0, 0, w, h);
+          pageCtx.drawImage(canvas, 0, page * pxPageHeight, w, h, 0, 0, w, h);
+  
+          // Add the page to the PDF.
+          if (page > 0) pdf.addPage();
+          debugger;
+          var imgData = pageCanvas.toDataURL(
+            "image/" + image.type,
+            image.quality
+          );
+          pdf.addImage(
+            imgData,
+            image.type,
+            margin[1],
+            margin[0],
+            innerPageWidth,
+            pageHeight
+          );   
+        }
+        if (i == len){
+          window.open(pdf.output('bloburl'))
+        }else{
+          pdf.addPage();
+        }
+        //pdf.save(filename);
+      });
+    }       
+}

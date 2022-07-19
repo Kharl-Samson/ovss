@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-
+import React, { useEffect, useState } from 'react';
+import axios from "axios";
 import "./dashboard.css"
 
 import TabLogo from "../../Assets/Logo/Tab_Logo.png";
@@ -7,7 +7,7 @@ import Image_Banner from "../../Assets/Dashboard_Page/Image_Banner.png";
 import Vaccinated_Person_Icon from "../../Assets/Dashboard_Page/Vaccinated_Person_Icon.png";
 import Registered_User_Icon from "../../Assets/Dashboard_Page/Registered_User_Icon.png";
 import Left_statistics_bg from "../../Assets/Dashboard_Page/Left_statistics_bg.png";
-
+import CircularProgress from '@mui/material/CircularProgress';
 //Chart Js
 import { Bar, Line, Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS } from "chart.js/auto";
@@ -31,12 +31,14 @@ export default function AdminDashboard_Page(){
 
 
   //Chart settings
+  const myArray = [];
+  myArray.push(localStorage.getItem("oralPolio_count"),localStorage.getItem("Pentavelent_count"),localStorage.getItem("Hepatitis_B_count"),localStorage.getItem("Inactivated_Polio"),localStorage.getItem("mmr_count"),localStorage.getItem("BCG_count"),localStorage.getItem("Pneumococcal_count"))
   const [userData, setUserData] = useState({
     labels: VaccineData.map((res) => res.vaccineName),
     datasets: [
       {
         label: "Total number of Vaccinated",
-        data: VaccineData.map((res) => res.totalCount),
+        data: myArray,
         backgroundColor: [
           "#336CFB","#FAC032","#51cda0","#df7970","#df874d","#c39762","#4c9ca0",
           "#336CFB","#FAC032","#51cda0","#df7970","#df874d","#c39762","#4c9ca0",
@@ -48,6 +50,34 @@ export default function AdminDashboard_Page(){
       },
     ],
   });
+
+
+const [appointments, setAppoointments] = useState([]);  
+const [patients, setPatients] = useState([]);  
+const loadAppointment = async () =>{
+    const result = await axios.get(localStorage.getItem("url_hosting")+"List_Of_Appointments.php");
+    setAppoointments(result.data.phpresult);
+};
+const loadPatients = async () =>{
+  const result = await axios.get(localStorage.getItem("url_hosting")+"List_Of_Patients.php");
+  setPatients(result.data.phpresult);
+};
+useEffect(() => {
+   loadAppointment();
+   loadPatients();
+}, []);
+
+var vaxPatient_count = 0;
+appointments.map((res) => {
+  if(res.child_vaccineDose === "1" && res.appointment_status === "Done"){
+    vaxPatient_count++; 
+  }
+});  
+
+var Patient_count = 0;
+patients.map((res) => {
+    Patient_count++; 
+});  
 
 return(
 <div className="admin_dashboard_container">
@@ -78,7 +108,7 @@ return(
                   >
                     <div className="right">
                         <p>Vaccinated Patients</p>
-                        <p>1500</p>
+                        <p>{vaxPatient_count}</p>
                     </div>
                     <div className="left"><img alt="" src={Vaccinated_Person_Icon}/></div>
                   </div>
@@ -87,7 +117,7 @@ return(
                   <div className="container">
                     <div className="right">
                         <p>Registered Users</p>
-                        <p style={{color:"#336CFB"}}>200</p>
+                        <p style={{color:"#336CFB"}}>{Patient_count}</p>
                     </div>
                     <div className="left"><img alt="" src={Registered_User_Icon}/></div>
                   </div>

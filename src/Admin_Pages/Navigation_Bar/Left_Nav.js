@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -24,6 +25,49 @@ import Website_Logo from "../../Assets/Logo/Logo.png";
 import Mini_Logo from "../../Assets/Logo/Mini_Logo.png";
 
 export default function Admin_Left_Navigation_Bar(){
+
+//Hook for view the list of task of user
+const [appointments, setAppoointments] = useState([]);  
+const loadAppointment = async () =>{
+    const result = await axios.get(localStorage.getItem("url_hosting")+"List_Of_Appointments.php");
+    setAppoointments(result.data.phpresult);
+};
+useEffect(() => {
+   loadAppointment();
+}, []);
+
+var oralPolio_count = 0, Pentavelent_count = 0, Hepatitis_B_count = 0, Inactivated_Polio_count = 0, mmr_count = 0, BCG_count = 0, Pneumococcal_count = 0;
+appointments.map((res) => {
+  if(res.child_vaccineDose === "1" && res.appointment_status === "Done" && res.child_vaccineName === "Oral Polio"){
+    oralPolio_count++; 
+    window.localStorage.setItem('oralPolio_count', oralPolio_count);
+  }
+  if(res.child_vaccineDose === "1" && res.appointment_status === "Done" && res.child_vaccineName === "Pentavelent"){
+    Pentavelent_count++; 
+    window.localStorage.setItem('Pentavelent_count', Pentavelent_count);
+  }
+  if(res.child_vaccineDose === "1" && res.appointment_status === "Done" && res.child_vaccineName === "Hepatitis B"){
+    Hepatitis_B_count++; 
+    window.localStorage.setItem('Hepatitis_B_count', Hepatitis_B_count);
+  }
+  if(res.child_vaccineDose === "1" && res.appointment_status === "Done" && res.child_vaccineName === "Inactivated Polio"){
+    Inactivated_Polio_count++; 
+    window.localStorage.setItem('Inactivated_Polio', Inactivated_Polio_count);
+  }
+  if(res.child_vaccineDose === "1" && res.appointment_status === "Done" && res.child_vaccineName === "Measeles, Mumps, Rubella"){
+    mmr_count++; 
+    window.localStorage.setItem('mmr_count', mmr_count);
+  }
+  if(res.child_vaccineDose === "1" && res.appointment_status === "Done" && res.child_vaccineName === "BCG"){
+    BCG_count++; 
+    window.localStorage.setItem('BCG_count', BCG_count);
+  }
+  if(res.child_vaccineDose === "1" && res.appointment_status === "Done" && res.child_vaccineName === "Pneumococcal Conjugative"){
+    Pneumococcal_count++; 
+    window.localStorage.setItem('Pneumococcal_count', Pneumococcal_count);
+  }
+});  
+
 
 //If local storage email has no value it can't acces admin pages
 const [auth, setAuth] = useState("");
